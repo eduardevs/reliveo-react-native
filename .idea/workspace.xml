@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/composents/camera/photo/CameraPhoto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composents/camera/photo/PreviewPhoto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composents/camera/photo/indexPhoto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/composents/camera/CameraRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/composents/camera/CameraRecord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/composents/camera/PreviewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/composents/camera/PreviewVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/composents/camera/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/composents/camera/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/composents/camera/CameraRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/video/CameraRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/composents/camera/Gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/Gallery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/composents/camera/PreviewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/video/PreviewVideo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/composents/camera/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/video/indexVideo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/composents/camera/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/styles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/composents/camera" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -45,6 +49,17 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\composents\camera" />
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\composents\camera" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\composents\camera\video" />
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\node_modules" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

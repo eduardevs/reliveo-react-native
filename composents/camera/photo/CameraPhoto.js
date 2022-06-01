@@ -4,9 +4,9 @@ import {Camera} from 'expo-camera'
 import {Feather} from '@expo/vector-icons'
 
 
-import styles from './styles'
+import styles from '../styles'
 
-export default function CameraRecord({setRecord, setRecordFinish, record}) {
+export default function CameraPhoto({setRecord, setRecordFinish, record}) {
 
     const [cameraRef, setCameraRef] = useState(null)
 
@@ -19,8 +19,7 @@ export default function CameraRecord({setRecord, setRecordFinish, record}) {
     const recordVideo = async () => {
         if (cameraRef) {
             try {
-                const options = {maxDuration: 10, quality: Camera.Constants.VideoQuality['480']}
-                const videoRecordPromise = cameraRef.recordAsync(options)
+                const videoRecordPromise = cameraRef.recordAsync()
                 setRecordFinish(false)
                 if (videoRecordPromise) {
                     const data = await videoRecordPromise;
@@ -33,14 +32,6 @@ export default function CameraRecord({setRecord, setRecordFinish, record}) {
     }
 
 
-    const stopVideo = async () => {
-        if (cameraRef) {
-            cameraRef.stopRecording()
-            if (record) {
-                setRecordFinish(true)
-            }
-        }
-    }
     return (
         <>
             {/* Section pour enregitrer une vidéo */}
@@ -63,7 +54,7 @@ export default function CameraRecord({setRecord, setRecordFinish, record}) {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.sideBarButton}
-                            onPress={() => setCameraFlash(cameraFlash === Camera.Constants.FlashMode.off ? Camera.Constants.FlashMode.torch : Camera.Constants.FlashMode.off)}
+                            onPress={() => setCameraFlash(cameraFlash === Camera.Constants.FlashMode.off ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off)}
                         >
                             <Feather name="zap" size={24} color={'#A65AFF'}/>
                         </TouchableOpacity>
@@ -72,8 +63,7 @@ export default function CameraRecord({setRecord, setRecordFinish, record}) {
                         <View style={styles.recordButtonContainer}>
                             <TouchableOpacity
                                 disabled={!isCameraRedy}
-                                onLongPress={() => recordVideo()}
-                                onPressOut={() => stopVideo()}
+                                onPress ={() => recordVideo()}
                                 style={styles.recordButton}
                             />
                         </View>

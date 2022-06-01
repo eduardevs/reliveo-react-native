@@ -5,12 +5,12 @@ import { Audio, Video } from 'expo-av'
 import * as ImagePicker from "expo-image-picker"
 import * as MediaLibrary from "expo-media-library"
 
-import styles from './styles'
-import CameraRecord from './CameraRecord'
-import PreviewVideo from './PreviewVideo'
-import Gallery from './Gallery'
+import styles from '../styles'
+import CameraPhoto from './CameraPhoto'
+import PreviewPhoto from './PreviewPhoto'
+import Gallery from '../Gallery'
 
-export default function CameraScreen () {
+export default function IndexPhoto () {
   const [hasCameraPermissions, setHasCameraPermissions] = useState(false)
   const [hasAudioPermissions, setHasAudioPermissions] = useState(false)
   const [hasGalleryPermissions, setHasGalleryPermissions] = useState(false)
@@ -50,14 +50,11 @@ export default function CameraScreen () {
       return (
         <>
           <View style={recordFinish ? styles.containerNo : styles.container }>
-            <CameraRecord setRecord={setRecord} setRecordFinish={setRecordFinish} record={record} />
+            <CameraPhoto setRecord={setRecord} setRecordFinish={setRecordFinish} record={record} />
           </View>
           <View style={recordFinish ? styles.container : styles.containerNo }>
-            <PreviewVideo record={record} setRecordFinish={setRecordFinish} />
-          </View> 
-          {/* <View  style={{ flex: 1}}>
-            <Gallery />
-          </View> */}
+            <PreviewPhoto record={record} setRecordFinish={setRecordFinish} />
+          </View>
         </>
       )
     }

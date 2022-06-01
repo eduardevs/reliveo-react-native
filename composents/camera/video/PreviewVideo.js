@@ -6,7 +6,7 @@ import {Feather} from '@expo/vector-icons'
 import * as MediaLibrary from 'expo-media-library'
 
 
-import styles from './styles'
+import styles from '../styles'
 
 
 
