@@ -1,9 +1,8 @@
-import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 // NPO impoter l'image et la fonction d'import pour le profil
-import Contenus from "../contenus/index.js";
-import Evenements from "../evenements/index.js";
-import Favoris from "../favoris/index.js";
+import Tabs from "../tabs/index";
+
 
 export default function Profilepicture() {
 	return (
@@ -17,7 +16,12 @@ export default function Profilepicture() {
 				<Text style={styles.hashtagfollowers}>@TribunallSuperior69</Text>
 				<Text style={styles.hashtagfollowers}>1.5M followers</Text>
 			</View>
-			<View></View>
+			<View>
+				<Text>Hello</Text>
+			</View>
+			<View>
+				<Tabs></Tabs>
+			</View>
 		</View>
 	);
 }
