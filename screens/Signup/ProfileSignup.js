@@ -14,70 +14,70 @@ const { Avatar, Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, 
 const { primary, secondary, ternary, darkLight } = Colors
 
 export const ProfileSignup = ({ navigation }) => {
-    const [hidePassword, setHidePassword] = useState(true);
+  const [hidePassword, setHidePassword] = useState(true);
 
-    return (
-        <KeyboardAvoidingWrapper>
-            <View style={Container}>
-                <StatusBar style="dark" />
-                <View style={InnerContainer}>
+  return (
+    <KeyboardAvoidingWrapper>
+      <View style={Container}>
+        <StatusBar style="dark" />
+        <View style={InnerContainer}>
 
-                    <Text style={PageTitle}>Personnalizes votre profil</Text>
-                    {/* <Text style={SubTitle}>Inscription</Text> */}
+          <Text style={PageTitle}>Personnalizes votre profil</Text>
+          {/* <Text style={SubTitle}>Inscription</Text> */}
 
-                    <Formik
-                        initialValues={{ email: '', password: '', confirmPassword: '' }}
-                        onSubmit={(values) => {
-                            console.log(values)
-                            navigation.navigate("Welcome")
+          <Formik
+            initialValues={{ email: '', password: '', confirmPassword: '' }}
+            onSubmit={(values) => {
+              console.log(values)
+              navigation.navigate("ProfileMusic")
 
-                        }}
-                    >
-                        {({ handleChange, handleBlur, handleSubmit, values }) =>
-                            <View style={StyledFormArea}>
-                                <Image style={Avatar} resizeMode="cover" source={require('../../assets/favicon.png')} />
+            }}
+          >
+            {({ handleChange, handleBlur, handleSubmit, values }) =>
+              <View style={StyledFormArea}>
+                <Image style={Avatar} resizeMode="cover" source={require('../../assets/favicon.png')} />
 
-                                <CustomTextInput label={"Je choisis un pseudo"}
-                                    icon="person"
-                                    placeholder="toto"
-                                    // placeholderTextColor={darkLigh}
-                                    onChangeText={handleChange('identifiant')}
-                                    onBlur={handleBlur('identifiant')}
-                                    value={values.identifiant}
-                                />
-
-
-                                <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
-                                    <Text style={ButtonText}>Profil terminé</Text>
-                                </TouchableOpacity>
+                <CustomTextInput label={"Je choisis un pseudo"}
+                  icon="person"
+                  placeholder="toto"
+                  // placeholderTextColor={darkLigh}
+                  onChangeText={handleChange('identifiant')}
+                  onBlur={handleBlur('identifiant')}
+                  value={values.identifiant}
+                />
 
 
-                            </View>
-                        }
+                <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
+                  <Text style={ButtonText}>Profil terminé</Text>
+                </TouchableOpacity>
 
-                    </Formik>
-                </View>
-            </View>
-        </KeyboardAvoidingWrapper>
-    );
+
+              </View>
+            }
+
+          </Formik>
+        </View>
+      </View>
+    </KeyboardAvoidingWrapper>
+  );
 }
 
 const CustomTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
-    return (
-        <View>
-            <View style={LeftIcon}>
-                <Octicons name={icon} size={30} color={secondary} />
-            </View>
-            <Text style={StyledInputLabel}>{label}</Text>
-            <TextInput style={StyledTextInput} {...props} />
-            {isPassword && (
-                <TouchableOpacity style={RightIcon} onPress={() => setHidePassword(!hidePassword)}>
-                    <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={darkLight} />
-                </TouchableOpacity>
-            )}
+  return (
+    <View>
+      <View style={LeftIcon}>
+        <Octicons name={icon} size={30} color={secondary} />
+      </View>
+      <Text style={StyledInputLabel}>{label}</Text>
+      <TextInput style={StyledTextInput} {...props} />
+      {isPassword && (
+        <TouchableOpacity style={RightIcon} onPress={() => setHidePassword(!hidePassword)}>
+          <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={darkLight} />
+        </TouchableOpacity>
+      )}
 
-            {/* <TouchableOpacity style={StyledButton}>Button</TouchableOpacity> */}
-        </View>
-    )
+      {/* <TouchableOpacity style={StyledButton}>Button</TouchableOpacity> */}
+    </View>
+  )
 }
 

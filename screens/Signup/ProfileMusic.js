@@ -15,7 +15,6 @@ const { Avatar, Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, 
 const { primary, secondary, ternary, darkLight } = Colors
 
 export const ProfileMusic = ({ navigation }) => {
-  const [hidePassword, setHidePassword] = useState(true);
 
   return (
     <KeyboardAvoidingWrapper>
@@ -24,7 +23,6 @@ export const ProfileMusic = ({ navigation }) => {
         <View style={InnerContainer}>
 
           <Text style={PageTitle}>Plus qu'une étape !</Text>
-          {/* <Text style={SubTitle}>Inscription</Text> */}
 
           <Formik
             initialValues={{ email: '', password: '', confirmPassword: '' }}
@@ -36,7 +34,6 @@ export const ProfileMusic = ({ navigation }) => {
           >
             {({ handleChange, handleBlur, handleSubmit, values }) =>
               <View style={StyledFormArea}>
-                <Image style={Avatar} resizeMode="cover" source={require('../../assets/favicon.png')} />
 
                 <CustomTextInput label={"Je choisis un pseudo"}
                   icon="person"
