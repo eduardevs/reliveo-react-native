@@ -1,4 +1,4 @@
-import {View, TouchableOpacity, Text, Button, Platform} from 'react-native'
+import {View, TouchableOpacity, Text, Button, Platform, Image} from 'react-native'
 import React, {useState, useEffect, useRef} from 'react'
 import * as Notifications from 'expo-notifications'
 import {Audio, Video} from 'expo-av'
@@ -7,6 +7,7 @@ import * as MediaLibrary from 'expo-media-library'
 
 
 import styles from '../styles'
+import image from "react-native-web/dist/exports/Image";
 
 
 
@@ -50,7 +51,7 @@ export default function PreviewPhoto({record, setRecordFinish}) {
         await Notifications.scheduleNotificationAsync({
             content: {
                 title: "Reliveo",
-                body: 'Ta vidéo est téléchargé !',
+                body: 'Ta photo est téléchargé !',
             },
             trigger: null,
         });
@@ -64,16 +65,11 @@ export default function PreviewPhoto({record, setRecordFinish}) {
         <>
             {/* Section pour regarder la vidéo enregistré */}
             <View style={styles.cameraContainer}>
-                <Video
-                    ref={video}
+                <Image
                     style={styles.video}
                     source={{
                         uri: record,
                     }}
-                    resizeMode="contain"
-                    isLooping
-                    shouldPlay
-                    onPlaybackStatusUpdate={status => setStatus(() => status)}
                 />
                 <View style={styles.buttonCameraContainer}>
                     <View style={styles.sideBarContainer}>

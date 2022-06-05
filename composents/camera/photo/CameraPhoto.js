@@ -16,15 +16,12 @@ export default function CameraPhoto({setRecord, setRecordFinish, record}) {
     const [isCameraRedy, setIsCameraRedy] = useState(false)
 
 
-    const recordVideo = async () => {
+    const takePicture = async () => {
         if (cameraRef) {
             try {
-                const videoRecordPromise = cameraRef.recordAsync()
-                setRecordFinish(false)
-                if (videoRecordPromise) {
-                    const data = await videoRecordPromise;
-                    setRecord(data.uri)
-                }
+                const data = await cameraRef.takePictureAsync()
+                setRecord(data.uri)
+                setRecordFinish(true)
             } catch (error) {
                 console.warn(error)
             }
@@ -63,7 +60,7 @@ export default function CameraPhoto({setRecord, setRecordFinish, record}) {
                         <View style={styles.recordButtonContainer}>
                             <TouchableOpacity
                                 disabled={!isCameraRedy}
-                                onPress ={() => recordVideo()}
+                                onPress ={() => takePicture()}
                                 style={styles.recordButton}
                             />
                         </View>
