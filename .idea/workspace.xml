@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composents/camera/photo/CameraPhoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/photo/CameraPhoto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composents/camera/photo/PreviewPhoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/photo/PreviewPhoto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composents/camera/video/CameraRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/video/CameraRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29z93ezTSIbsQbQ3Evtg4jjy4bC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -64,6 +67,7 @@
       <updated>1654104850245</updated>
       <workItem from="1654104852993" duration="4182000" />
       <workItem from="1654416578189" duration="3973000" />
+      <workItem from="1654520989924" duration="381000" />
     </task>
     <servers />
   </component>

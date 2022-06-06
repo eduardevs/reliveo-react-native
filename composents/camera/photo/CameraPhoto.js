@@ -20,8 +20,8 @@ export default function CameraPhoto({setRecord, setRecordFinish, record}) {
         if (cameraRef) {
             try {
                 const data = await cameraRef.takePictureAsync()
-                setRecord(data.uri)
-                setRecordFinish(true)
+                await setRecord(data.uri)
+                await setRecordFinish(true)
             } catch (error) {
                 console.warn(error)
             }
