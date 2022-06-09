@@ -6,8 +6,8 @@ import * as ImagePicker from "expo-image-picker"
 import * as MediaLibrary from "expo-media-library"
 
 import styles from '../styles'
-import CameraRecord from './CameraRecord'
-import PreviewVideo from './PreviewVideo'
+import CameraRecord from './cameraRecord'
+import PreviewVideo from './previewVideo'
 import Gallery from '../Gallery'
 
 export default function IndexVideo () {

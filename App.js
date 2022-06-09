@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import IndexPhoto from "./composents/camera/photo/indexPhoto";
 import IndexSynchro from "./composents/synchro/indexSynchro";
 
 export default function App() {

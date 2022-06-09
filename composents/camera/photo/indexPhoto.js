@@ -6,8 +6,8 @@ import * as ImagePicker from "expo-image-picker"
 import * as MediaLibrary from "expo-media-library"
 
 import styles from '../styles'
-import CameraPhoto from './CameraPhoto'
-import PreviewPhoto from './PreviewPhoto'
+import CameraPhoto from './cameraPhoto'
+import PreviewPhoto from './previewPhoto'
 import Gallery from '../Gallery'
 
 export default function IndexPhoto () {
