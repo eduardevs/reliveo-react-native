@@ -7,6 +7,7 @@ import { GoogleSigninLogo } from '../lib/components/SvgComponents'
 
 import { KeyboardAvoidingWrapper } from '../Components/KeyboardAvoidingWrapper'
 import { Colors, styles } from '../Components/styles'
+import axios from 'axios'
 
 // vector icons
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent } = styles
@@ -15,6 +16,31 @@ const { primary, secondary, ternary, darkLight } = Colors
 
 export const Login = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
+  const [message, setMessage] = useState()
+  const [messageType, setMessageType]= useState();
+
+  const handleLogin = (credentials) => {
+    const url = 'https://limitless-cove-87023.herokuapp.com/user/signin'
+
+    axios
+      .post(url, credentials)
+      .then((response)=> {
+        const result = response.data;
+        const {message, status, data} = result;
+
+
+      })
+      .catch(error => {
+        console.log(error.JSON())
+    })
+  }
+
+  const handleMessage = (message, type = 'FAILED') => {
+    setMessage(message);
+    setMessageType(type);
+  } 
+
+
 
   return (
     <KeyboardAvoidingWrapper>
@@ -59,6 +85,8 @@ export const Login = ({ navigation }) => {
                   setHidePassword={setHidePassword}
                 />
                 <View style={ExtraView}>
+
+                  <Text type={messageType} style={MsgBox} >{message}</Text>
                   <Text style={TextLink} >Mot de passe oublié</Text>
                 </View>
 
