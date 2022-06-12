@@ -2,12 +2,14 @@ import { Fontisto, Ionicons, Octicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
 import React, { useState } from 'react'
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { GoogleSigninLogo } from '../lib/components/SvgComponents'
+import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View, Dimensions } from 'react-native'
+import { GoogleSigninLogo } from '../../lib/components/SvgComponents'
 
-import { KeyboardAvoidingWrapper } from '../Components/KeyboardAvoidingWrapper'
-import { Colors, styles } from '../Components/styles'
+import { KeyboardAvoidingWrapper } from '../../Components/KeyboardAvoidingWrapper'
+import { Colors, styles } from '../../Components/styles'
 import axios from 'axios'
+
+// console.log(ScreenHeight)
 
 // vector icons
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent } = styles
@@ -19,19 +21,27 @@ export const Login = ({ navigation }) => {
   const [message, setMessage] = useState()
   const [messageType, setMessageType]= useState();
 
-  const handleLogin = (credentials) => {
+  const handleLogin = (credentials, setSubmitting) => {
+    handleMessage(null);
     const url = 'https://limitless-cove-87023.herokuapp.com/user/signin'
-
     axios
       .post(url, credentials)
       .then((response)=> {
         const result = response.data;
         const {message, status, data} = result;
 
-
+        if( status !== 'SUCCESS') {
+          handleMessage(message, status)
+        } else {
+          navigation.navigate('Welcome', {...data[0]});
+        }
+        setSubmitting(false)
       })
       .catch(error => {
+
         console.log(error.JSON())
+        setSubmitting(false);
+        handleMessage("An error occurred. Check your network and try again.")
     })
   }
 
@@ -51,12 +61,17 @@ export const Login = ({ navigation }) => {
 
           <Formik
             initialValues={{ email: '', password: '' }}
-            onSubmit={(values) => {
-              console.log(values)
-              navigation.navigate("Welcome")
+            onSubmit={(values, {setSubmitting}) => {
+              if(values.email == '' && values.password == '') {
+                handleMessage('Please fill all the fields');
+                setSubmitting(false)
+              } else {
+                handleLogin(values, setSubmitting);
+              }
             }}
           >
-            {({ handleChange, handleBlur, handleSubmit, values }) =>
+            {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) =>
+            
               <View style={StyledFormArea}>
                 <TouchableOpacity onPress={handleSubmit}>
                   <GoogleSigninLogo />
@@ -84,16 +99,23 @@ export const Login = ({ navigation }) => {
                   hidePassword={hidePassword}
                   setHidePassword={setHidePassword}
                 />
-                <View style={ExtraView}>
 
+                <View style={ExtraView}>
                   <Text type={messageType} style={MsgBox} >{message}</Text>
                   <Text style={TextLink} >Mot de passe oublié</Text>
                 </View>
 
+                {!isSubmitting &&
                 <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
                   <Text style={ButtonText}>Je me connecte</Text>
-
                 </TouchableOpacity>
+                }
+
+                {isSubmitting &&
+                <TouchableOpacity style={StyledButton} disabled={true}>
+                  <ActivityIndicator size="large" color={ternary} />
+                </TouchableOpacity>
+                }
                 {/* add here style for google with styled component 
                             in StyledButton
                     
