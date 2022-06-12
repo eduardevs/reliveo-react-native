@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 
 import { Colors } from '../Components/styles'
-import { Login } from '../screens/Login'
+import { Login } from '../screens/Login/Login'
 import { ProfileSignup } from '../screens/Signup/ProfileSignup'
 import { Signup } from '../screens/Signup/Signup'
 import { Welcome } from '../screens/Welcome'
