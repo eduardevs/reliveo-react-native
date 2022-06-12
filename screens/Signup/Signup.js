@@ -2,22 +2,54 @@ import { Fontisto, Ionicons, Octicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
 import React, { useState } from 'react'
-import { Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Text, TextInput, TouchableOpacity, View, ActivityIndicator } from 'react-native'
 import { GoogleInscriptionLogo } from '../../lib/components/SvgComponents'
 
 import { KeyboardAvoidingWrapper } from '../../Components/KeyboardAvoidingWrapper'
 import { Colors, styles } from '../../Components/styles'
 import Svg, { Rect, Path } from "react-native-svg"
+import axios from 'axios'
 
 
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent, GoogleBtn, ButtonTextGoogle } = styles
 
-//keyboard voiding view
 const { primary, secondary, ternary, darkLight } = Colors
 
 export const Signup = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
+  const [message, setMessage] = useState()
+  const [messageType, setMessageType]= useState();
+  const dateOfBirth = '01-01-2000'
+
+  const handleSignup = (credentials, setSubmitting) => {
+    handleMessage(null);
+    const url = 'https://limitless-cove-87023.herokuapp.com/user/signup'
+    axios
+      .post(url, credentials)
+      .then((response)=> {
+        const result = response.data;
+        const {message, status, data} = result;
+
+        if( status !== 'SUCCESS') {
+          handleMessage(message, status)
+        } else {
+          navigation.navigate('Welcome', {...data});
+        }
+        setSubmitting(false)
+      })
+      .catch(error => {
+
+        console.log(error.JSON())
+        setSubmitting(false);
+        handleMessage("An error occurred. Check your network and try again.")
+    })
+  }
+
+  const handleMessage = (message, type = 'FAILED') => {
+    setMessage(message);
+    setMessageType(type);
+  } 
 
   return (
     <KeyboardAvoidingWrapper>
@@ -29,13 +61,22 @@ export const Signup = ({ navigation }) => {
           <Text style={PageTitle}>Créez un compte aujourd'hui</Text>
 
           <Formik
-            initialValues={{ email: '', password: '', confirmPassword: '' }}
-            onSubmit={(values) => {
-              console.log(values)
-              navigation.navigate("ProfileSignup")
+            initialValues={{name:'' , email: '', password: '', confirmPassword: '', dateOfBirth:dateOfBirth }}
+            onSubmit={(values, {setSubmitting}) => {
+              values = {...values, dateOfBirth}
+              if(values.email == '' || values.password == '' || values.name == '' || values.confirmPassword == '') {
+                handleMessage('Please fill all the fields');
+                setSubmitting(false)
+              } else if(values.password !== values.confirmPassword) {
+                handleMessage('Password do not match');
+                setSubmitting(false)
+              } else {
+                console.log('values', values)
+                handleSignup(values, setSubmitting);
+              }      
             }}
           >
-            {({ handleChange, handleBlur, handleSubmit, values }) =>
+            {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) =>
               <View style={StyledFormArea}>
 
                 <TouchableOpacity onPress={handleSubmit}>
@@ -52,9 +93,9 @@ export const Signup = ({ navigation }) => {
                   icon="person"
                   placeholder="toto"
                   // placeholderTextColor={darkLigh}
-                  onChangeText={handleChange('identifiant')}
+                  onChangeText={handleChange('name')}
                   onBlur={handleBlur('identifiant')}
-                  value={values.identifiant}
+                  value={values.name}
                 />
                 <CustomTextInput label={"Adresse Mail"}
                   icon="mail"
@@ -89,10 +130,20 @@ export const Signup = ({ navigation }) => {
                   hidePassword={hidePassword}
                   setHidePassword={setHidePassword}
                 />
-                <Text style={MsgBox} >...</Text>
+
+                <Text type={messageType} style={MsgBox} >{message}</Text>
+               {!isSubmitting &&
                 <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
                   <Text style={ButtonText}>Je m'inscris</Text>
                 </TouchableOpacity>
+                }
+
+                {isSubmitting &&
+                <TouchableOpacity style={StyledButton} disabled={true}>
+                  <ActivityIndicator size="large" color={ternary} />
+                </TouchableOpacity>
+                }
+              
                 <View style={ExtraView}>
                   <Text style={ExtraText}>J'ai déja un compte</Text>
                   <Text style={TextLink}>Se connecter</Text>
