@@ -1,5 +1,10 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
+
+
+let ScreenHeight = Dimensions.get("window").height;
+
+
 
 export const Colors = {
   primary: "#2E2E2E",
@@ -16,7 +21,8 @@ export const styles = StyleSheet.create({
     padding: 25,
     // ${StatusBarHeight + 30}px
     paddingTop: 30,
-    backgroundColor: primary
+    backgroundColor: primary,
+    height: ScreenHeight
   },
   InnerContainer: {
     flex: 1,
@@ -145,8 +151,10 @@ export const styles = StyleSheet.create({
   },
   // text
   MsgBox: {
+    // display: '',
     textAlign: 'center',
     fontSize: 13,
+    color: 'red'
   },
   // view
   Line: {
