@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/ImageEvent.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/ImageQrCodeBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composents/camera/qrCode/syncQrCodeScan.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composents/synchro/content/syncInfoEvent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/gpsLocation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composents/synchro/content/syncGeolocation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composents/camera/photo/CameraPhoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/photo/cameraPhoto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composents/camera/photo/PreviewPhoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/photo/previewPhoto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composents/camera/photo/indexPhoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/photo/indexPhoto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composents/camera/video/CameraRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/video/cameraRecord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composents/camera/video/PreviewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/video/previewVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composents/camera/video/indexVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/camera/video/indexVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composents/synchro/content/syncInfoQrCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/synchro/content/syncInfoQrCode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composents/synchro/content/syncInfoEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/synchro/content/syncInfoEvent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composents/synchro/indexSynchro.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/synchro/indexSynchro.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composents/synchro/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/composents/synchro/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
@@ -30,6 +21,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -95,7 +93,8 @@
       <workItem from="1654520989924" duration="381000" />
       <workItem from="1654621467452" duration="1029000" />
       <workItem from="1654718160439" duration="3586000" />
-      <workItem from="1654792825777" duration="8122000" />
+      <workItem from="1654792825777" duration="8233000" />
+      <workItem from="1655027565573" duration="6383000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,7 @@ import SyncInfoQrCode from "./content/syncInfoQrCode";
 import SyncQrCodeScan from "../camera/qrCode/syncQrCodeScan";
 import {BarCodeScanner} from "expo-barcode-scanner";
 import SyncInfoEvent from "./content/syncInfoEvent";
+import SyncGeolocation from "./content/syncGeolocation";
 
 export default function IndexSynchro() {
     const [visible, setVisible] = useState(false);
@@ -38,6 +39,8 @@ export default function IndexSynchro() {
                     return <SyncQrCodeScan setSynchroEtape={setSynchroEtape}/>;
                 case "SyncInfoEvent":
                     return <SyncInfoEvent setSynchroEtape={setSynchroEtape} />;
+                case "SyncGeolocation":
+                    return <SyncGeolocation setSynchroEtape={setSynchroEtape} />;
                 default:
                     return ;
             }

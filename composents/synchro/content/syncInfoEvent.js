@@ -22,7 +22,7 @@ export default function SyncInfoEvent({setSynchroEtape}) {
             <Text style={styles.bottomText}>Vous devez à présent vous géolocaliser pour confirmer votre présence à
                 l’événement.</Text>
             <Button
-                onPress={() => console.log('coucou')}
+                onPress={() => setSynchroEtape('SyncGeolocation')}
                 title="Se géolocaliser"
             />
         </>

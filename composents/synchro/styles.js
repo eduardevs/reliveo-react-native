@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet,Dimensions } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
@@ -65,6 +65,33 @@ const styles = StyleSheet.create({
         fontWeight: 'normal',
         marginBottom: 5,
     },
+    bottomWarningText:  {
+        textAlign: 'center',
+        fontSize: 18,
+        color: '#FB9905',
+        fontWeight: 'bold',
+        marginBottom: 15,
+        paddingRight: 20,
+        paddingLeft: 20,
+    },
+    bottomSuccessText:  {
+        textAlign: 'center',
+        fontSize: 18,
+        color: '#0CF2B1',
+        fontWeight: 'bold',
+        marginBottom: 15,
+        paddingRight: 20,
+        paddingLeft: 20,
+    },
+    bottomErrorText:  {
+        textAlign: 'center',
+        fontSize: 18,
+        color: '#F06458',
+        fontWeight: 'bold',
+        marginBottom: 15,
+        paddingRight: 20,
+        paddingLeft: 20,
+    },
     ImageQrCodeBtnContainer: {
         backgroundColor: '#232323',
         justifyContent: "center",
@@ -74,9 +101,35 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         marginTop: 10,
     },
+    ImageGpsLocationBtnContainer: {
+        backgroundColor: '#232323',
+        justifyContent: "center",
+        alignItems: "center",
+        width: 45,
+        height: 45,
+        borderRadius: 5,
+        position:"absolute",
+        bottom:10,
+        right:10,
+    },
     ImageEventContainer: {
         marginBottom:20,
         marginTop:30,
+    },
+    mapContainer: {
+        width: Dimensions.get('window').width/1.1,
+        height: 200,
+        borderRadius: 30,
+        position:"relative",
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom:10,
+    },
+    map: {
+        width: "100%",
+        height: "100%",
+        borderRadius: 30,
     },
 });
 
