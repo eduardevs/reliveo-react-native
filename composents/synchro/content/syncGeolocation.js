@@ -35,15 +35,24 @@ export default function SyncGeolocation(setSynchroEtape) {
                 latitude,
                 longitude,
             })
-            let location = await Location.getCurrentPositionAsync({});
-
             for (let item of response) {
                 let address = `${item.name}, ${item.street}, ${item.postalCode}, ${item.city}`
 
-                setUserLocation(location.coords)
-                console.log(location.coords)
+                setUserLocation(coords)
+                console.log(coords)
+                await CompareGeoLocation()
             }
         }
+    }
+
+    async function CompareGeoLocation() {
+        if (userLocation.longitude > eventLocation.longitude - 0.0001 &&
+            userLocation.longitude < eventLocation.longitude + 0.0001 &&
+            userLocation.latitude > eventLocation.latitude - 0.001 &&
+            userLocation.latitude < eventLocation.latitude + 0.001) {
+            console.log("Connecter")
+        }
+
     }
 
     return (
