@@ -7,8 +7,6 @@ import { styles } from '../Components/styles'
 // vector icons
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line, WelcomeContainer, Avatar, WelcomeImage } = styles
 
-
-
 export const Welcome = ({navigation, route}) => {
     const {name, email} = route.params;
     return (
@@ -31,15 +29,7 @@ export const Welcome = ({navigation, route}) => {
                             <Text style={ButtonText}>Se deconnecter</Text>
                         </TouchableOpacity>
                         <View style={Line}></View>
-                        {/* 
-                        <TouchableOpacity google={true} style={StyledButton} onPress={handleSubmit}>
-                          
-                        </TouchableOpacity> */}
-
-
                     </View>
-
-
                 </View>
             </View>
         </View>
