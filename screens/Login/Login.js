@@ -14,7 +14,7 @@ const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTe
 
 const { primary, secondary, ternary, darkLight } = Colors
 
-export const Login = ({ navigation }) => {
+export const Login = ({ navigation}) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [message, setMessage] = useState()
   const [messageType, setMessageType]= useState();

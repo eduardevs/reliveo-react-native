@@ -9,8 +9,8 @@ const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledBu
 
 
 
-export const Welcome = () => {
-
+export const Welcome = ({navigation, route}) => {
+    const {name, email} = route.params;
     return (
         <View style={Container}>
             <StatusBar style="dark" />
@@ -21,8 +21,8 @@ export const Welcome = () => {
                     {/* welcome property pass here welcome={true} */}
                     {/* change to black here */}
                     <Text style={PageTitle}>Welcome</Text>
-                    <Text style={SubTitle}>Olga Simpson</Text>
-                    <Text style={SubTitle}>olgasimpson@mail.com</Text>
+                    <Text style={SubTitle}>{name || 'Olga simpson'}</Text>
+                    <Text style={SubTitle}>{email || 'olgasimpson@mail.com'}</Text>
 
 
                     <View style={StyledFormArea}>
