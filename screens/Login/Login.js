@@ -9,8 +9,6 @@ import { KeyboardAvoidingWrapper } from '../../Components/KeyboardAvoidingWrappe
 import { Colors, styles } from '../../Components/styles'
 import axios from 'axios'
 
-// console.log(ScreenHeight)
-
 // vector icons
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent } = styles
 
@@ -50,8 +48,6 @@ export const Login = ({ navigation }) => {
     setMessageType(type);
   } 
 
-
-
   return (
     <KeyboardAvoidingWrapper>
       <View style={Container}>
@@ -66,12 +62,13 @@ export const Login = ({ navigation }) => {
                 handleMessage('Please fill all the fields');
                 setSubmitting(false)
               } else {
+                console.log(values)
                 handleLogin(values, setSubmitting);
               }
             }}
           >
             {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) =>
-            
+
               <View style={StyledFormArea}>
                 <TouchableOpacity onPress={handleSubmit}>
                   <GoogleSigninLogo />
@@ -82,8 +79,8 @@ export const Login = ({ navigation }) => {
                   icon="person"
                   placeholder="Adresse mail"
                   // placeholderTextColor={darkLigh}
-                  onChangeText={handleChange('identifiant')}
-                  onBlur={handleBlur('identifiant')}
+                  onChangeText={handleChange('email')}
+                  onBlur={handleBlur('email')}
                   value={values.identifiant}
                 />
 
@@ -101,9 +98,10 @@ export const Login = ({ navigation }) => {
                 />
 
                 <View style={ExtraView}>
-                  <Text type={messageType} style={MsgBox} >{message}</Text>
                   <Text style={TextLink} >Mot de passe oublié</Text>
                 </View>
+                  
+                  <Text type={messageType} style={MsgBox} >{message}</Text>
 
                 {!isSubmitting &&
                 <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
@@ -116,15 +114,7 @@ export const Login = ({ navigation }) => {
                   <ActivityIndicator size="large" color={ternary} />
                 </TouchableOpacity>
                 }
-                {/* add here style for google with styled component 
-                            in StyledButton
-                    
-                            */}
-
-
-                <TouchableOpacity google={true} style={StyledButton} onPress={handleSubmit}>
-                  <Text google={true} style={ButtonText}>Se connecter avec google</Text>
-                </TouchableOpacity>
+             
                 <View style={ExtraView}>
                   <Text style={ExtraText}>Je n'ai pas de compte</Text>
                   <Text style={TextLink} onPress={() => navigation.navigate("Signup")}>
