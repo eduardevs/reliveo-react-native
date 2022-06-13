@@ -4,7 +4,6 @@ import { Image, Text, TouchableOpacity, View } from 'react-native'
 
 import { styles } from '../Components/styles'
 
-// vector icons
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line, WelcomeContainer, Avatar, WelcomeImage } = styles
 
 export const Welcome = ({navigation, route}) => {
@@ -16,13 +15,9 @@ export const Welcome = ({navigation, route}) => {
                 <Image style={WelcomeImage} resizeMode="cover" source={require('../assets/favicon.png')} />
                 <View style={WelcomeContainer}>
 
-                    {/* welcome property pass here welcome={true} */}
-                    {/* change to black here */}
                     <Text style={PageTitle}>Welcome</Text>
-                    <Text style={SubTitle}>{name || 'Olga simpson'}</Text>
-                    <Text style={SubTitle}>{email || 'olgasimpson@mail.com'}</Text>
-
-
+                    <Text style={SubTitle}>{name || 'Giga Chad'}</Text>
+                    <Text style={SubTitle}>{email || 'gigachad@mail.com'}</Text>
                     <View style={StyledFormArea}>
                         <Image style={Avatar} resizeMode="cover" source={require('../assets/favicon.png')} />
                         <TouchableOpacity style={StyledButton} onPress={() => { }}>

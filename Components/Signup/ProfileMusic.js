@@ -1,17 +1,13 @@
 
-import { Ionicons, Octicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
-import React, { useState } from 'react'
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 
-import { KeyboardAvoidingWrapper } from '../../Components/KeyboardAvoidingWrapper'
-import { Colors, styles } from '../../Components/styles'
+import { KeyboardAvoidingWrapper } from '../lib/components/KeyboardAvoidingWrapper'
+import { Colors, styles } from '../styles'
 
-// vector icons
 const { Avatar, Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent, GoogleBtn, ButtonTextGoogle } = styles
 
-//keyboard voiding view
 const { primary, secondary, ternary, darkLight } = Colors
 
 export const ProfileMusic = ({ navigation }) => {
@@ -35,21 +31,17 @@ export const ProfileMusic = ({ navigation }) => {
             {({ handleChange, handleBlur, handleSubmit, values }) =>
               <View style={StyledFormArea}>
 
-                <CustomTextInput label={"Je choisis un pseudo"}
+                <InputText label={"Je choisis un pseudo"}
                   icon="person"
                   placeholder="toto"
-                  // placeholderTextColor={darkLigh}
                   onChangeText={handleChange('identifiant')}
                   onBlur={handleBlur('identifiant')}
                   value={values.identifiant}
                 />
 
-
                 <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
                   <Text style={ButtonText}>Profil terminé</Text>
                 </TouchableOpacity>
-
-
               </View>
             }
 
@@ -59,23 +51,3 @@ export const ProfileMusic = ({ navigation }) => {
     </KeyboardAvoidingWrapper>
   );
 }
-
-const CustomTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
-  return (
-    <View>
-      <View style={LeftIcon}>
-        <Octicons name={icon} size={30} color={secondary} />
-      </View>
-      <Text style={StyledInputLabel}>{label}</Text>
-      <TextInput style={StyledTextInput} {...props} />
-      {isPassword && (
-        <TouchableOpacity style={RightIcon} onPress={() => setHidePassword(!hidePassword)}>
-          <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={darkLight} />
-        </TouchableOpacity>
-      )}
-
-      {/* <TouchableOpacity style={StyledButton}>Button</TouchableOpacity> */}
-    </View>
-  )
-}
-

@@ -1,16 +1,15 @@
-import { Fontisto, Ionicons, Octicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
 import React, { useState } from 'react'
 import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View, Dimensions } from 'react-native'
-import { GoogleSigninLogo } from '../../lib/components/SvgComponents'
+import { GoogleSigninLogo } from '../lib/SvgComponents'
 
-import { KeyboardAvoidingWrapper } from '../../Components/KeyboardAvoidingWrapper'
-import { Colors, styles } from '../../Components/styles'
+import { KeyboardAvoidingWrapper } from '../lib/components/KeyboardAvoidingWrapper'
+import { InputText } from '../lib/components/InputText'
+import { Colors, styles } from '../styles'
 import axios from 'axios'
 
-// vector icons
-const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent } = styles
+const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
 const { primary, secondary, ternary, darkLight } = Colors
 
@@ -21,7 +20,8 @@ export const Login = ({ navigation}) => {
 
   const handleLogin = (credentials, setSubmitting) => {
     handleMessage(null);
-    const url = 'https://limitless-cove-87023.herokuapp.com/user/signin'
+    // URL LOGIN ENDPOINT HERE
+    //const url = 'https://limitless-cove-87023.herokuapp.com/user/signin' // EX: API (NODEJS)
     axios
       .post(url, credentials)
       .then((response)=> {
@@ -75,19 +75,17 @@ export const Login = ({ navigation}) => {
                 </TouchableOpacity>
                 <View style={Line}></View>
 
-                <CustomTextInput label={""}
+                <InputText label={""}
                   icon="person"
                   placeholder="Adresse mail"
-                  // placeholderTextColor={darkLigh}
                   onChangeText={handleChange('email')}
                   onBlur={handleBlur('email')}
                   value={values.identifiant}
                 />
 
-                <CustomTextInput label={""}
+                <InputText label={""}
                   icon="lock"
                   placeholder="Mot de passe"
-                  // placeholderTextColor={darkLigh}
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
                   value={values.password}
@@ -131,23 +129,5 @@ export const Login = ({ navigation}) => {
   );
 }
 
-const CustomTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
-  return (
-    <View>
-      <View style={LeftIcon}>
-        <Octicons name={icon} size={30} color={secondary} />
-      </View>
-      <Text style={StyledInputLabel}>{label}</Text>
-      <TextInput style={StyledTextInput} {...props} />
-      {isPassword && (
-        <TouchableOpacity style={RightIcon} onPress={() => setHidePassword(!hidePassword)}>
-          <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={darkLight} />
-        </TouchableOpacity>
-      )}
-
-      {/* <TouchableOpacity style={StyledButton}>Button</TouchableOpacity> */}
-    </View>
-  )
-}
 
 

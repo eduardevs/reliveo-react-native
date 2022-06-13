@@ -1,20 +1,18 @@
-import { Fontisto, Ionicons, Octicons } from '@expo/vector-icons'
+import { useState } from 'react'
+import { Text, TouchableOpacity, View, ActivityIndicator } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
-import React, { useState } from 'react'
-import { Text, TextInput, TouchableOpacity, View, ActivityIndicator } from 'react-native'
-import { GoogleInscriptionLogo } from '../../lib/components/SvgComponents'
-
-import { KeyboardAvoidingWrapper } from '../../Components/KeyboardAvoidingWrapper'
-import { Colors, styles } from '../../Components/styles'
-import Svg, { Rect, Path } from "react-native-svg"
 import axios from 'axios'
 
+import { GoogleInscriptionLogo } from '../lib/SvgComponents'
+import { KeyboardAvoidingWrapper } from '../lib/components/KeyboardAvoidingWrapper'
+import { InputText } from '../lib/components/InputText'
+import { Colors, styles } from '../styles'
 
 
-const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent, GoogleBtn, ButtonTextGoogle } = styles
+const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
-const { primary, secondary, ternary, darkLight } = Colors
+const { ternary } = Colors
 
 export const Signup = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
@@ -24,7 +22,9 @@ export const Signup = ({ navigation }) => {
 
   const handleSignup = (credentials, setSubmitting) => {
     handleMessage(null);
-    const url = 'https://limitless-cove-87023.herokuapp.com/user/signup'
+    // URL SIGNUP ENDPOINT HERE
+    //const url = 'https://limitless-cove-87023.herokuapp.com/user/signup' // EX: API (NODEJS)
+
     axios
       .post(url, credentials)
       .then((response)=> {
@@ -85,31 +85,25 @@ export const Signup = ({ navigation }) => {
                 </TouchableOpacity>
 
                 <View style={Line}></View>
-                {/* add here style for google with styled component 
-                            in StyledButton
-                            
-                        */}
-                <CustomTextInput label={"Identifiant"}
+
+                <InputText label={"Identifiant"}
                   icon="person"
                   placeholder="toto"
-                  // placeholderTextColor={darkLigh}
                   onChangeText={handleChange('name')}
                   onBlur={handleBlur('identifiant')}
                   value={values.name}
                 />
-                <CustomTextInput label={"Adresse Mail"}
+                <InputText label={"Adresse Mail"}
                   icon="mail"
                   placeholder="toto@mail.com"
-                  // placeholderTextColor={darkLigh}
                   onChangeText={handleChange('email')}
                   onBlur={handleBlur('email')}
                   value={values.email}
                   keyboardType="email-address"
                 />
-                <CustomTextInput label={"Mot de passe"}
+                <InputText label={"Mot de passe"}
                   icon="lock"
                   placeholder="* * * * * * * *"
-                  // placeholderTextColor={darkLigh}
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
                   value={values.password}
@@ -118,10 +112,9 @@ export const Signup = ({ navigation }) => {
                   hidePassword={hidePassword}
                   setHidePassword={setHidePassword}
                 />
-                <CustomTextInput label={"Confirmez mot de passe"}
+                <InputText label={"Confirmez mot de passe"}
                   icon="lock"
                   placeholder="* * * * * * * *"
-                  // placeholderTextColor={darkLigh}
                   onChangeText={handleChange('confirmPassword')}
                   onBlur={handleBlur('confirmPasswords')}
                   value={values.confirmPassword}
@@ -158,23 +151,3 @@ export const Signup = ({ navigation }) => {
     </KeyboardAvoidingWrapper>
   );
 }
-
-const CustomTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
-  return (
-    <View>
-      <View style={LeftIcon}>
-        <Octicons name={icon} size={30} color={secondary} />
-      </View>
-      <Text style={StyledInputLabel}>{label}</Text>
-      <TextInput style={StyledTextInput} {...props} />
-      {isPassword && (
-        <TouchableOpacity style={RightIcon} onPress={() => setHidePassword(!hidePassword)}>
-          <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={darkLight} />
-        </TouchableOpacity>
-      )}
-
-      {/* <TouchableOpacity style={StyledButton}>Button</TouchableOpacity> */}
-    </View>
-  )
-}
-
