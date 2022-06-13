@@ -23,7 +23,7 @@ export const Signup = ({ navigation }) => {
   const handleSignup = (credentials, setSubmitting) => {
     handleMessage(null);
     // URL SIGNUP ENDPOINT HERE
-    //const url = 'https://limitless-cove-87023.herokuapp.com/user/signup' // EX: API (NODEJS)
+    const url = 'https://limitless-cove-87023.herokuapp.com/user/signup' // EX: API (NODEJS)
 
     axios
       .post(url, credentials)

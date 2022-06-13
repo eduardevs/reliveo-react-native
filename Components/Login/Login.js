@@ -7,7 +7,7 @@ import { GoogleSigninLogo } from '../lib/SvgComponents'
 import { KeyboardAvoidingWrapper } from '../lib/components/KeyboardAvoidingWrapper'
 import { InputText } from '../lib/components/InputText'
 import { Colors, styles } from '../styles'
-import axios from 'axios'
+import axios from "../../node_modules/axios"
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
@@ -21,7 +21,7 @@ export const Login = ({ navigation}) => {
   const handleLogin = (credentials, setSubmitting) => {
     handleMessage(null);
     // URL LOGIN ENDPOINT HERE
-    //const url = 'https://limitless-cove-87023.herokuapp.com/user/signin' // EX: API (NODEJS)
+    const url = 'https://limitless-cove-87023.herokuapp.com/user/signin' // EX: API (NODEJS)
     axios
       .post(url, credentials)
       .then((response)=> {
