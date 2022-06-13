@@ -1,18 +1,16 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
-
 import { Colors } from '../Components/styles'
-import { Login } from '../screens/Login'
-import { ProfileSignup } from '../screens/Signup/ProfileSignup'
-import { Signup } from '../screens/Signup/Signup'
+import { Login } from '../Components/Login/Login'
 import { Welcome } from '../screens/Welcome'
-import { ProfileMusic } from '../screens/Signup/ProfileMusic'
+import { Signup } from '../Components/Signup/Signup'
+// import { ProfileSignup } from '../Components/Signup/ProfileSignup'
+// import { ProfileMusic } from '../Components/Signup/ProfileMusic'
 
-const { primary, secondary, ternary } = Colors
+const { ternary } = Colors
 
 const Stack = createNativeStackNavigator();
-
 
 export const RootStack = () => {
   return (
@@ -33,8 +31,8 @@ export const RootStack = () => {
       >
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="ProfileSignup" component={ProfileSignup} />
-        <Stack.Screen name="ProfileMusic" component={ProfileMusic} />
+        {/* <Stack.Screen name="ProfileSignup" component={ProfileSignup} /> */}
+        {/* <Stack.Screen name="ProfileMusic" component={ProfileMusic} /> */}
         <Stack.Screen name="Welcome" component={Welcome} />
 
       </Stack.Navigator>
