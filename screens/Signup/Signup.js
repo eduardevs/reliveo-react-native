@@ -6,7 +6,7 @@ import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 import { KeyboardAvoidingWrapper } from '../../Components/KeyboardAvoidingWrapper'
 import { Colors, styles } from '../../Components/styles'
-import Svg, { Rect, Path } from "react-native-svg"
+import Svg, { Rect, Path } from "../../node_modules/react-native-svg"
 
 
 
