@@ -1,19 +1,17 @@
-import React, { useState } from 'react'
-import { Image, Text, TouchableOpacity, View } from 'react-native'
+
 import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
+import { Text, TouchableOpacity, View } from 'react-native'
 
 import { KeyboardAvoidingWrapper } from '../lib/components/KeyboardAvoidingWrapper'
-import { InputText } from '../lib/components/InputText'
-import { Colors, styles } from '../styles'
-
+// update import
+import { Colors, styles } from '../../theme/styles/styleEduardo'
 
 const { Avatar, Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent, GoogleBtn, ButtonTextGoogle } = styles
 
 const { primary, secondary, ternary, darkLight } = Colors
 
-export const ProfileSignup = ({ navigation }) => {
-  const [hidePassword, setHidePassword] = useState(true);
+export const ProfileMusic = ({ navigation }) => {
 
   return (
     <KeyboardAvoidingWrapper>
@@ -21,17 +19,18 @@ export const ProfileSignup = ({ navigation }) => {
         <StatusBar style="dark" />
         <View style={InnerContainer}>
 
-          <Text style={PageTitle}>Personnalizes votre profil</Text>
+          <Text style={PageTitle}>Plus qu'une étape !</Text>
+
           <Formik
             initialValues={{ email: '', password: '', confirmPassword: '' }}
             onSubmit={(values) => {
               console.log(values)
-              navigation.navigate("ProfileMusic")
+              navigation.navigate("Welcome")
+
             }}
           >
             {({ handleChange, handleBlur, handleSubmit, values }) =>
               <View style={StyledFormArea}>
-                <Image style={Avatar} resizeMode="cover" source={require('../../assets/favicon.png')} />
 
                 <InputText label={"Je choisis un pseudo"}
                   icon="person"
