@@ -1,6 +1,6 @@
 import { View, TextInput, TouchableOpacity, Text } from 'react-native'
 import { Ionicons, Octicons } from '@expo/vector-icons'
-import { styles, Colors } from '../../../../theme/styles/styleEduardo'
+import { styles, Colors } from '../../../theme/styles/styleEduardo'
 
 const { LeftIcon, RightIcon, StyledInputLabel, StyledTextInput } = styles
 const { darkLight, secondary } = Colors

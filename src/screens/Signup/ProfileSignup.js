@@ -3,8 +3,8 @@ import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
 
-import { KeyboardAvoidingWrapper } from '../lib/components/KeyboardAvoidingWrapper'
-import { InputText } from '../lib/components/InputText'
+import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
+import { InputText } from '../../components/inputs/InputText/InputText'
 // update import
 import { Colors, styles } from '../../theme/styles/styleEduardo'
 

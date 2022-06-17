@@ -1,14 +1,15 @@
 import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
 import React, { useState } from 'react'
-import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View, Dimensions } from 'react-native'
-import { GoogleSigninLogo } from '../../components/atoms/buttons/GoogleLoginButton/SvgComponents'
+import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { GoogleSigninLogo } from '../../components/buttons/GoogleLoginButton/SvgComponents'
 // import { GoogleInscriptionLogo } from '../components/atoms/buttons/GoogleLoginButton/SvgComponents'
 
-import { KeyboardAvoidingWrapper } from '../../components/lib/helpers/KeyboardAvoidingWrapper'
-import { InputText } from '../../components/atoms/inputs/InputText/InputText'
+import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
+import { InputText } from '../../components/inputs/InputText/InputText'
 import { Colors, styles } from '../../theme/styles/styleEduardo'
 import axios from "axios"
+// import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
@@ -50,83 +51,83 @@ export const Login = ({ navigation}) => {
   } 
 
   return (
-    <KeyboardAvoidingWrapper>
-      <View style={Container}>
-        <StatusBar style="dark" />
-        <View style={InnerContainer}>
-          <Text style={PageTitle}>Bon retour parmis nous !</Text>
+      <KeyboardAvoidingWrapper>
+        <View style={Container}>
+          <StatusBar style="dark" />
+          <View style={InnerContainer}>
+            <Text style={PageTitle}>Bon retour parmis nous !</Text>
 
-          <Formik
-            initialValues={{ email: '', password: '' }}
-            onSubmit={(values, {setSubmitting}) => {
-              if(values.email == '' && values.password == '') {
-                handleMessage('Please fill all the fields');
-                setSubmitting(false)
-              } else {
-                console.log(values)
-                handleLogin(values, setSubmitting);
+            <Formik
+              initialValues={{ email: '', password: '' }}
+              onSubmit={(values, {setSubmitting}) => {
+                if(values.email == '' && values.password == '') {
+                  handleMessage('Please fill all the fields');
+                  setSubmitting(false)
+                } else {
+                  console.log(values)
+                  handleLogin(values, setSubmitting);
+                }
+              }}
+            >
+              {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) =>
+
+                <View style={StyledFormArea}>
+                  <TouchableOpacity onPress={handleSubmit}>
+                    <GoogleSigninLogo />
+                  </TouchableOpacity>
+                  <View style={Line}></View>
+
+                  <InputText label={""}
+                    icon="person"
+                    placeholder="Adresse mail"
+                    onChangeText={handleChange('email')}
+                    onBlur={handleBlur('email')}
+                    value={values.identifiant}
+                  />
+
+                  <InputText label={""}
+                    icon="lock"
+                    placeholder="Mot de passe"
+                    onChangeText={handleChange('password')}
+                    onBlur={handleBlur('password')}
+                    value={values.password}
+                    secureTextEntry={hidePassword}
+                    isPassword={true}
+                    hidePassword={hidePassword}
+                    setHidePassword={setHidePassword}
+                  />
+
+                  <View style={ExtraView}>
+                    <Text style={TextLink} >Mot de passe oublié</Text>
+                  </View>
+                    
+                    <Text type={messageType} style={MsgBox} >{message}</Text>
+
+                  {!isSubmitting &&
+                  <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
+                    <Text style={ButtonText}>Je me connecte</Text>
+                  </TouchableOpacity>
+                  }
+
+                  {isSubmitting &&
+                  <TouchableOpacity style={StyledButton} disabled={true}>
+                    <ActivityIndicator size="large" color={ternary} />
+                  </TouchableOpacity>
+                  }
+              
+                  <View style={ExtraView}>
+                    <Text style={ExtraText}>Je n'ai pas de compte</Text>
+                    <Text style={TextLink} onPress={() => navigation.navigate("Signup")}>
+                      Sign up</Text>
+                  </View>
+
+                </View>
               }
-            }}
-          >
-            {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) =>
 
-              <View style={StyledFormArea}>
-                <TouchableOpacity onPress={handleSubmit}>
-                  <GoogleSigninLogo />
-                </TouchableOpacity>
-                <View style={Line}></View>
-
-                <InputText label={""}
-                  icon="person"
-                  placeholder="Adresse mail"
-                  onChangeText={handleChange('email')}
-                  onBlur={handleBlur('email')}
-                  value={values.identifiant}
-                />
-
-                <InputText label={""}
-                  icon="lock"
-                  placeholder="Mot de passe"
-                  onChangeText={handleChange('password')}
-                  onBlur={handleBlur('password')}
-                  value={values.password}
-                  secureTextEntry={hidePassword}
-                  isPassword={true}
-                  hidePassword={hidePassword}
-                  setHidePassword={setHidePassword}
-                />
-
-                <View style={ExtraView}>
-                  <Text style={TextLink} >Mot de passe oublié</Text>
-                </View>
-                  
-                  <Text type={messageType} style={MsgBox} >{message}</Text>
-
-                {!isSubmitting &&
-                <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
-                  <Text style={ButtonText}>Je me connecte</Text>
-                </TouchableOpacity>
-                }
-
-                {isSubmitting &&
-                <TouchableOpacity style={StyledButton} disabled={true}>
-                  <ActivityIndicator size="large" color={ternary} />
-                </TouchableOpacity>
-                }
-             
-                <View style={ExtraView}>
-                  <Text style={ExtraText}>Je n'ai pas de compte</Text>
-                  <Text style={TextLink} onPress={() => navigation.navigate("Signup")}>
-                    Sign up</Text>
-                </View>
-
-              </View>
-            }
-
-          </Formik>
+            </Formik>
+          </View>
         </View>
-      </View>
-    </KeyboardAvoidingWrapper>
+      </KeyboardAvoidingWrapper>
   );
 }
 

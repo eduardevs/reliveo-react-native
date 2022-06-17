@@ -4,9 +4,9 @@ import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
 import axios from 'axios'
 
-import { GoogleInscriptionLogo } from '../../components/atoms/buttons/GoogleLoginButton/SvgComponents'
-import { KeyboardAvoidingWrapper } from '../../components/lib/helpers/KeyboardAvoidingWrapper'
-import { InputText } from '../../components/atoms/inputs/InputText/InputText'
+import { GoogleInscriptionLogo } from '../../components/buttons/GoogleLoginButton/SvgComponents'
+import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
+import { InputText } from '../../components/inputs/InputText/InputText'
 import { Colors, styles } from '../../theme/styles/styleEduardo'
 
 
