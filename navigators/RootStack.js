@@ -1,10 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
-import { Colors } from '../Components/styles'
-import { Login } from '../Components/Login/Login'
+import { Colors } from '../components/styles/styleEduardo'
+import { Login } from '../screens/Login/Login'
 import { Welcome } from '../screens/Welcome'
-import { Signup } from '../Components/Signup/Signup'
+import { Signup } from '../screens/Signup/Signup'
 // import { ProfileSignup } from '../Components/Signup/ProfileSignup'
 // import { ProfileMusic } from '../Components/Signup/ProfileMusic'
 
