@@ -7,7 +7,7 @@ import { GoogleSigninLogo } from '../../components/atoms/buttons/GoogleLoginButt
 
 import { KeyboardAvoidingWrapper } from '../../components/lib/helpers/KeyboardAvoidingWrapper'
 import { InputText } from '../../components/atoms/inputs/InputText/InputText'
-import { Colors, styles } from '../../styles/styleEduardo'
+import { Colors, styles } from '../../theme/styles/styleEduardo'
 import axios from "axios"
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles

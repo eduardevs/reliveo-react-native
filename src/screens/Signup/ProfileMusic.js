@@ -5,7 +5,7 @@ import { Text, TouchableOpacity, View } from 'react-native'
 
 import { KeyboardAvoidingWrapper } from '../lib/components/KeyboardAvoidingWrapper'
 // update import
-import { Colors, styles } from '../../styles/styleEduardo'
+import { Colors, styles } from '../../theme/styles/styleEduardo'
 
 const { Avatar, Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent, GoogleBtn, ButtonTextGoogle } = styles
 
