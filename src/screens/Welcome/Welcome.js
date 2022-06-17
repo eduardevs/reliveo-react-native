@@ -13,14 +13,14 @@ export const Welcome = ({navigation, route}) => {
         <View style={Container}>
             <StatusBar style="dark" />
             <View style={InnerContainer}>
-                <Image style={WelcomeImage} resizeMode="cover" source={require('../assets/favicon.png')} />
+                <Image style={WelcomeImage} resizeMode="cover" source={require('../../assets/favicon.png')} />
                 <View style={WelcomeContainer}>
 
                     <Text style={PageTitle}>Welcome</Text>
                     <Text style={SubTitle}>{name || 'Giga Chad'}</Text>
                     <Text style={SubTitle}>{email || 'gigachad@mail.com'}</Text>
                     <View style={StyledFormArea}>
-                        <Image style={Avatar} resizeMode="cover" source={require('../assets/favicon.png')} />
+                        <Image style={Avatar} resizeMode="cover" source={require('../../assets/favicon.png')} />
                         <TouchableOpacity style={StyledButton} onPress={() => { }}>
                             <Text style={ButtonText}>Se deconnecter</Text>
                         </TouchableOpacity>
