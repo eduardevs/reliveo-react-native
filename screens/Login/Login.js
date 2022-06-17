@@ -2,12 +2,13 @@ import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
 import React, { useState } from 'react'
 import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View, Dimensions } from 'react-native'
-import { GoogleSigninLogo } from '../lib/SvgComponents'
+import { GoogleSigninLogo } from '../../components/atoms/buttons/GoogleLoginButton/SvgComponents'
+// import { GoogleInscriptionLogo } from '../components/atoms/buttons/GoogleLoginButton/SvgComponents'
 
-import { KeyboardAvoidingWrapper } from '../lib/components/KeyboardAvoidingWrapper'
-import { InputText } from '../lib/components/InputText'
-import { Colors, styles } from '../styles'
-import axios from "../../node_modules/axios"
+import { KeyboardAvoidingWrapper } from '../../components/lib/helpers/KeyboardAvoidingWrapper'
+import { InputText } from '../../components/atoms/inputs/InputText/InputText'
+import { Colors, styles } from '../../components/styles/styleEduardo'
+import axios from "axios"
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
