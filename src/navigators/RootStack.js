@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
-import { Colors } from '../components/styles/styleEduardo'
+import { Colors } from '../styles/styleEduardo'
 import { Login } from '../screens/Login/Login'
 import { Welcome } from '../screens/Welcome'
 import { Signup } from '../screens/Signup/Signup'

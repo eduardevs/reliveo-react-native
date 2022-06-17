@@ -1,28 +1,30 @@
+import { useState } from 'react'
+import { Text, TouchableOpacity, View, ActivityIndicator } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
-import React, { useState } from 'react'
-import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View, Dimensions } from 'react-native'
-import { GoogleSigninLogo } from '../../components/atoms/buttons/GoogleLoginButton/SvgComponents'
-// import { GoogleInscriptionLogo } from '../components/atoms/buttons/GoogleLoginButton/SvgComponents'
+import axios from 'axios'
 
+import { GoogleInscriptionLogo } from '../../components/atoms/buttons/GoogleLoginButton/SvgComponents'
 import { KeyboardAvoidingWrapper } from '../../components/lib/helpers/KeyboardAvoidingWrapper'
 import { InputText } from '../../components/atoms/inputs/InputText/InputText'
-import { Colors, styles } from '../../components/styles/styleEduardo'
-import axios from "axios"
+import { Colors, styles } from '../../styles/styleEduardo'
+
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
-const { primary, secondary, ternary, darkLight } = Colors
+const { ternary } = Colors
 
-export const Login = ({ navigation}) => {
+export const Signup = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [message, setMessage] = useState()
   const [messageType, setMessageType]= useState();
+  const dateOfBirth = '01-01-2000'
 
-  const handleLogin = (credentials, setSubmitting) => {
+  const handleSignup = (credentials, setSubmitting) => {
     handleMessage(null);
-    // URL LOGIN ENDPOINT HERE
-    const url = 'https://limitless-cove-87023.herokuapp.com/user/signin' // EX: API (NODEJS)
+    // URL SIGNUP ENDPOINT HERE
+    const url = 'https://limitless-cove-87023.herokuapp.com/user/signup' // EX: API (NODEJS)
+
     axios
       .post(url, credentials)
       .then((response)=> {
@@ -32,7 +34,7 @@ export const Login = ({ navigation}) => {
         if( status !== 'SUCCESS') {
           handleMessage(message, status)
         } else {
-          navigation.navigate('Welcome', {...data[0]});
+          navigation.navigate('Welcome', {...data});
         }
         setSubmitting(false)
       })
@@ -51,42 +53,57 @@ export const Login = ({ navigation}) => {
 
   return (
     <KeyboardAvoidingWrapper>
+
       <View style={Container}>
         <StatusBar style="dark" />
         <View style={InnerContainer}>
-          <Text style={PageTitle}>Bon retour parmis nous !</Text>
+
+          <Text style={PageTitle}>Créez un compte aujourd'hui</Text>
 
           <Formik
-            initialValues={{ email: '', password: '' }}
+            initialValues={{name:'' , email: '', password: '', confirmPassword: '', dateOfBirth:dateOfBirth }}
             onSubmit={(values, {setSubmitting}) => {
-              if(values.email == '' && values.password == '') {
+              values = {...values, dateOfBirth}
+              if(values.email == '' || values.password == '' || values.name == '' || values.confirmPassword == '') {
                 handleMessage('Please fill all the fields');
                 setSubmitting(false)
+              } else if(values.password !== values.confirmPassword) {
+                handleMessage('Password do not match');
+                setSubmitting(false)
               } else {
-                console.log(values)
-                handleLogin(values, setSubmitting);
-              }
+                console.log('values', values)
+                handleSignup(values, setSubmitting);
+              }      
             }}
           >
             {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) =>
-
               <View style={StyledFormArea}>
+
                 <TouchableOpacity onPress={handleSubmit}>
-                  <GoogleSigninLogo />
+                  <GoogleInscriptionLogo />
+
                 </TouchableOpacity>
+
                 <View style={Line}></View>
 
-                <InputText label={""}
+                <InputText label={"Identifiant"}
                   icon="person"
-                  placeholder="Adresse mail"
+                  placeholder="toto"
+                  onChangeText={handleChange('name')}
+                  onBlur={handleBlur('identifiant')}
+                  value={values.name}
+                />
+                <InputText label={"Adresse Mail"}
+                  icon="mail"
+                  placeholder="toto@mail.com"
                   onChangeText={handleChange('email')}
                   onBlur={handleBlur('email')}
-                  value={values.identifiant}
+                  value={values.email}
+                  keyboardType="email-address"
                 />
-
-                <InputText label={""}
+                <InputText label={"Mot de passe"}
                   icon="lock"
-                  placeholder="Mot de passe"
+                  placeholder="* * * * * * * *"
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
                   value={values.password}
@@ -95,16 +112,22 @@ export const Login = ({ navigation}) => {
                   hidePassword={hidePassword}
                   setHidePassword={setHidePassword}
                 />
+                <InputText label={"Confirmez mot de passe"}
+                  icon="lock"
+                  placeholder="* * * * * * * *"
+                  onChangeText={handleChange('confirmPassword')}
+                  onBlur={handleBlur('confirmPasswords')}
+                  value={values.confirmPassword}
+                  secureTextEntry={hidePassword}
+                  isPassword={true}
+                  hidePassword={hidePassword}
+                  setHidePassword={setHidePassword}
+                />
 
-                <View style={ExtraView}>
-                  <Text style={TextLink} >Mot de passe oublié</Text>
-                </View>
-                  
-                  <Text type={messageType} style={MsgBox} >{message}</Text>
-
-                {!isSubmitting &&
+                <Text type={messageType} style={MsgBox} >{message}</Text>
+               {!isSubmitting &&
                 <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
-                  <Text style={ButtonText}>Je me connecte</Text>
+                  <Text style={ButtonText}>Je m'inscris</Text>
                 </TouchableOpacity>
                 }
 
@@ -113,11 +136,10 @@ export const Login = ({ navigation}) => {
                   <ActivityIndicator size="large" color={ternary} />
                 </TouchableOpacity>
                 }
-             
+              
                 <View style={ExtraView}>
-                  <Text style={ExtraText}>Je n'ai pas de compte</Text>
-                  <Text style={TextLink} onPress={() => navigation.navigate("Signup")}>
-                    Sign up</Text>
+                  <Text style={ExtraText}>J'ai déja un compte</Text>
+                  <Text style={TextLink}>Se connecter</Text>
                 </View>
 
               </View>
@@ -129,6 +151,3 @@ export const Login = ({ navigation}) => {
     </KeyboardAvoidingWrapper>
   );
 }
-
-
-

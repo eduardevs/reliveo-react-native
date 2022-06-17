@@ -1,10 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native'
 import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
 
-
 let ScreenHeight = Dimensions.get("window").height;
-
-
 
 export const Colors = {
   primary: "#2E2E2E",

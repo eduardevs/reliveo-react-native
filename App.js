@@ -1,4 +1,4 @@
-import { RootStack } from "./navigators/RootStack";
+import { RootStack } from "./src/navigators/RootStack";
 
 export default function App() {
   return (
