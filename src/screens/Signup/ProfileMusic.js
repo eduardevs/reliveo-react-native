@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar'
 import { Formik } from 'formik'
 import { Text, TouchableOpacity, View } from 'react-native'
 
-import { KeyboardAvoidingWrapper } from '../lib/components/KeyboardAvoidingWrapper'
+import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
 // update import
 import { Colors, styles } from '../../theme/styles/styleEduardo'
 
