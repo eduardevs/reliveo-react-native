@@ -2,12 +2,10 @@ import {StyleSheet,Dimensions} from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        position:"absolute",
-        top:"-11%",
         flex: 1,
         backgroundColor: 'black',
-        width: Dimensions.get("window").width,
-        height:Dimensions.get("window").height,
+        width: "100%",
+        height:"100%",
     },
     containerNo: {
         display: "none",

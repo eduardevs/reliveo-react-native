@@ -1,14 +1,63 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, Button, Dimensions} from 'react-native';
+import {Text, View, StyleSheet, Button, Dimensions, TouchableOpacity, Image} from 'react-native';
 import {BarCodeScanner} from 'expo-barcode-scanner';
+import {LinearGradient} from 'expo-linear-gradient';
+import {Feather, Foundation} from "@expo/vector-icons";
+
 import styles from "./styles";
+import IndexSynchro from "../synchro/indexSynchro";
+import ButtonReliveau from "../../assets/buttonReliveau.png";
+import {Camera} from "expo-camera";
 
+export default function BottomNav() {
+    const [bottomSynchroVisible, setBottomSynchroVisible] = useState(false);
+    const [synchroEtape, setSynchroEtape] = useState('SyncInfoQrCode');
 
-export default function SyncQrCodeScan() {
-
+    const toggleBottomNavigationView = () => {
+        setBottomSynchroVisible(!bottomSynchroVisible);
+        setSynchroEtape('SyncInfoQrCode');
+    };
 
     return (
-        <View style={styles.container}>
-        </View>
+        <>
+            <View style={styles.container}>
+                <LinearGradient
+                    colors={['#2E2E2E', "transparent"]}
+                    start={{
+                        x: 0,
+                        y: .8
+                    }}
+                    end={{
+                        x: 0,
+                        y: .3
+                    }}
+                    style={styles.gradientButtonContainer}
+                />
+                <View style={styles.containerButton}>
+                    <TouchableOpacity
+                        style={styles.bottomMenuButton}
+                        onPress={() => console.log("Explorer")}
+                    >
+                        <Foundation name="magnifying-glass" size={24} color="white" />
+                        <Text style={styles.textButton}>Explorer</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.bottomMenuButton}
+                        onPress={toggleBottomNavigationView}
+                    >
+                        <Image source={ButtonReliveau}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.bottomMenuButton}
+                        onPress={() => console.log("Plus")}
+                    >
+                        <Feather name="menu" size={24} color={'white'}/>
+                        <Text style={styles.textButton}>Plus</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+            <IndexSynchro synchroEtape={synchroEtape} setSynchroEtape={setSynchroEtape} visible={bottomSynchroVisible}
+                          toggleBottomNavigationView={toggleBottomNavigationView}/>
+        </>
     );
 }

@@ -11,11 +11,11 @@ export default function App() {
 }
 =======
 import { RootStack } from "./src/navigators/RootStack";
-import IndexSynchro from "./src/containers/synchro/indexSynchro";
+import BottomNav from "./src/containers/bottomNav/bottomNav";
 
 export default function App() {
   return (
-      <IndexSynchro />
+      <BottomNav />
 )}
 
 >>>>>>> bc1ab34 (patch import)

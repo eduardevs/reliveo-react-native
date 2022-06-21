@@ -7,6 +7,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    overBottomContainer: {
+        position:"absolute",
+        top:"-11%",
+        flex: 1,
+        backgroundColor: 'black',
+        width: Dimensions.get("window").width,
+        height:Dimensions.get("window").height,
+    },
     bottomNavigationView: {
         backgroundColor: '#2E2E2E',
         width: '100%',

@@ -4,8 +4,6 @@ import {BarCodeScanner} from 'expo-barcode-scanner';
 
 
 export default function SyncQrCodeScan({setSynchroEtape}) {
-
-
     return (
         <View style={styles.container}>
             <BarCodeScanner
@@ -18,15 +16,13 @@ export default function SyncQrCodeScan({setSynchroEtape}) {
 
 const styles = StyleSheet.create({
     container: {
-        position: "absolute",
-        top:"-11%",
         flex: 1,
         backgroundColor: 'black',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems:"center",
-        width: Dimensions.get("window").width,
-        height: Dimensions.get("window").height,
+        width: "100%",
+        height: "100%",
         borderTopRightRadius: 15,
         borderTopLeftRadius: 15,
 
