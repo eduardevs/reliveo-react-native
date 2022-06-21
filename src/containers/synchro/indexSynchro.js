@@ -9,10 +9,14 @@ import SyncQrCodeScan from "../camera/qrCode/syncQrCodeScan";
 import {BarCodeScanner} from "expo-barcode-scanner";
 import SyncInfoEvent from "./content/syncInfoEvent";
 import SyncGeolocation from "./content/syncGeolocation";
+import SyncChooseScene from "./content/syncChooseScene";
+import SyncPosterReliveo from "./content/syncPosterReliveo";
+import IndexVideo from "../camera/video/indexVideo";
+import SyncDesynchro from "./content/syncDesynchro";
 
 export default function IndexSynchro() {
     const [visible, setVisible] = useState(false);
-    const [synchroEtape, setSynchroEtape] = useState('SyncInfoQrCode');
+    const [synchroEtape, setSynchroEtape] = useState('SyncChooseScene');
     const [hasPermission, setHasPermission] = useState(null);
 
     useEffect(() => {
@@ -25,7 +29,7 @@ export default function IndexSynchro() {
 
     const toggleBottomNavigationView = () => {
         setVisible(!visible);
-        setSynchroEtape('SyncInfoQrCode');
+        setSynchroEtape('SyncChooseScene');
     };
 
     const whySynchroEtape = () => {
@@ -41,6 +45,14 @@ export default function IndexSynchro() {
                     return <SyncInfoEvent setSynchroEtape={setSynchroEtape} />;
                 case "SyncGeolocation":
                     return <SyncGeolocation setSynchroEtape={setSynchroEtape} />;
+                case "SyncChooseScene":
+                    return <SyncChooseScene setSynchroEtape={setSynchroEtape} />;
+                case "SyncPosterReliveo":
+                    return <SyncPosterReliveo setSynchroEtape={setSynchroEtape} />;
+                case "IndexVideo":
+                    return <IndexVideo setSynchroEtape={setSynchroEtape} />;
+                case "SyncDesynchro":
+                    return <SyncDesynchro setSynchroEtape={setSynchroEtape} />;
                 default:
                     return ;
             }

@@ -1,11 +1,15 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet,Dimensions} from "react-native";
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'black',
-        width:"100%",
-        height:"100%",
+        width: Dimensions.get("window").width,
+        height:Dimensions.get("window").height,
+    },
+    containerVideoBottomPlus: {
+        position:"absolute",
+        top:"-11%",
     },
     containerNo: {
         display: "none",

@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Image, Text, TouchableOpacity, View} from "react-native";
 
 import styles from '../styles'
-import ImageQrCodeBtn from '../../../assets/ImageQrCodeBtn.png';
+import ImageQrCodeBtn from '../../../../../assets/ImageQrCodeBtn.png';
 
 export default function SyncInfoQrCode({setSynchroEtape}) {
 

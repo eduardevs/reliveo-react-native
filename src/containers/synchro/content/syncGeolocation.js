@@ -2,18 +2,27 @@ import React, {useState, useEffect} from 'react';
 import {Text, View, TouchableOpacity, Image, Alert} from 'react-native';
 import * as Location from 'expo-location';
 import MapView, {Marker} from 'react-native-maps';
-import gpsLocation from "../../../assets/gpsLocation.png";
+import gpsLocation from "../../../../../assets/gpsLocation.png";
 
 import styles from "../styles";
+import SyncGeolocationSuccess from "./SyncGeolocationContent/syncGeolocationSuccess";
+import SyncGeolocationError from "./SyncGeolocationContent/syncGeolocationError";
 
-export default function SyncGeolocation(setSynchroEtape) {
+export default function SyncGeolocation({setSynchroEtape}) {
+    const [locationIs, setLocationIs] = useState()
     const [userLocation, setUserLocation] = useState(null)
-    const [eventLocation, setEventLocation] = useState(
+    const [eventInfo, setEventInfo] = useState(
         {
-            "latitude": 48.8593938,
-            "longitude": 2.4337298,
+            "latitude": 48.859416,
+            "longitude": 2.4337297,
+            "rue": "Rue du Champ Louet",
+            "postalCode": "44190",
+            "city":"Clisson",
+            "concertDate":"18/06/2022",
+            "concertHeur":"8h"
         }
     )
+
 
 
     async function GetCurrentLocation() {
@@ -39,18 +48,31 @@ export default function SyncGeolocation(setSynchroEtape) {
                 let address = `${item.name}, ${item.street}, ${item.postalCode}, ${item.city}`
 
                 setUserLocation(coords)
+                CompareGeoLocation()
                 console.log(coords)
-                await CompareGeoLocation()
             }
         }
     }
+    const CompareGeoLocation = () => {
+        if (userLocation.longitude > eventInfo.longitude - 0.0001 &&
+            userLocation.longitude < eventInfo.longitude + 0.0001 &&
+            userLocation.latitude > eventInfo.latitude - 0.001 &&
+            userLocation.latitude < eventInfo.latitude + 0.001) {
+            setLocationIs(true)
 
-    async function CompareGeoLocation() {
-        if (userLocation.longitude > eventLocation.longitude - 0.0001 &&
-            userLocation.longitude < eventLocation.longitude + 0.0001 &&
-            userLocation.latitude > eventLocation.latitude - 0.001 &&
-            userLocation.latitude < eventLocation.latitude + 0.001) {
-            console.log("Connecter")
+        } else {
+            setLocationIs(false)
+        }
+
+    }
+    const LocationIs = () => {
+        switch (locationIs) {
+            case true:
+                return <SyncGeolocationSuccess eventInfo={eventInfo} setSynchroEtape={setSynchroEtape}/>
+            case false:
+                return <SyncGeolocationError eventInfo={eventInfo}/>
+            default:
+                return <Text style={styles.bottomWarningText}>Position Inconue</Text>
         }
 
     }
@@ -63,18 +85,18 @@ export default function SyncGeolocation(setSynchroEtape) {
             <View style={styles.mapContainer}>
                 <MapView style={styles.map}
                          initialRegion={{
-                             latitude: eventLocation.latitude,
-                             longitude: eventLocation.longitude,
+                             latitude: eventInfo.latitude,
+                             longitude: eventInfo.longitude,
                              latitudeDelta: 0.09,
                              longitudeDelta: 0.04,
                          }}
                 >
                     <Marker
                         coordinate={{
-                            latitude: eventLocation.latitude,
-                            longitude:  eventLocation.longitude,
+                            latitude: eventInfo.latitude,
+                            longitude:  eventInfo.longitude,
                         }}
-                        title={'Lat: ' + eventLocation.latitude + ', Long: ' + eventLocation.longitude}
+                        title={'Lat: ' + eventInfo.latitude + ', Long: ' + eventInfo.longitude}
                     />
                 </MapView>
                 <TouchableOpacity
@@ -84,7 +106,7 @@ export default function SyncGeolocation(setSynchroEtape) {
                     <Image source={gpsLocation}/>
                 </TouchableOpacity>
             </View>
-            <Text style={styles.bottomWarningText}>Position inconnue</Text>
+            {LocationIs()}
         </>
     )
 }

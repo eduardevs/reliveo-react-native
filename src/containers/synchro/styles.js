@@ -65,6 +65,15 @@ const styles = StyleSheet.create({
         fontWeight: 'normal',
         marginBottom: 5,
     },
+    bottomLien: {
+        paddingRight: 20,
+        paddingLeft: 20,
+        textAlign: 'center',
+        fontSize: 10,
+        color: '#A65AFF',
+        fontWeight: 'normal',
+        marginBottom: 5,
+    },
     bottomWarningText:  {
         textAlign: 'center',
         fontSize: 18,
@@ -114,7 +123,7 @@ const styles = StyleSheet.create({
     },
     ImageEventContainer: {
         marginBottom:20,
-        marginTop:30,
+        marginTop:0,
     },
     mapContainer: {
         width: Dimensions.get('window').width/1.1,
