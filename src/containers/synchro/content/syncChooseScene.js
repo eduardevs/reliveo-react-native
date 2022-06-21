@@ -3,7 +3,7 @@ import {Button, Image, Text, TextInput, View} from "react-native";
 import RNPickerSelect from 'react-native-picker-select';
 
 import styles from '../styles'
-import ImageEvent from '../../../../../assets/ImageEvent.jpg';
+import ImageEvent from '../../../assets/ImageEvent.jpg';
 
 export default function SyncChooseScene({setSynchroEtape}) {
     const [scenes, setScenes] = useState([

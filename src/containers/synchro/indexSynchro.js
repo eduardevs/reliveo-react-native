@@ -16,7 +16,7 @@ import SyncDesynchro from "./content/syncDesynchro";
 
 export default function IndexSynchro() {
     const [visible, setVisible] = useState(false);
-    const [synchroEtape, setSynchroEtape] = useState('SyncChooseScene');
+    const [synchroEtape, setSynchroEtape] = useState('SyncInfoQrCode');
     const [hasPermission, setHasPermission] = useState(null);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function IndexSynchro() {
 
     const toggleBottomNavigationView = () => {
         setVisible(!visible);
-        setSynchroEtape('SyncChooseScene');
+        setSynchroEtape('SyncInfoQrCode');
     };
 
     const whySynchroEtape = () => {

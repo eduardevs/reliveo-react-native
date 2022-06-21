@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Text, View, TouchableOpacity, Image, Alert} from 'react-native';
 import * as Location from 'expo-location';
 import MapView, {Marker} from 'react-native-maps';
-import gpsLocation from "../../../../../assets/gpsLocation.png";
+import gpsLocation from "../../../assets/gpsLocation.png";
 
 import styles from "../styles";
 import SyncGeolocationSuccess from "./SyncGeolocationContent/syncGeolocationSuccess";

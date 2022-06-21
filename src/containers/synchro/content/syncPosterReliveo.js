@@ -2,8 +2,8 @@ import React from 'react';
 import {Button, Image, Text, TouchableOpacity, View} from "react-native";
 
 import styles from '../styles'
-import Camera from '../../../../../assets/camera.png';
-import ImageEvent from "../../../../../assets/ImageEvent.jpg";
+import Camera from '../../../assets/camera.png';
+import ImageEvent from "../../../assets/ImageEvent.jpg";
 
 export default function SyncPosterReliveo({setSynchroEtape}) {
 
