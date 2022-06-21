@@ -1,16 +1,10 @@
 import { StyleSheet, Dimensions } from 'react-native'
 import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
+import { Colors } from '../palette'
 
 let ScreenHeight = Dimensions.get("window").height;
 
-export const Colors = {
-  primary: "#2E2E2E",
-  secondary: "#A65AFF",
-  ternary: "white",
-  darkLight: "grey"
-}
-
-const { primary, secondary, ternary, darkLight } = Colors
+const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = Colors
 
 export const styles = StyleSheet.create({
   Container: {
@@ -43,7 +37,7 @@ export const styles = StyleSheet.create({
     height: 100,
     margin: 'auto',
     borderRadius: 50,
-    borderColor: secondary,
+    borderColor: ReliveoBrand,
     marginBottom: 10,
     marginTop: 10
   },
@@ -56,7 +50,7 @@ export const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     fontWeight: "bold",
-    color: secondary,
+    color: ReliveoBrand,
     padding: 10
     // ${(props) => props.welcome && `
     // fontSize: 35
@@ -67,7 +61,7 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
     letterSpacing: 1,
     fontWeight: "bold",
-    color: secondary
+    color: ReliveoBrand
     // ${(props) => props.welcome && `
     // marginBottom: 5,
     // fontWeight: normal,
@@ -109,7 +103,7 @@ export const styles = StyleSheet.create({
   },
   StyledButton: {
     padding: 15,
-    backgroundColor: secondary,
+    backgroundColor: ReliveoBrand,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
@@ -124,7 +118,7 @@ export const styles = StyleSheet.create({
   GoogleBtn: {
     color: "black",
     padding: 15,
-    backgroundColor: ternary,
+    backgroundColor: secondary,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
@@ -157,7 +151,7 @@ export const styles = StyleSheet.create({
   Line: {
     height: 1,
     width: "100%",
-    backgroundColor: darkLight,
+    backgroundColor: ReliveoBrandLight,
     marginVertical: 10
   },
   //view
@@ -171,19 +165,19 @@ export const styles = StyleSheet.create({
   ExtraText: {
     justifyContent: "center",
     alignContent: "center",
-    color: ternary,
+    color: secondary,
     fontSize: 15
   },
   // TouchableOpacity
   TextLink: {
     justifyContent: 'center',
     alignItems: 'center',
-    color: secondary,
+    color: ReliveoBrand,
     marginLeft: 5
   },
   // text
   TextLinkContent: {
-    color: secondary,
+    color: ReliveoBrand,
     fontSize: 15
   },
 

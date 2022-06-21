@@ -7,13 +7,14 @@ import { GoogleSigninLogo } from '../../components/buttons/GoogleLoginButton/Svg
 
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
 import { InputText } from '../../components/inputs/InputText/InputText'
-import { Colors, styles } from '../../theme/styles/styleEduardo'
+import { styles } from '../../theme/styles/styleEduardo'
+import { Colors } from '../../theme/palette'
 import axios from "axios"
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
-const { primary, secondary, ternary, darkLight } = Colors
+const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = Colors
 
 export const Login = ({ navigation}) => {
   const [hidePassword, setHidePassword] = useState(true);
@@ -111,7 +112,7 @@ export const Login = ({ navigation}) => {
 
                   {isSubmitting &&
                   <TouchableOpacity style={StyledButton} disabled={true}>
-                    <ActivityIndicator size="large" color={ternary} />
+                    <ActivityIndicator size="large" color={secondary} />
                   </TouchableOpacity>
                   }
               

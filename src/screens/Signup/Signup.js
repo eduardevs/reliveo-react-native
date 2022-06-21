@@ -7,12 +7,13 @@ import axios from 'axios'
 import { GoogleInscriptionLogo } from '../../components/buttons/GoogleLoginButton/SvgComponents'
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
 import { InputText } from '../../components/inputs/InputText/InputText'
-import { Colors, styles } from '../../theme/styles/styleEduardo'
+import { styles } from '../../theme/styles/styleEduardo'
+import { Colors } from '../../theme/palette'
 
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
-const { ternary } = Colors
+const { secondary } = Colors
 
 export const Signup = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
@@ -133,7 +134,7 @@ export const Signup = ({ navigation }) => {
 
                 {isSubmitting &&
                 <TouchableOpacity style={StyledButton} disabled={true}>
-                  <ActivityIndicator size="large" color={ternary} />
+                  <ActivityIndicator size="large" color={secondary} />
                 </TouchableOpacity>
                 }
               
