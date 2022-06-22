@@ -2,8 +2,8 @@ import { StyleSheet, Dimensions } from 'react-native'
 import { colors } from './palette'
 import { typo } from './fonts'
 
-let ScreenHeight = Dimensions.get("window").height;
-// const { titleBold } = typo
+export const ScreenHeight = Dimensions.get("window").height;
+
 const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = colors
 
 export const styles = StyleSheet.create({
@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
   },
   PageTitle: {
     fontSize: 30,
+    fontWeight: 'bold',
     textAlign: "center",
     color: ReliveoBrand,
     padding: 10
@@ -52,16 +53,6 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     marginVertical: 5,
     height: 60
-  },
-  GoogleBtn: {
-    color: "black",
-    padding: 15,
-    backgroundColor: secondary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5,
-    marginVertical: 5,
-    height: 60,
   },
   ButtonText: {
     color: 'white',
