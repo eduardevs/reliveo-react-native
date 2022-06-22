@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
-import { colors } from '../palette'
-import { typo } from '../fonts'
+import { colors } from './palette'
+import { typo } from './fonts'
 
 let ScreenHeight = Dimensions.get("window").height;
 // const { titleBold } = typo
@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
   Container: {
     flex: 1,
     padding: 25,
-    // ${StatusBarHeight + 30}px
     paddingTop: 30,
     backgroundColor: primary,
     height: ScreenHeight
@@ -20,18 +19,6 @@ export const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center"
   },
-  PageLogo: {
-    width: 250,
-    height: 200
-  },
-  // welcome page
-  //innerContainer
-  WelcomeContainer: {
-    padding: 25,
-    paddingTop: 10,
-    justifyContent: 'center'
-  },
-  // Image
   Avatar: {
     width: 100,
     height: 100,
@@ -41,18 +28,11 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 10
   },
-  WelcomeImage: {
-    height: "50%",
-    minWidth: 100
-  },
   PageTitle: {
     fontSize: 30,
     textAlign: "center",
     color: ReliveoBrand,
     padding: 10
-    // ${(props) => props.welcome && `
-    // fontSize: 35
-    //`}
   },
   SubTitle: {
     fontSize: 18,
@@ -60,44 +40,10 @@ export const styles = StyleSheet.create({
     letterSpacing: 1,
     fontWeight: "bold",
     color: ReliveoBrand
-    // ${(props) => props.welcome && `
-    // marginBottom: 5,
-    // fontWeight: normal,
-    //`}
   },
-  // FORM
   StyledFormArea: {
     width: "90%",
   },
-  // StyledTextInput: {
-  //   backgroundColor: "white",
-  //   padding: 15,
-  //   paddingLeft: 55,
-  //   paddingRight: 55,
-  //   borderRadius: 5,
-  //   fontSize: 16,
-  //   marginVertical: 3,
-  //   marginBottom: 10,
-  //   color: "black"
-  // },
-  // StyledInputLabel: {
-  //   color: "white",
-  //   fontSize: 13,
-  //   textAlign: 'left'
-  // },
-  // ICON
-  // LeftIcon: {
-  //   left: 15,
-  //   top: 38,
-  //   position: 'absolute',
-  //   zIndex: 1
-  // },
-  // RightIcon: {
-  //   right: 15,
-  //   top: 38,
-  //   position: 'absolute',
-  //   zIndex: 1
-  // },
   StyledButton: {
     padding: 15,
     backgroundColor: ReliveoBrand,
@@ -106,11 +52,6 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     marginVertical: 5,
     height: 60
-    //     ${(props)=> props.google == true && `
-    //     background-color: ${F2F2F2};
-    //     flex-direction: row;
-    //     justify-content: center;
-    // `}
   },
   GoogleBtn: {
     color: "black",
@@ -126,56 +67,42 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold'
-    //     ${(props)=> props.google == true && `
-    // padding: 25px;
-    // `}
   },
   ButtonTextGoogle: {
     color: 'black',
     fontSize: 16
-    //     ${(props)=> props.google == true && `
-    // padding: 25px;
-    // `}
   },
-  // text
   MsgBox: {
-    // display: '',
     textAlign: 'center',
     fontSize: 13,
     color: 'red'
   },
-  // view
   Line: {
     height: 1,
     width: "100%",
     backgroundColor: ReliveoBrandLight,
     marginVertical: 10
   },
-  //view
   ExtraView: {
     justifyContent: 'flex-end',
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
   },
-  // text
   ExtraText: {
     justifyContent: "center",
     alignContent: "center",
     color: secondary,
     fontSize: 15
   },
-  // TouchableOpacity
   TextLink: {
     justifyContent: 'center',
     alignItems: 'center',
     color: ReliveoBrand,
     marginLeft: 5
   },
-  // text
   TextLinkContent: {
     color: ReliveoBrand,
     fontSize: 15
   },
-
 })

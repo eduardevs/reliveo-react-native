@@ -7,7 +7,7 @@ import axios from 'axios'
 import { GoogleInscriptionLogo } from '../../components/buttons/GoogleLoginButton/SvgComponents'
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
 import { InputText } from '../../components/inputs/InputText/InputText'
-import { styles } from '../../theme/styles/styleEduardo'
+import { styles } from '../../theme/layout'
 import { colors } from '../../theme/palette'
 
 

@@ -2,10 +2,10 @@ import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 
-import { styles } from '../../theme/styles/styleEduardo'
+import { styles } from '../../theme/layout'
 import { style } from './style'
 
-const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line, Avatar } = styles
+const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line } = styles
 
 const { WelcomeImage, WelcomeContainer } = style
 
@@ -22,7 +22,7 @@ export const Welcome = ({navigation, route}) => {
                     <Text style={SubTitle}>{name || 'Giga Chad'}</Text>
                     <Text style={SubTitle}>{email || 'gigachad@mail.com'}</Text>
                     <View style={StyledFormArea}>
-                        <Image style={Avatar} resizeMode="cover" source={require('../../assets/favicon.png')} />
+                        <Image resizeMode="cover" source={require('../../assets/favicon.png')} />
                         <TouchableOpacity style={StyledButton} onPress={() => { }}>
                             <Text style={ButtonText}>Se deconnecter</Text>
                         </TouchableOpacity>

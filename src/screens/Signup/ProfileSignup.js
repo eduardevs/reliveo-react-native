@@ -6,7 +6,7 @@ import { Formik } from 'formik'
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
 import { InputText } from '../../components/inputs/InputText/InputText'
 // update import
-import { styles } from '../../theme/styles/styleEduardo'
+import { styles } from '../../theme/layout'
 import { colors } from '../../theme/palette'
 
 

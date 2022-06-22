@@ -1,6 +1,4 @@
-export const typo = {
-    titleBold: {
+export const titleBold = {
         fontSize: "38",
         fontWeight: "bold"
-    }
 }
