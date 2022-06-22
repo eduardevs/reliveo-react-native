@@ -22,10 +22,13 @@ export default function ({setSynchroEtape}) {
             </View>
             <Text style={styles.bottomText}>La désynchronisation vous empêchera de poster du contenu pour cet événement.</Text>
             <Text style={styles.bottomText}>Pour vous re-synchroniser avec cet événement, vous allez devoir vous géolocaliser. </Text>
-            <Button
+
+            <TouchableOpacity
+                style={styles.button}
                 onPress={() => setSynchroEtape('SyncInfoQrCode')}
-                title="Désynchronisation"
-            />
+            >
+                <Text style={styles.buttonText}>Désynchronisation</Text>
+            </TouchableOpacity>
         </>
     );
 }

@@ -18,8 +18,17 @@ export default function SyncPosterReliveo({setSynchroEtape}) {
                     <Text style={styles.bottomInfoTitle}>SCENE ALTAR</Text>
                 </View>
             </View>
-            <Text style={styles.bottomText}>Vous êtes maintenant connecté à la piste audio.</Text>
-            <Text style={styles.bottomText}>Cliquez sur le bouton ci-dessous pour poster une photo ou une vidéo</Text>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => setSynchroEtape('SyncChooseScene')}
+            >
+                <Text style={styles.buttonText}>Changer de scène</Text>
+            </TouchableOpacity>
+
+            <View>
+                <Text style={styles.bottomText}>Vous êtes maintenant connecté à la piste audio.</Text>
+                <Text style={styles.bottomText}>Cliquez sur le bouton ci-dessous pour poster une photo ou une vidéo</Text>
+            </View>
             <TouchableOpacity
                 onPress={() => setSynchroEtape('IndexVideo')}
                 style={styles.ImageQrCodeBtnContainer}

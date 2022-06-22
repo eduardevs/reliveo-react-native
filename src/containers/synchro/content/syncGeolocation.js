@@ -17,13 +17,15 @@ export default function SyncGeolocation({setSynchroEtape}) {
             "longitude": 2.4337297,
             "rue": "Rue du Champ Louet",
             "postalCode": "44190",
-            "city":"Clisson",
-            "concertDate":"18/06/2022",
-            "concertHeur":"8h"
+            "city": "Clisson",
+            "concertDate": "18/06/2022",
+            "concertHeur": "8h"
         }
     )
 
-
+    useEffect(() => {
+        CompareGeoLocation()
+    }, [userLocation]);
 
     async function GetCurrentLocation() {
         let {status} = await Location.requestForegroundPermissionsAsync()
@@ -37,31 +39,36 @@ export default function SyncGeolocation({setSynchroEtape}) {
         }
 
         let {coords} = await Location.getCurrentPositionAsync()
+        setUserLocation(coords)
+        console.log(userLocation)
 
-        if (coords) {
-            const {latitude, longitude} = coords
-            let response = await Location.reverseGeocodeAsync({
-                latitude,
-                longitude,
-            })
-            for (let item of response) {
-                let address = `${item.name}, ${item.street}, ${item.postalCode}, ${item.city}`
-
-                setUserLocation(coords)
-                CompareGeoLocation()
-                console.log(coords)
-            }
-        }
+        // if (coords) {
+        //     const {latitude, longitude} = coords
+        //     let response = await Location.reverseGeocodeAsync({
+        //         latitude,
+        //         longitude,
+        //     })
+        //     console.log(coords)
+        //     for (let item of response) {
+        //         let address = `${item.name}, ${item.street}, ${item.postalCode}, ${item.city}`
+        //
+        //
+        //     }
+        // }
     }
-    const CompareGeoLocation = () => {
-        if (userLocation.longitude > eventInfo.longitude - 0.0001 &&
-            userLocation.longitude < eventInfo.longitude + 0.0001 &&
-            userLocation.latitude > eventInfo.latitude - 0.001 &&
-            userLocation.latitude < eventInfo.latitude + 0.001) {
-            setLocationIs(true)
 
-        } else {
-            setLocationIs(false)
+    const CompareGeoLocation = () => {
+        if (userLocation) {
+
+            if (userLocation.longitude > eventInfo.longitude - 0.0001 &&
+                userLocation.longitude < eventInfo.longitude + 0.0001 &&
+                userLocation.latitude > eventInfo.latitude - 0.001 &&
+                userLocation.latitude < eventInfo.latitude + 0.001) {
+                setLocationIs(true)
+
+            } else {
+                setLocationIs(false)
+            }
         }
 
     }
@@ -94,7 +101,7 @@ export default function SyncGeolocation({setSynchroEtape}) {
                     <Marker
                         coordinate={{
                             latitude: eventInfo.latitude,
-                            longitude:  eventInfo.longitude,
+                            longitude: eventInfo.longitude,
                         }}
                         title={'Lat: ' + eventInfo.latitude + ', Long: ' + eventInfo.longitude}
                     />

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Text} from 'react-native';
+import {Button, Text, TouchableOpacity} from 'react-native';
 import styles from "../../styles";
 
 
@@ -11,10 +11,12 @@ export default function SyncGeolocationSuccess({eventInfo, setSynchroEtape}) {
             <Text style={styles.bottomInfoText}>{eventInfo.rue}</Text>
             <Text style={styles.bottomInfoText}>{eventInfo.postalCode} {eventInfo.city}</Text>
             <Text style={styles.bottomInfoText}>{eventInfo.latitude}, {eventInfo.longitude}</Text>
-            <Button
+            <TouchableOpacity
+                style={styles.button}
                 onPress={() => setSynchroEtape('SyncChooseScene')}
-                title="Finaliser synchro"
-            />
+            >
+                <Text style={styles.buttonText}>Finaliser synchro</Text>
+            </TouchableOpacity>
         </>
 
     )

@@ -21,10 +21,12 @@ export default function SyncInfoEvent({setSynchroEtape}) {
             </View>
             <Text style={styles.bottomText}>Vous devez à présent vous géolocaliser pour confirmer votre présence à
                 l’événement.</Text>
-            <Button
+            <TouchableOpacity
+                style={styles.button}
                 onPress={() => setSynchroEtape('SyncGeolocation')}
-                title="Se géolocaliser"
-            />
+            >
+                <Text style={styles.buttonText}>Se géolocaliser</Text>
+            </TouchableOpacity>
         </>
     );
 }

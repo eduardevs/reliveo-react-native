@@ -30,25 +30,35 @@ const styles = StyleSheet.create({
         position: "relative",
         alignItems: "center",
     },
+    button: {
+        backgroundColor: '#A65AFF',
+        paddingVertical:5,
+        paddingHorizontal:20,
+        textAlign:"center",
+        borderRadius:10,
+    },
+    buttonText: {
+      color: "white",
+      fontSize: 14,
+    },
     bottomTitle: {
         textAlign: 'left',
-        fontSize: 28,
+        fontSize: 26,
         color: '#A65AFF',
         fontWeight: 'bold',
-        padding: 20,
+        padding: 10,
     },
     bottomText: {
         textAlign: 'left',
-        fontSize: 18,
+        fontSize: 16,
         color: '#FFF',
         fontWeight: 'bold',
         marginBottom: 15,
-        paddingRight: 20,
-        paddingLeft: 20,
+        paddingHorizontal: 20,
     },
     bottomList: {
         paddingRight: 20,
-        paddingLeft: 20,
+        paddingLeft: 16,
         textAlign: 'left',
         fontSize: 18,
         color: '#FFF',
@@ -57,7 +67,7 @@ const styles = StyleSheet.create({
     },
     bottomInfoTitle: {
         paddingRight: 20,
-        paddingLeft: 20,
+        paddingLeft: 16,
         textAlign: 'center',
         fontSize: 18,
         color: '#FFF',
@@ -66,7 +76,7 @@ const styles = StyleSheet.create({
     },
     bottomInfoText: {
         paddingRight: 20,
-        paddingLeft: 20,
+        paddingLeft: 16,
         textAlign: 'center',
         fontSize: 12,
         color: '#FFF',
@@ -75,7 +85,7 @@ const styles = StyleSheet.create({
     },
     bottomLien: {
         paddingRight: 20,
-        paddingLeft: 20,
+        paddingLeft: 16,
         textAlign: 'center',
         fontSize: 10,
         color: '#A65AFF',
@@ -88,8 +98,7 @@ const styles = StyleSheet.create({
         color: '#FB9905',
         fontWeight: 'bold',
         marginBottom: 15,
-        paddingRight: 20,
-        paddingLeft: 20,
+        paddingHorizontal: 20,
     },
     bottomSuccessText:  {
         textAlign: 'center',
@@ -97,8 +106,7 @@ const styles = StyleSheet.create({
         color: '#0CF2B1',
         fontWeight: 'bold',
         marginBottom: 15,
-        paddingRight: 20,
-        paddingLeft: 20,
+        paddingHorizontal: 20,
     },
     bottomErrorText:  {
         textAlign: 'center',
@@ -106,8 +114,7 @@ const styles = StyleSheet.create({
         color: '#F06458',
         fontWeight: 'bold',
         marginBottom: 15,
-        paddingRight: 20,
-        paddingLeft: 20,
+        paddingHorizontal: 20,
     },
     ImageQrCodeBtnContainer: {
         backgroundColor: '#232323',
@@ -130,7 +137,7 @@ const styles = StyleSheet.create({
         right:10,
     },
     ImageEventContainer: {
-        marginBottom:20,
+        marginBottom:5,
         marginTop:0,
     },
     mapContainer: {
@@ -148,6 +155,17 @@ const styles = StyleSheet.create({
         height: "100%",
         borderRadius: 30,
     },
+    pickerContainer: {
+        width: Dimensions.get("window").width/2,
+        marginBottom:50,
+    },
+    picker:{
+      color:"white"
+    },
+    pickerItem: {
+        color: "white",
+        backgroundColor: "#282828",
+    }
 });
 
 export default styles

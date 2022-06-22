@@ -1,13 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, Button, Dimensions, TouchableOpacity, Image} from 'react-native';
-import {BarCodeScanner} from 'expo-barcode-scanner';
+import React, {useState} from 'react';
+import {Text, View, TouchableOpacity, Image} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import {Feather, Foundation} from "@expo/vector-icons";
 
 import styles from "./styles";
 import IndexSynchro from "../synchro/indexSynchro";
 import ButtonReliveau from "../../assets/buttonReliveau.png";
-import {Camera} from "expo-camera";
 
 export default function BottomNav() {
     const [bottomSynchroVisible, setBottomSynchroVisible] = useState(false);

@@ -5,16 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/buttonReliveau.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/bottomNav/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/bottomNav/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/qrCode/syncQrCodeScan.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/qrCode/syncQrCodeScan.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/indexSynchro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/indexSynchro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationSuccess.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationSuccess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncChooseScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncChooseScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncDesynchro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncDesynchro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncGeolocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncGeolocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncInfoEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncInfoEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncPosterReliveo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncPosterReliveo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/synchro/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/styles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,6 +98,7 @@
       <workItem from="1654718160439" duration="3586000" />
       <workItem from="1654792825777" duration="8233000" />
       <workItem from="1655027565573" duration="8700000" />
+      <workItem from="1655883430391" duration="16194000" />
     </task>
     <servers />
   </component>
