@@ -8,12 +8,12 @@ import { GoogleInscriptionLogo } from '../../components/buttons/GoogleLoginButto
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
 import { InputText } from '../../components/inputs/InputText/InputText'
 import { styles } from '../../theme/styles/styleEduardo'
-import { Colors } from '../../theme/palette'
+import { colors } from '../../theme/palette'
 
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
-const { secondary } = Colors
+const { secondary } = colors
 
 export const Signup = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);

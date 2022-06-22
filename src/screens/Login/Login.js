@@ -8,13 +8,13 @@ import { GoogleSigninLogo } from '../../components/buttons/GoogleLoginButton/Svg
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
 import { InputText } from '../../components/inputs/InputText/InputText'
 import { styles } from '../../theme/styles/styleEduardo'
-import { Colors } from '../../theme/palette'
+import { colors } from '../../theme/palette'
 import axios from "axios"
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
-const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = Colors
+const { secondary } = colors
 
 export const Login = ({ navigation}) => {
   const [hidePassword, setHidePassword] = useState(true);

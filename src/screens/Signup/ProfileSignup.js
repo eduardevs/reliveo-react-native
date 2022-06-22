@@ -7,12 +7,12 @@ import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWra
 import { InputText } from '../../components/inputs/InputText/InputText'
 // update import
 import { styles } from '../../theme/styles/styleEduardo'
-import { Colors } from '../../theme/palette'
+import { colors } from '../../theme/palette'
 
 
 const { Avatar, Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent, GoogleBtn, ButtonTextGoogle } = styles
 
-const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = Colors
+const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = colors
 
 export const ProfileSignup = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);

@@ -1,10 +1,10 @@
 import { StyleSheet, Dimensions } from 'react-native'
-import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
-import { Colors } from '../palette'
+import { colors } from '../palette'
+import { typo } from '../fonts'
 
 let ScreenHeight = Dimensions.get("window").height;
-
-const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = Colors
+// const { titleBold } = typo
+const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = colors
 
 export const styles = StyleSheet.create({
   Container: {
@@ -41,7 +41,6 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 10
   },
-
   WelcomeImage: {
     height: "50%",
     minWidth: 100
@@ -49,7 +48,6 @@ export const styles = StyleSheet.create({
   PageTitle: {
     fontSize: 30,
     textAlign: "center",
-    fontWeight: "bold",
     color: ReliveoBrand,
     padding: 10
     // ${(props) => props.welcome && `
@@ -71,36 +69,35 @@ export const styles = StyleSheet.create({
   StyledFormArea: {
     width: "90%",
   },
-  StyledTextInput: {
-    backgroundColor: "white",
-    padding: 15,
-    paddingLeft: 55,
-    paddingRight: 55,
-    borderRadius: 5,
-    fontSize: 16,
-    marginVertical: 3,
-    marginBottom: 10,
-    color: "black"
-  },
-  StyledInputLabel: {
-    color: "white",
-    fontSize: 13,
-    textAlign: 'left'
-  }
+  // StyledTextInput: {
+  //   backgroundColor: "white",
+  //   padding: 15,
+  //   paddingLeft: 55,
+  //   paddingRight: 55,
+  //   borderRadius: 5,
+  //   fontSize: 16,
+  //   marginVertical: 3,
+  //   marginBottom: 10,
+  //   color: "black"
+  // },
+  // StyledInputLabel: {
+  //   color: "white",
+  //   fontSize: 13,
+  //   textAlign: 'left'
+  // },
   // ICON
-  ,
-  LeftIcon: {
-    left: 15,
-    top: 38,
-    position: 'absolute',
-    zIndex: 1
-  },
-  RightIcon: {
-    right: 15,
-    top: 38,
-    position: 'absolute',
-    zIndex: 1
-  },
+  // LeftIcon: {
+  //   left: 15,
+  //   top: 38,
+  //   position: 'absolute',
+  //   zIndex: 1
+  // },
+  // RightIcon: {
+  //   right: 15,
+  //   top: 38,
+  //   position: 'absolute',
+  //   zIndex: 1
+  // },
   StyledButton: {
     padding: 15,
     backgroundColor: ReliveoBrand,

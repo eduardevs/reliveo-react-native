@@ -3,8 +3,11 @@ import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 
 import { styles } from '../../theme/styles/styleEduardo'
+import { style } from './style'
 
-const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line, WelcomeContainer, Avatar, WelcomeImage } = styles
+const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line, Avatar } = styles
+
+const { WelcomeImage, WelcomeContainer } = style
 
 export const Welcome = ({navigation, route}) => {
     const {name, email} = route.params;
