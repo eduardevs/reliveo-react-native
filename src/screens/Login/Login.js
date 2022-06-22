@@ -3,17 +3,17 @@ import { Formik } from 'formik'
 import React, { useState } from 'react'
 import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { GoogleSigninLogo } from '../../components/buttons/GoogleLoginButton/SvgComponents'
-// import { GoogleInscriptionLogo } from '../components/atoms/buttons/GoogleLoginButton/SvgComponents'
 
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
 import { InputText } from '../../components/inputs/InputText/InputText'
-import { Colors, styles } from '../../theme/styles/styleEduardo'
+import { styles } from '../../theme/layout'
+import { colors } from '../../theme/palette'
 import axios from "axios"
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink } = styles
 
-const { primary, secondary, ternary, darkLight } = Colors
+const { secondary } = colors
 
 export const Login = ({ navigation}) => {
   const [hidePassword, setHidePassword] = useState(true);
@@ -111,7 +111,7 @@ export const Login = ({ navigation}) => {
 
                   {isSubmitting &&
                   <TouchableOpacity style={StyledButton} disabled={true}>
-                    <ActivityIndicator size="large" color={ternary} />
+                    <ActivityIndicator size="large" color={secondary} />
                   </TouchableOpacity>
                   }
               

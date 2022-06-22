@@ -1,14 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
-import { Colors } from '../theme/styles/styleEduardo'
+import { colors } from '../theme/palette'
 import { Login } from '../screens/Login/Login'
 import { Welcome } from '../screens/Welcome/Welcome'
 import { Signup } from '../screens/Signup/Signup'
 // import { ProfileSignup } from '../Components/Signup/ProfileSignup'
 // import { ProfileMusic } from '../Components/Signup/ProfileMusic'
 
-const { ternary } = Colors
+const { secondary } = colors
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +20,7 @@ export const RootStack = () => {
           headerStyled: {
             backgroundColor: 'transparent'
           },
-          headerTintColor: ternary,
+          headerTintColor: secondary,
           headerTransparent: true,
           headerTitle: '',
           headerLeftContainerStyle: {

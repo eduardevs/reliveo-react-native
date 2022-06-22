@@ -5,14 +5,12 @@ import { Text, TouchableOpacity, View } from 'react-native'
 
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper'
 // update import
-import { Colors, styles } from '../../theme/styles/styleEduardo'
+import { styles } from '../../theme/layout'
 
-const { Avatar, Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledTextInput, LeftIcon, RightIcon, StyledInputLabel, StyledButton, ButtonText, MsgBox, Line, ExtraView, ExtraText, TextLink, TextLinkContent, GoogleBtn, ButtonTextGoogle } = styles
-
-const { primary, secondary, ternary, darkLight } = Colors
+const { Container, InnerContainer, PageTitle, StyledFormArea, StyledButton, ButtonText } = styles
 
 export const ProfileMusic = ({ navigation }) => {
-
+  
   return (
     <KeyboardAvoidingWrapper>
       <View style={Container}>
