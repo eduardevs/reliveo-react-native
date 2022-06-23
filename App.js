@@ -26,7 +26,7 @@ export default function App() {
                 }}
             >
                 <Drawer.Screen name="Home" component={HomeStackScreen} />
-                <Drawer.Screen name="Details" component={DetailsStackScreen} />
+                <Drawer.Screen name="Singup" component={DetailsStackScreen} />
             </Drawer.Navigator>
         </NavigationContainer>
     );

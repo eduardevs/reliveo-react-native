@@ -21,6 +21,6 @@ export const DetailsStackScreen = ({ navigation }) => (
             },
         }}
     >
-        <DetailStack.Screen name="Details" component={Signup} />
+        <DetailStack.Screen name="Singup" component={Signup} />
     </DetailStack.Navigator>
 );

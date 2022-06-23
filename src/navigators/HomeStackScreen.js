@@ -6,6 +6,7 @@ import { View, ActivityIndicator, SafeAreaView, Text, StatusBar, Button } from '
 // import { RootStack } from './src/navigators/RootStack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Login } from '../screens/Login/Login';
+import { Welcome } from '../screens/Welcome/Welcome';
 
 const { secondary } = colors;
 
@@ -25,6 +26,7 @@ export const HomeStackScreen = ({ navigation }) => (
             },
         }}
     >
-        <HomeStack.Screen name="Home" component={Login} />
+        <HomeStack.Screen name="Login" component={Login} />
+        <HomeStack.Screen name="Welcome" component={Welcome} />
     </HomeStack.Navigator>
 );
