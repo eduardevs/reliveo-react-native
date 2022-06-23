@@ -6,6 +6,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 // import { SignupStackScreen } from './src/navigators/SignupStackScreen';
 // import { MainTabScreen } from './src/navigators/MainTabNavigation';
 import { HomeStackScreen } from './src/navigators/HomeStackScreen';
+import { RootStackScreen } from './src/navigators/RootStackScreen';
 
 const Drawer = createDrawerNavigator();
 const { secondary } = colors;
@@ -13,7 +14,8 @@ const { secondary } = colors;
 export default function App() {
     return (
         <NavigationContainer>
-            <Drawer.Navigator
+            <RootStackScreen />
+            {/* <Drawer.Navigator
                 initialRouteName="Home"
                 screenOptions={{
                     headerStyled: {
@@ -28,8 +30,8 @@ export default function App() {
                 }}
             >
                 <Drawer.Screen name="Home" component={HomeStackScreen} />
-                {/* <Drawer.Screen name="Sign Up" component={SignupStackScreen} /> */}
-            </Drawer.Navigator>
+                {/* More screens to navigate in the Drawer Menu :   like, support screen and settings */}
+            {/* </Drawer.Navigator>  */}
         </NavigationContainer>
     );
 }

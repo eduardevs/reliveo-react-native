@@ -5,10 +5,12 @@ import { Login } from '../screens/Login/Login';
 
 const { secondary } = colors;
 
-const DetailStack = createNativeStackNavigator();
+const RootStack = createNativeStackNavigator();
 
-export const DetailsStackScreen = ({ navigation }) => (
-    <DetailStack.Navigator
+export const RootStackScreen = ({ navigation }) => (
+    <RootStack.Navigator
+        initialRouteName="Login"
+        headerMode="none"
         screenOptions={{
             headerStyled: {
                 backgroundColor: 'transparent',
@@ -21,7 +23,7 @@ export const DetailsStackScreen = ({ navigation }) => (
             },
         }}
     >
-        <DetailStack.Screen name="Singup" component={Signup} />
-        <DetailStack.Screen name="Login" component={Login} />
-    </DetailStack.Navigator>
+        <RootStack.Screen name="Login" component={Login} />
+        <RootStack.Screen name="Signup" component={Signup} />
+    </RootStack.Navigator>
 );
