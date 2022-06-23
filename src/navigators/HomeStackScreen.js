@@ -26,7 +26,6 @@ export const HomeStackScreen = ({ navigation }) => (
             },
         }}
     >
-        <HomeStack.Screen name="Login" component={Login} />
         <HomeStack.Screen name="Welcome" component={Welcome} />
     </HomeStack.Navigator>
 );
