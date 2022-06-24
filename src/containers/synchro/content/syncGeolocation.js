@@ -13,8 +13,8 @@ export default function SyncGeolocation({setSynchroEtape}) {
     const [userLocation, setUserLocation] = useState(null)
     const [eventInfo, setEventInfo] = useState(
         {
-            "latitude": 48.859416,
-            "longitude": 2.4337297,
+            "latitude": 48.8827736,
+            "longitude": 2.1721564,
             "rue": "Rue du Champ Louet",
             "postalCode": "44190",
             "city": "Clisson",
@@ -23,8 +23,9 @@ export default function SyncGeolocation({setSynchroEtape}) {
         }
     )
 
-    useEffect(() => {
+    useEffect(async () => {
         CompareGeoLocation()
+        let {status} = await Location.requestForegroundPermissionsAsync()
     }, [userLocation]);
 
     async function GetCurrentLocation() {
@@ -91,6 +92,14 @@ export default function SyncGeolocation({setSynchroEtape}) {
                 lieu de l’événement.</Text>
             <View style={styles.mapContainer}>
                 <MapView style={styles.map}
+                         followsUserLocation={true}
+                         showsUserLocation={true}
+                         showsMyLocationButton={true}
+                         showsCompass={true}
+                         toolbarEnabled={true}
+                         zoomEnabled={true}
+                         rotateEnabled={true}
+
                          initialRegion={{
                              latitude: eventInfo.latitude,
                              longitude: eventInfo.longitude,
