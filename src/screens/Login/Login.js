@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { GoogleSigninLogo } from '../../components/buttons/GoogleLoginButton/SvgComponents';
 
@@ -8,7 +8,7 @@ import { InputText } from '../../components/inputs/InputText/InputText';
 import { styles } from '../../theme/layout';
 import { colors } from '../../theme/palette';
 import axios from 'axios';
-import { AuthContext } from '../../context/context';
+import { AuthContext } from '../../context/AuthContext';
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const {
@@ -37,7 +37,7 @@ export const Login = ({ navigation }) => {
         password: '',
     });
 
-    const { signIn } = React.useContext(AuthContext);
+    const { login } = useContext(AuthContext);
 
     const handleLogin = (credentials, setIsSubmitting) => {
         handleMessage(null);
@@ -52,10 +52,12 @@ export const Login = ({ navigation }) => {
                 if (status !== 'SUCCESS') {
                     handleMessage(message, status);
                 } else {
+                    // HERE LOGIN WITH NAVIGATION OR REDUCER
+                    login(data.email, data.password);
                     // signIn();
-                    // loginHandle(email, password);
+                    // loginHandle(data.email, data.password);
                     // navigation.navigate('Welcome', { ...data[0] });
-                    navigation.navigate('Welcome');
+                    // navigation.navigate('Welcome');
                 }
                 setIsSubmitting(false);
             })
@@ -82,9 +84,9 @@ export const Login = ({ navigation }) => {
         setMessageType(type);
     };
 
-    const loginHandle = (email, password) => {
-        signIn(email, password);
-    };
+    // const loginHandle = (email, password) => {
+    //     signIn(email, password);
+    // };
 
     return (
         <KeyboardAvoidingWrapper>
@@ -92,6 +94,7 @@ export const Login = ({ navigation }) => {
                 <StatusBar style="dark" />
                 <View style={InnerContainer}>
                     <Text style={PageTitle}>Bon retour parmis nous !</Text>
+
                     <View style={StyledFormArea}>
                         <TouchableOpacity onPress={() => {}}>
                             <GoogleSigninLogo />
@@ -121,7 +124,7 @@ export const Login = ({ navigation }) => {
                         />
 
                         <View style={ExtraView}>
-                            <Text style={TextLink}>Mot de passe oublié</Text>
+                            <Text style={TextLink}>Mot de passe oublié </Text>
                         </View>
 
                         <Text type={messageType} style={MsgBox}>
