@@ -1,9 +1,9 @@
 import { View, TextInput, TouchableOpacity, Text } from 'react-native';
 import { Ionicons, Octicons } from '@expo/vector-icons';
-import { styles } from './style';
+import { style } from './style';
 import { colors } from '../../../theme/palette';
 
-const { LeftIcon, RightIcon, StyledInputLabel, StyledTextInput } = styles;
+const { LeftIcon, RightIcon, StyledInputLabel, StyledTextInput } = style;
 const { ReliveoBrandLight, ReliveoBrand } = colors;
 
 export const InputText = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {

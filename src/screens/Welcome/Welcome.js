@@ -5,12 +5,14 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from '../../theme/layout';
 import { MainTabScreen } from '../../navigators/MainTabNavigation';
 import { style } from './style';
+// import { AuthContext } from '../../context/context';
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line } = styles;
 
 const { WelcomeImage, WelcomeContainer } = style;
 
 export const Welcome = ({ navigation }) => {
+    const { signOut } = React.useContext(AuthContext);
     // const { name, email } = route.params;
     return (
         <>
@@ -22,11 +24,16 @@ export const Welcome = ({ navigation }) => {
                         <Text style={SubTitle}>{'Giga Chad'}</Text>
                         <Text style={SubTitle}>{'gigachad@mail.com'}</Text>
                         <View style={StyledFormArea}>
-                            {/* <TouchableOpacity style={StyledButton} onPress={() => {}}>
-                                <Text style={ButtonText} onPress={() => navigation.goBack()}>
+                            <TouchableOpacity style={StyledButton} onPress={() => {}}>
+                                <Text
+                                    style={ButtonText}
+                                    onPress={() => {
+                                        // signOut();
+                                    }}
+                                >
                                     Se deconnecter
                                 </Text>
-                            </TouchableOpacity> */}
+                            </TouchableOpacity>
                             <View style={Line}></View>
                         </View>
                     </View>

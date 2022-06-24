@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export const styles = StyleSheet.create({
+export const style = StyleSheet.create({
     StyledTextInput: {
         backgroundColor: 'white',
         padding: 15,

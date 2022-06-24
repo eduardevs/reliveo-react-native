@@ -1,5 +1,4 @@
 import { Fontisto } from '@expo/vector-icons';
-import { HomeStackScreen } from './HomeStackScreen';
 import { Content } from '../screens/Content/Content';
 // import { Events } from './Events/Events';
 // import { Favorites } from './Favorites/Favorites';

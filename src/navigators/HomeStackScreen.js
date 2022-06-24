@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from '../theme/palette';
 import { useState } from 'react';
 import { View, ActivityIndicator, SafeAreaView, Text, StatusBar, Button } from 'react-native';
-// import { RootStack } from './src/navigators/RootStack';
+
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Login } from '../screens/Login/Login';
 import { Welcome } from '../screens/Welcome/Welcome';

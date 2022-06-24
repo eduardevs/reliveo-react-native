@@ -1,5 +1,4 @@
 import { StatusBar } from 'expo-status-bar';
-import { Formik } from 'formik';
 import React, { useState } from 'react';
 import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { GoogleSigninLogo } from '../../components/buttons/GoogleLoginButton/SvgComponents';
@@ -9,6 +8,7 @@ import { InputText } from '../../components/inputs/InputText/InputText';
 import { styles } from '../../theme/layout';
 import { colors } from '../../theme/palette';
 import axios from 'axios';
+import { AuthContext } from '../../context/context';
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const {
@@ -31,8 +31,15 @@ export const Login = ({ navigation }) => {
     const [hidePassword, setHidePassword] = useState(true);
     const [message, setMessage] = useState();
     const [messageType, setMessageType] = useState();
+    const [isSubmitting, setIsSubmitting] = useState();
+    const [data, setData] = useState({
+        email: '',
+        password: '',
+    });
 
-    const handleLogin = (credentials, setSubmitting) => {
+    const { signIn } = React.useContext(AuthContext);
+
+    const handleLogin = (credentials, setIsSubmitting) => {
         handleMessage(null);
         // URL LOGIN ENDPOINT HERE
         const url = 'https://limitless-cove-87023.herokuapp.com/user/signin'; // EX: API (NODEJS)
@@ -45,20 +52,38 @@ export const Login = ({ navigation }) => {
                 if (status !== 'SUCCESS') {
                     handleMessage(message, status);
                 } else {
-                    navigation.navigate('Welcome', { ...data[0] });
+                    // signIn();
+                    // loginHandle(email, password);
+                    // navigation.navigate('Welcome', { ...data[0] });
+                    navigation.navigate('Welcome');
                 }
-                setSubmitting(false);
+                setIsSubmitting(false);
             })
             .catch((error) => {
-                console.log(error.JSON());
-                setSubmitting(false);
+                console.log(error);
+                setIsSubmitting(false);
                 handleMessage('An error occurred. Check your network and try again.');
             });
+    };
+
+    const handleSubmit = () => {
+        console.log(data);
+        if (data.email == '' && data.password == '') {
+            handleMessage('Please fill all the fields');
+            setIsSubmitting(false);
+        } else {
+            console.log(data);
+            handleLogin(data, setIsSubmitting);
+        }
     };
 
     const handleMessage = (message, type = 'FAILED') => {
         setMessage(message);
         setMessageType(type);
+    };
+
+    const loginHandle = (email, password) => {
+        signIn(email, password);
     };
 
     return (
@@ -67,77 +92,61 @@ export const Login = ({ navigation }) => {
                 <StatusBar style="dark" />
                 <View style={InnerContainer}>
                     <Text style={PageTitle}>Bon retour parmis nous !</Text>
+                    <View style={StyledFormArea}>
+                        <TouchableOpacity onPress={() => {}}>
+                            <GoogleSigninLogo />
+                        </TouchableOpacity>
+                        <View style={Line}></View>
 
-                    <Formik
-                        initialValues={{ email: '', password: '' }}
-                        onSubmit={(values, { setSubmitting }) => {
-                            if (values.email == '' && values.password == '') {
-                                handleMessage('Please fill all the fields');
-                                setSubmitting(false);
-                            } else {
-                                console.log(values);
-                                handleLogin(values, setSubmitting);
-                            }
-                        }}
-                    >
-                        {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) => (
-                            <View style={StyledFormArea}>
-                                <TouchableOpacity onPress={handleSubmit}>
-                                    <GoogleSigninLogo />
-                                </TouchableOpacity>
-                                <View style={Line}></View>
+                        <InputText
+                            label={''}
+                            icon="person"
+                            placeholder="Adresse mail"
+                            onChangeText={(val) => setData({ ...data, email: val })}
+                            // onBlur={handleBlur('email')}
+                            value={data.email}
+                        />
 
-                                <InputText
-                                    label={''}
-                                    icon="person"
-                                    placeholder="Adresse mail"
-                                    onChangeText={handleChange('email')}
-                                    onBlur={handleBlur('email')}
-                                    value={values.identifiant}
-                                />
+                        <InputText
+                            label={''}
+                            icon="lock"
+                            placeholder="Mot de passe"
+                            onChangeText={(val) => setData({ ...data, password: val })}
+                            // onBlur={handleBlur('password')}
+                            value={data.password}
+                            secureTextEntry={hidePassword}
+                            isPassword={true}
+                            hidePassword={hidePassword}
+                            setHidePassword={setHidePassword}
+                        />
 
-                                <InputText
-                                    label={''}
-                                    icon="lock"
-                                    placeholder="Mot de passe"
-                                    onChangeText={handleChange('password')}
-                                    onBlur={handleBlur('password')}
-                                    value={values.password}
-                                    secureTextEntry={hidePassword}
-                                    isPassword={true}
-                                    hidePassword={hidePassword}
-                                    setHidePassword={setHidePassword}
-                                />
+                        <View style={ExtraView}>
+                            <Text style={TextLink}>Mot de passe oublié</Text>
+                        </View>
 
-                                <View style={ExtraView}>
-                                    <Text style={TextLink}>Mot de passe oublié</Text>
-                                </View>
+                        <Text type={messageType} style={MsgBox}>
+                            {message}
+                        </Text>
 
-                                <Text type={messageType} style={MsgBox}>
-                                    {message}
-                                </Text>
-
-                                {!isSubmitting && (
-                                    <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
-                                        <Text style={ButtonText}>Je me connecte</Text>
-                                    </TouchableOpacity>
-                                )}
-
-                                {isSubmitting && (
-                                    <TouchableOpacity style={StyledButton} disabled={true}>
-                                        <ActivityIndicator size="large" color={secondary} />
-                                    </TouchableOpacity>
-                                )}
-
-                                <View style={ExtraView}>
-                                    <Text style={ExtraText}>Je n'ai pas de compte</Text>
-                                    <Text style={TextLink} onPress={() => navigation.navigate('Signup')}>
-                                        Sign up
-                                    </Text>
-                                </View>
-                            </View>
+                        {!isSubmitting && (
+                            <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
+                                <Text style={ButtonText}>Je me connecte</Text>
+                            </TouchableOpacity>
                         )}
-                    </Formik>
+
+                        {isSubmitting && (
+                            <TouchableOpacity style={StyledButton} disabled={true}>
+                                <ActivityIndicator size="large" color={secondary} />
+                            </TouchableOpacity>
+                        )}
+
+                        <View style={ExtraView}>
+                            <Text style={ExtraText}>Je n'ai pas de compte</Text>
+                            <Text style={TextLink} onPress={() => navigation.navigate('Signup')}>
+                                Sign up
+                            </Text>
+                        </View>
+                    </View>
                 </View>
             </View>
         </KeyboardAvoidingWrapper>
