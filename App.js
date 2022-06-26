@@ -127,20 +127,18 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 export default function App() {
 	const Stack = createNativeStackNavigator();
 	const Tab = createBottomTabNavigator();
-	const bottomTabScreen = () => {
+	const BottomTabScreen = () => {
 		return(
 			<Tab.Navigator 
-			screenOptions={({route}) =>{
-
-			}}>
+			screenOptions={{headerShown: true}}>
 				<Tab.Screen name="ProfileScreen" component={ProfileScreen}/>
 			</Tab.Navigator>
 		)
 	}
 	return (
 		<NavigationContainer>
-			<Stack.Navigator>
-				<Stack.Screen name="Bottom" component={bottomTabScreen} />
+			<Stack.Navigator screenOptions={{ headerShown: false }}>
+				<Stack.Screen name="Bottom" component={BottomTabScreen} />
 			</Stack.Navigator>
 			{/* <View style={styles.container}>
 				<ProfileScreen></ProfileScreen>
