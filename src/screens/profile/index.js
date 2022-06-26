@@ -9,11 +9,9 @@ import ProfileTabs from "../../components/profile/tabs";
 export default function ProfileScreen() {
 	return (
 		<View style={styles.container}>
-			
-			<ProfileNavBar />
-			<ProfileHeader />
+			{/* <ProfileNavBar />
+			<ProfileHeader /> */}
 			<ProfileTabs />
-			
 		</View>
 	);
 }

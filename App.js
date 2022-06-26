@@ -130,7 +130,7 @@ export default function App() {
 	const BottomTabScreen = () => {
 		return(
 			<Tab.Navigator 
-			screenOptions={{headerShown: false}}>
+			screenOptions={{headerShown: true}}>
 				<Tab.Screen name="ProfileScreen" component={ProfileScreen}/>
 			</Tab.Navigator>
 		)
