@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/firebaseConfig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/photo/cameraPhoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/photo/cameraPhoto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/cameraRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/cameraRecord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncGeolocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncGeolocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,25 +49,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\composents\synchro\content" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\composents\camera\qrCode" />
-      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\composents\camera" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\firebase" />
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\composents\camera\video" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\node_modules" />
     </key>

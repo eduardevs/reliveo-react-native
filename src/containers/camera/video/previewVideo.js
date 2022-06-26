@@ -1,4 +1,4 @@
-import {View, TouchableOpacity, Text, Button, Platform} from 'react-native'
+import {View, TouchableOpacity, Text, Button, Platform, Alert} from 'react-native'
 import React, {useState, useEffect, useRef} from 'react'
 import * as Notifications from 'expo-notifications'
 import {Audio, Video} from 'expo-av'
@@ -6,10 +6,10 @@ import {Feather} from '@expo/vector-icons'
 import * as MediaLibrary from 'expo-media-library'
 
 
+import {firebase} from '../../../../firebaseConfig'
+
 import styles from '../styles'
-
-
-
+import alert from "react-native-web/dist/exports/Alert";
 
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
@@ -19,6 +19,7 @@ Notifications.setNotificationHandler({
     }),
 });
 
+
 export default function PreviewVideo({record, setRecordFinish}) {
     const [status, setStatus] = React.useState({});
     const video = React.useRef(null);
@@ -27,6 +28,8 @@ export default function PreviewVideo({record, setRecordFinish}) {
     const [notification, setNotification] = useState(false);
     const notificationListener = useRef();
     const responseListener = useRef();
+
+    const [uploding, setUploding] = useState(false);
 
 
     useEffect(() => {
@@ -39,12 +42,28 @@ export default function PreviewVideo({record, setRecordFinish}) {
         responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
             console.log(response);
         });
-
         return () => {
             Notifications.removeNotificationSubscription(notificationListener.current);
             Notifications.removeNotificationSubscription(responseListener.current);
         };
     }, []);
+
+    const uplodVideo = async () => {
+        setUploding(true)
+        const response = await fetch(record)
+        console.log(response)
+        const blob = await response.blob()
+        const filename = record.substring(record.lastIndexOf('/'+1))
+        var ref = firebase.storage().ref().child(filename).put(blob)
+
+        try {
+            await ref
+        } catch (e) {
+            console.log(e)
+        }
+        setUploding(false)
+    }
+
 
     async function schedulePushNotification() {
         await Notifications.scheduleNotificationAsync({
@@ -88,6 +107,12 @@ export default function PreviewVideo({record, setRecordFinish}) {
                             onPress={async () => {
                                 await downloadFile(record);
                             }}
+                        >
+                            <Feather name="download" size={24} color={'#A65AFF'}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.sideBarButton}
+                            onPress={uplodVideo}
                         >
                             <Feather name="download" size={24} color={'#A65AFF'}/>
                         </TouchableOpacity>

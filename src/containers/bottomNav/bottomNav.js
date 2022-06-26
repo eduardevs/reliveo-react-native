@@ -9,11 +9,11 @@ import ButtonReliveau from "../../assets/buttonReliveau.png";
 
 export default function BottomNav() {
     const [bottomSynchroVisible, setBottomSynchroVisible] = useState(false);
-    const [synchroEtape, setSynchroEtape] = useState('SyncInfoQrCode');
+    const [synchroEtape, setSynchroEtape] = useState('IndexVideo');
 
     const toggleBottomNavigationView = () => {
         setBottomSynchroVisible(!bottomSynchroVisible);
-        setSynchroEtape('SyncInfoQrCode');
+        setSynchroEtape('IndexVideo');
     };
 
     return (
