@@ -82,32 +82,32 @@ export const Signup = ({ navigation }) => {
         }
     };
 
-    const handleSignup = (credentials, setIsSubmitting) => {
-        handleMessage(null);
-        setIsSubmitting(true);
-        console.log('credentials', credentials);
-        // URL SIGNUP ENDPOINT HERE
-        const url = 'https://limitless-cove-87023.herokuapp.com/user/signup'; // EX: API (NODEJS)
+    // const handleSignup = (credentials, setIsSubmitting) => {
+    //     handleMessage(null);
+    //     setIsSubmitting(true);
+    //     console.log('credentials', credentials);
+    //     // URL SIGNUP ENDPOINT HERE
+    //     const url = 'https://limitless-cove-87023.herokuapp.com/user/signup'; // EX: API (NODEJS)
 
-        axios
-            .post(url, credentials)
-            .then((response) => {
-                const result = response.data;
-                const { message, status, data } = result;
+    //     axios
+    //         .post(url, credentials)
+    //         .then((response) => {
+    //             const result = response.data;
+    //             const { message, status, data } = result;
 
-                if (status !== 'SUCCESS') {
-                    handleMessage(message, status);
-                } else {
-                    navigation.navigate('Login');
-                }
-                setIsSubmitting(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setIsSubmitting(false);
-                handleMessage('An error occurred. Check your network and try again.');
-            });
-    };
+    //             if (status !== 'SUCCESS') {
+    //                 handleMessage(message, status);
+    //             } else {
+    //                 navigation.navigate('Login');
+    //             }
+    //             setIsSubmitting(false);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //             setIsSubmitting(false);
+    //             handleMessage('An error occurred. Check your network and try again.');
+    //         });
+    // };
 
     const handleMessage = (message, type = 'FAILED') => {
         setMessage(message);
