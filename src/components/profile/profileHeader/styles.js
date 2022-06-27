@@ -9,12 +9,13 @@ const styles = StyleSheet.create({
 		borderColor: "#A65AFF",
 	},
 	container: {
-		display: "flex",
+		// display: "flex",
 		alignItems: "center",
-		height: "100%",
-		textAlign: "center",
-		flexDirection: "column",
-		marginTop: 5,
+		// height: "100%",
+		// textAlign: "center",
+		// flexDirection: "column",
+		// marginTop: 5,
+		backgroundColor: "#2E2E2E"
 	},
 	nickname: {
 		fontWeight: "600",

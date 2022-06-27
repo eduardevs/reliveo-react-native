@@ -12,8 +12,9 @@ export const ProfileScreen = ({ navigation }) => {
 	
     return (
         <View style={styles.container}>
-            {/* <ProfileNavBar />
-			<ProfileHeader /> */}
+			
+            <ProfileNavBar />
+			<ProfileHeader />
 			<ProfileTabs />
         </View>
     );
