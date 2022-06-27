@@ -1,8 +1,119 @@
-import { RootStack } from "./src/navigators/RootStack";
+import React, { useState } from 'react';
+import { colors } from './src/theme/palette';
+import { View, ActivityIndicator, SafeAreaView, Text, StatusBar, Button } from 'react-native';
+import { HomeStackScreen } from './src/navigators/HomeStackScreen';
+import { useEffect } from 'react';
+import { AuthContext, AuthProvider } from './src/context/AuthContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AppNav } from './src/navigators/AppNav';
+
+const { secondary } = colors;
 
 export default function App() {
-  return (
-    // Context here or in each screens, its cleaner second one
-  <RootStack />
-)}
+    // const initialLoginState = {
+    //     isLoading: true,
+    //     email: null,
+    //     userToken: null,
+    // };
 
+    // const loginReducer = (prevState, action) => {
+    //     switch (action.type) {
+    //         case 'RETRIEVE_TOKEN':
+    //             return {
+    //                 ...prevState,
+    //                 userToken: action.token,
+    //                 isLoading: false,
+    //             };
+    //         case 'LOGIN':
+    //             return {
+    //                 ...prevState,
+    //                 email: action.id,
+    //                 userToken: action.token,
+    //                 isLoading: false,
+    //             };
+    //         case 'LOGOUT':
+    //             return {
+    //                 ...prevState,
+    //                 email: null,
+    //                 userToken: null,
+    //                 isLoading: false,
+    //             };
+    //         case 'REGISTER':
+    //             return {
+    //                 ...prevState,
+    //                 email: action.id,
+    //                 userToken: action.token,
+    //                 isLoading: false,
+    //             };
+    //     }
+    // };
+
+    // const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
+
+    // const authContext = React.useMemo(
+    //     () => ({
+    //         signIn: async (email, password) => {
+    //             let userToken;
+    //             userToken = null;
+    //             if (email == 'user' && password == 'pass') {
+    //                 // userToken = 'qsdf';
+    //                 try {
+    //                     await AsyncStorage.setItem('userToken', userToken);
+    //                 } catch (e) {
+    //                     console.log(e);
+    //                 }
+    //             }
+    //             // HERE FETCHHH :
+    //             // userName == email
+    //             // if (email == 'user' && password == 'pass') {
+    //             // }
+    //             dispatch({ type: 'LOGIN', id: email, token: userToken });
+    //             // setUserToken('qsdf');
+    //             // setIsLoading(false);
+    //         },
+    //         signOut: async () => {
+    //             try {
+    //                 await AsyncStorage.removeItem('userToken');
+    //             } catch (e) {
+    //                 console.log(e);
+    //             }
+    //             dispatch({ type: 'LOGOUT' });
+    //         },
+    //         signUp: () => {
+    //             // setUserToken('qsdf');
+    //             // setIsLoading(false);
+    //         },
+    //     }),
+    //     [],
+    // );
+
+    // useEffect(() => {
+    //     setTimeout(async () => {
+    //         // setIsLoading(false);
+    //         let userToken;
+    //         userToken = null;
+    //         // if fetch data, it will log the user
+    //         try {
+    //             userToken = await AsyncStorage.getItem('userToken');
+    //         } catch (e) {
+    //             console.log(e);
+    //         }
+
+    //         dispatch({ type: 'REGISTER', token: userToken });
+    //     }, 1000);
+    // }, []);
+
+    // if (loginState.isLoading) {
+    //     return (
+    //         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    //             <ActivityIndicator size="large" />
+    //         </View>
+    //     );
+    // }
+
+    return (
+        <AuthProvider>
+            <AppNav />
+        </AuthProvider>
+    );
+}
