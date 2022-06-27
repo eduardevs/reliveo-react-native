@@ -14,13 +14,13 @@ const Drawer = createDrawerNavigator();
 export const AppNav = () => {
     const { isLoading, userToken } = useContext(AuthContext);
 
-    if (isLoading) {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <ActivityIndicator size={'large'} />
-            </View>
-        );
-    }
+    // if (isLoading) {
+    //     return (
+    //         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    //             <ActivityIndicator size={'large'} />
+    //         </View>
+    //     );
+    // }
     return (
         <NavigationContainer>
             {userToken !== null ? (
@@ -43,7 +43,6 @@ export const AppNav = () => {
                 </Drawer.Navigator>
             ) : (
                 <RootStackScreen />
-                // Auth
             )}
             {/*
     {/* More screens to navigate in the Drawer Menu :   like, support screen and settings */}

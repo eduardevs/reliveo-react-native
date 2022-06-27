@@ -7,7 +7,7 @@ import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWra
 import { InputText } from '../../components/inputs/InputText/InputText';
 import { styles } from '../../theme/layout';
 import { colors } from '../../theme/palette';
-import axios from 'axios';
+// import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
@@ -43,29 +43,29 @@ export const Login = ({ navigation }) => {
         handleMessage(null);
         // URL LOGIN ENDPOINT HERE
         const url = 'https://limitless-cove-87023.herokuapp.com/user/signin'; // EX: API (NODEJS)
-        axios
-            .post(url, credentials)
-            .then((response) => {
-                const result = response.data;
-                const { message, status, data } = result;
+        // axios
+        //     .post(url, credentials)
+        //     .then((response) => {
+        //         const result = response.data;
+        //         const { message, status, data } = result;
 
-                if (status !== 'SUCCESS') {
-                    handleMessage(message, status);
-                } else {
-                    // HERE LOGIN WITH NAVIGATION OR REDUCER
-                    login(data.email, data.password);
-                    // signIn();
-                    // loginHandle(data.email, data.password);
-                    // navigation.navigate('Welcome', { ...data[0] });
-                    // navigation.navigate('Welcome');
-                }
-                setIsSubmitting(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setIsSubmitting(false);
-                handleMessage('An error occurred. Check your network and try again.');
-            });
+        //         if (status !== 'SUCCESS') {
+        //             handleMessage(message, status);
+        //         } else {
+        //             // HERE LOGIN WITH NAVIGATION OR REDUCER
+        //             login(data.email, data.password);
+        //             // signIn();
+        //             // loginHandle(data.email, data.password);
+        //             // navigation.navigate('Welcome', { ...data[0] });
+        //             // navigation.navigate('Welcome');
+        //         }
+        //         setIsSubmitting(false);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //         setIsSubmitting(false);
+        //         handleMessage('An error occurred. Check your network and try again.');
+        //     });
     };
 
     const handleSubmit = () => {
@@ -74,8 +74,9 @@ export const Login = ({ navigation }) => {
             handleMessage('Please fill all the fields');
             setIsSubmitting(false);
         } else {
-            console.log(data);
-            handleLogin(data, setIsSubmitting);
+            // console.log(data);
+            // handleLogin(data, setIsSubmitting);
+            login(data.email, data.password);
         }
     };
 
@@ -132,7 +133,7 @@ export const Login = ({ navigation }) => {
                         </Text>
 
                         {!isSubmitting && (
-                            <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
+                            <TouchableOpacity style={StyledButton} onPress={() => login(data.email, data.password)}>
                                 <Text style={ButtonText}>Je me connecte</Text>
                             </TouchableOpacity>
                         )}

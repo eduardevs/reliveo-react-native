@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 import { styles } from '../../theme/layout';
@@ -12,9 +12,22 @@ const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledBu
 const { WelcomeImage, WelcomeContainer } = style;
 
 export const Welcome = ({ navigation }) => {
-    // const { signOut } = React.useContext(AuthContext);
-    // const { name, email } = route.params;
-    const { logout } = useContext(AuthContext);
+    const { logout, userInfo } = useContext(AuthContext);
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+
+    useEffect(() => {
+        console.log('testttt', userInfo);
+        console.log('testeso', userInfo.data);
+        const { data } = userInfo;
+        console.log(data);
+        if (data) {
+            const [user] = data;
+            console.log(user.name);
+            setName(user.name);
+            setEmail(user.email);
+        }
+    }, [userInfo]);
 
     return (
         <>
@@ -23,8 +36,8 @@ export const Welcome = ({ navigation }) => {
                 <View style={InnerContainer}>
                     <Image style={WelcomeImage} resizeMode="cover" source={require('../../assets/ReliveoAvatar.png')} />
                     <View style={WelcomeContainer}>
-                        <Text style={SubTitle}>{'Giga Chad'}</Text>
-                        <Text style={SubTitle}>{'gigachad@mail.com'}</Text>
+                        <Text style={SubTitle}>{name ? name : 'Giga Chad'}</Text>
+                        <Text style={SubTitle}>{email ? email : 'gigachad@mail.com'}</Text>
                         <View style={StyledFormArea}>
                             <TouchableOpacity style={StyledButton} onPress={() => {}}>
                                 <Text
