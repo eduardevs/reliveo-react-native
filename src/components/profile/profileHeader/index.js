@@ -7,7 +7,7 @@ export default function ProfileHeader() {
     <View style={styles.container}>
 		<Image
 				style={styles.profile}
-				source={require("../../../../assets/gigachad.png")}
+				source={require("../../../assets/gigachad.png")}
 		/>
 			<Text style={styles.nickname}>GigaDunmer</Text>
 			<Text style={styles.hashtagfollowers}>@TribunallSuperior69</Text>

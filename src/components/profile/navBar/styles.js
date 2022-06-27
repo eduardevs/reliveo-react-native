@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
         paddingVertical: 35,
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-
     }
 });
 

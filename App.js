@@ -117,41 +117,41 @@ export default function App() {
         </AuthProvider>
     );
 }
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import ProfileScreen from "./src/screens/profile/index.js";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { StatusBar } from "expo-status-bar";
+// import { StyleSheet, Text, View } from "react-native";
+// import ProfileScreen from "./src/screens/profile/index.js";
+// import { NavigationContainer } from "@react-navigation/native";
+// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-export default function App() {
-	const Stack = createNativeStackNavigator();
-	const Tab = createBottomTabNavigator();
-	const BottomTabScreen = () => {
-		return(
-			<Tab.Navigator 
-			screenOptions={{headerShown: true}}>
-				<Tab.Screen name="ProfileScreen" component={ProfileScreen}/>
-			</Tab.Navigator>
-		)
-	}
-	return (
-		<NavigationContainer>
-			<Stack.Navigator screenOptions={{ headerShown: false }}>
-				<Stack.Screen name="Bottom" component={BottomTabScreen} />
-			</Stack.Navigator>
-			{/* <View style={styles.container}>
-				<ProfileScreen></ProfileScreen>
-			</View> */}
-		</NavigationContainer>
-	);
-}
+// export default function App() {
+// 	const Stack = createNativeStackNavigator();
+// 	const Tab = createBottomTabNavigator();
+// 	const BottomTabScreen = () => {
+// 		return(
+// 			<Tab.Navigator 
+// 			screenOptions={{headerShown: true}}>
+// 				<Tab.Screen name="ProfileScreen" component={ProfileScreen}/>
+// 			</Tab.Navigator>
+// 		)
+// 	}
+// 	return (
+// 		<NavigationContainer>
+// 			<Stack.Navigator screenOptions={{ headerShown: false }}>
+// 				<Stack.Screen name="Bottom" component={BottomTabScreen} />
+// 			</Stack.Navigator>
+// 			{/* <View style={styles.container}>
+// 				<ProfileScreen></ProfileScreen>
+// 			</View> */}
+// 		</NavigationContainer>
+// 	);
+// }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#2E2E2E",
-		// alignItems: 'center',
-		// justifyContent: 'center',
-	},
-});
+// const styles = StyleSheet.create({
+// 	container: {
+// 		flex: 1,
+// 		backgroundColor: "#2E2E2E",
+// 		// alignItems: 'center',
+// 		// justifyContent: 'center',
+// 	},
+// });
