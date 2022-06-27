@@ -16,18 +16,18 @@ export const Welcome = ({ navigation }) => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
 
-    useEffect(() => {
-        console.log('testttt', userInfo);
-        console.log('testeso', userInfo.data);
-        const { data } = userInfo;
-        console.log(data);
-        if (data) {
-            const [user] = data;
-            console.log(user.name);
-            setName(user.name);
-            setEmail(user.email);
-        }
-    }, [userInfo]);
+    // useEffect(() => {
+    //     console.log('testttt', userInfo);
+    //     console.log('testeso', userInfo.data);
+    //     const { data } = userInfo;
+    //     console.log(data);
+    //     if (data) {
+    //         const [user] = data;
+    //         console.log(user.name);
+    //         setName(user.name);
+    //         setEmail(user.email);
+    //     }
+    // }, [userInfo]);
 
     return (
         <>

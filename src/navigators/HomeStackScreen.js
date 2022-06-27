@@ -7,6 +7,7 @@ import { View, ActivityIndicator, SafeAreaView, Text, StatusBar, Button } from '
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Login } from '../screens/Login/Login';
 import { Welcome } from '../screens/Welcome/Welcome';
+import { ProfileScreen } from '../screens/profile/index';
 
 const { secondary } = colors;
 
@@ -26,6 +27,7 @@ export const HomeStackScreen = ({ navigation }) => (
             },
         }}
     >
-        <HomeStack.Screen name="Welcome" component={Welcome} />
+        {/* <HomeStack.Screen name="Welcome" component={Welcome} /> */}
+        <HomeStack.Screen name="Profile" component={ProfileScreen} />
     </HomeStack.Navigator>
 );
