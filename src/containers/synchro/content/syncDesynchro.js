@@ -3,6 +3,7 @@ import {Button, Image, Text, TouchableOpacity, View} from "react-native";
 
 import styles from '../styles'
 import ImageEvent from '../../../assets/ImageEvent.jpg';
+import event from "../JSON/FakeData.json";
 
 export default function ({setSynchroEtape}) {
 
@@ -14,10 +15,10 @@ export default function ({setSynchroEtape}) {
             <View  style={styles.ImageEventContainer}>
                 <Image source={ImageEvent}/>
                 <View>
-                    <Text style={styles.bottomInfoTitle}>Hellfest 2022</Text>
-                    <Text style={styles.bottomInfoText}>Rue du Champ Louet</Text>
-                    <Text style={styles.bottomInfoText}>44190 Clisson</Text>
-                    <Text style={styles.bottomInfoText}>june 17 - 19, 2022</Text>
+                    <Text style={styles.bottomInfoTitle}>{event.event.Titre}</Text>
+                    <Text style={styles.bottomInfoText}>{event.event.Rue}</Text>
+                    <Text style={styles.bottomInfoText}>{event.event.CodePostal} {event.event.Ville}</Text>
+                    <Text style={styles.bottomInfoText}>{event.event.Date}</Text>
                 </View>
             </View>
             <Text style={styles.bottomText}>La désynchronisation vous empêchera de poster du contenu pour cet événement.</Text>

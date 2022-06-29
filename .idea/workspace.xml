@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/firebaseConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationError.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationError.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationSuccess.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationSuccess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncChooseScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncChooseScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncDesynchro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncDesynchro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncGeolocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncGeolocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncInfoEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncInfoEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncPosterReliveo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncPosterReliveo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +55,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">

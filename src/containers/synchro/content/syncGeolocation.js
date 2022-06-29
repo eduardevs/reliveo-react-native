@@ -7,21 +7,12 @@ import gpsLocation from "../../../assets/gpsLocation.png";
 import styles from "../styles";
 import SyncGeolocationSuccess from "./SyncGeolocationContent/syncGeolocationSuccess";
 import SyncGeolocationError from "./SyncGeolocationContent/syncGeolocationError";
+const event = require('../JSON/FakeData.json');
 
 export default function SyncGeolocation({setSynchroEtape}) {
     const [locationIs, setLocationIs] = useState()
     const [userLocation, setUserLocation] = useState(null)
-    const [eventInfo, setEventInfo] = useState(
-        {
-            "latitude": 48.8827736,
-            "longitude": 2.1721564,
-            "rue": "Rue du Champ Louet",
-            "postalCode": "44190",
-            "city": "Clisson",
-            "concertDate": "18/06/2022",
-            "concertHeur": "8h"
-        }
-    )
+
 
     useEffect(async () => {
         CompareGeoLocation()
@@ -61,10 +52,10 @@ export default function SyncGeolocation({setSynchroEtape}) {
     const CompareGeoLocation = () => {
         if (userLocation) {
 
-            if (userLocation.longitude > eventInfo.longitude - 0.0001 &&
-                userLocation.longitude < eventInfo.longitude + 0.0001 &&
-                userLocation.latitude > eventInfo.latitude - 0.001 &&
-                userLocation.latitude < eventInfo.latitude + 0.001) {
+            if (userLocation.longitude > event.event.longitude - 0.0001 &&
+                userLocation.longitude < event.event.longitude + 0.0001 &&
+                userLocation.latitude > event.event.latitude - 0.001 &&
+                userLocation.latitude < event.event.latitude + 0.001) {
                 setLocationIs(true)
 
             } else {
@@ -76,9 +67,9 @@ export default function SyncGeolocation({setSynchroEtape}) {
     const LocationIs = () => {
         switch (locationIs) {
             case true:
-                return <SyncGeolocationSuccess eventInfo={eventInfo} setSynchroEtape={setSynchroEtape}/>
+                return <SyncGeolocationSuccess eventInfo={event.event} setSynchroEtape={setSynchroEtape}/>
             case false:
-                return <SyncGeolocationError eventInfo={eventInfo}/>
+                return <SyncGeolocationError eventInfo={event.event}/>
             default:
                 return <Text style={styles.bottomWarningText}>Position Inconue</Text>
         }
@@ -101,18 +92,18 @@ export default function SyncGeolocation({setSynchroEtape}) {
                          rotateEnabled={true}
 
                          initialRegion={{
-                             latitude: eventInfo.latitude,
-                             longitude: eventInfo.longitude,
+                             latitude: event.event.latitude,
+                             longitude: event.event.longitude,
                              latitudeDelta: 0.09,
                              longitudeDelta: 0.04,
                          }}
                 >
                     <Marker
                         coordinate={{
-                            latitude: eventInfo.latitude,
-                            longitude: eventInfo.longitude,
+                            latitude: event.event.latitude,
+                            longitude: event.event.longitude,
                         }}
-                        title={'Lat: ' + eventInfo.latitude + ', Long: ' + eventInfo.longitude}
+                        title={'Lat: ' + event.event.latitude + ', Long: ' + event.event.longitude}
                     />
                 </MapView>
                 <TouchableOpacity

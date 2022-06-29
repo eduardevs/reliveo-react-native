@@ -5,17 +5,10 @@ import {Chevron} from 'react-native-shapes';
 import styles from '../styles'
 import ImageEvent from '../../../assets/ImageEvent.jpg';
 
-export default function SyncChooseScene({setSynchroEtape}) {
-    const [scenes, setScenes] = useState([
-        "TEMPLE",
-        "ALTAR",
-        "VALLEY",
-        "WARZONE",
-        "MAINSTAGE 2",
-        "MAINSTAGE 1"
-    ]);
-    const [scene, setScene] = useState("MAINSTAGE 1");
+const event = require('../JSON/FakeData.json');
 
+export default function SyncChooseScene({setSynchroEtape}) {
+    const [scene, setScene] = useState("");
     return (
         <>
             <Text style={styles.bottomTitle}>Synchronisation</Text>
@@ -23,10 +16,10 @@ export default function SyncChooseScene({setSynchroEtape}) {
             <View style={styles.ImageEventContainer}>
                 <Image source={ImageEvent}/>
                 <View>
-                    <Text style={styles.bottomInfoTitle}>Hellfest 2022</Text>
-                    <Text style={styles.bottomInfoText}>Rue du Champ Louet</Text>
-                    <Text style={styles.bottomInfoText}>44190 Clisson</Text>
-                    <Text style={styles.bottomInfoText}>june 17 - 19, 2022</Text>
+                    <Text style={styles.bottomInfoTitle}>{event.event.Titre}</Text>
+                    <Text style={styles.bottomInfoText}>{event.event.Rue}</Text>
+                    <Text style={styles.bottomInfoText}>{event.event.CodePostal} {event.event.Ville}</Text>
+                    <Text style={styles.bottomInfoText}>{event.event.Date}</Text>
                 </View>
             </View>
             <Text style={styles.bottomText}>Pour poster du contenu, veuillez à choisir une scène :</Text>
@@ -39,7 +32,7 @@ export default function SyncChooseScene({setSynchroEtape}) {
                         setScene(value)
                     }}
                 >
-                    {scenes.map((item, index) => {
+                    {event.event.Scene.map((item, index) => {
                         return (<Picker.Item label={item} value={index} key={index} />)
                     })}
                 </Picker>

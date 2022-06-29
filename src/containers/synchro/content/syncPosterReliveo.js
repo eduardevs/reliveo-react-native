@@ -4,6 +4,7 @@ import {Button, Image, Text, TouchableOpacity, View} from "react-native";
 import styles from '../styles'
 import Camera from '../../../assets/camera.png';
 import ImageEvent from "../../../assets/ImageEvent.jpg";
+import event from "../JSON/FakeData.json";
 
 export default function SyncPosterReliveo({setSynchroEtape}) {
 
@@ -14,7 +15,7 @@ export default function SyncPosterReliveo({setSynchroEtape}) {
             <View  style={styles.ImageEventContainer}>
                 <Image source={ImageEvent}/>
                 <View>
-                    <Text style={styles.bottomInfoTitle}>Hellfest 2022</Text>
+                    <Text style={styles.bottomInfoTitle}>{event.event.Titre}</Text>
                     <Text style={styles.bottomInfoTitle}>SCENE ALTAR</Text>
                 </View>
             </View>

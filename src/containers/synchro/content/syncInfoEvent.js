@@ -1,11 +1,11 @@
 import React from 'react';
-import {Button, Image, Text, TouchableOpacity, View} from "react-native";
+import {Button, Image, Picker, Text, TouchableOpacity, View} from "react-native";
 
 import styles from '../styles'
 import ImageEvent from '../../../assets/ImageEvent.jpg';
+const event = require('../JSON/FakeData.json');
 
 export default function SyncInfoEvent({setSynchroEtape}) {
-
     return (
         <>
             <Text style={styles.bottomTitle}>Synchronisation a un événement</Text>
@@ -13,10 +13,10 @@ export default function SyncInfoEvent({setSynchroEtape}) {
             <View  style={styles.ImageEventContainer}>
                 <Image source={ImageEvent}/>
                 <View>
-                    <Text style={styles.bottomInfoTitle}>Hellfest 2022</Text>
-                    <Text style={styles.bottomInfoText}>Rue du Champ Louet</Text>
-                    <Text style={styles.bottomInfoText}>44190 Clisson</Text>
-                    <Text style={styles.bottomInfoText}>june 17 - 19, 2022</Text>
+                    <Text style={styles.bottomInfoTitle}>{event.event.Titre}</Text>
+                    <Text style={styles.bottomInfoText}>{event.event.Rue}</Text>
+                    <Text style={styles.bottomInfoText}>{event.event.CodePostal} {event.event.Ville}</Text>
+                    <Text style={styles.bottomInfoText}>{event.event.Date}</Text>
                 </View>
             </View>
             <Text style={styles.bottomText}>Vous devez à présent vous géolocaliser pour confirmer votre présence à

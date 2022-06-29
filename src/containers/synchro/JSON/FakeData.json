@@ -1,0 +1,20 @@
+{
+  "event" : {
+    "Titre" : "Hellfest 2022",
+    "Rue" : "Rue du Champ Louet",
+    "CodePostal" : "44190",
+    "Ville" : "Clisson",
+    "Date" : "june 17-19 2022",
+    "HeurConcert" : "8h",
+    "latitude": 48.8594475,
+    "longitude": 2.4336631,
+    "Scene": [
+      "TEMPLE",
+      "ALTAR",
+      "VALLEY",
+      "WARZONE",
+      "MAINSTAGE 2",
+      "MAINSTAGE 1"
+    ]
+  }
+}
