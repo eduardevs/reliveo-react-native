@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/indexFileVideo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationError.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationError.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationSuccess.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/SyncGeolocationContent/syncGeolocationSuccess.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncChooseScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncChooseScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncDesynchro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncDesynchro.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncGeolocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncGeolocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncInfoEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncInfoEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/content/syncPosterReliveo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/content/syncPosterReliveo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,20 +49,22 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/containers/fileVideo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\composents\synchro\content" />
-      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\composents\camera\qrCode" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
@@ -93,6 +90,7 @@
       <workItem from="1654792825777" duration="8233000" />
       <workItem from="1655027565573" duration="8700000" />
       <workItem from="1655883430391" duration="16194000" />
+      <workItem from="1656615138855" duration="4624000" />
     </task>
     <servers />
   </component>
