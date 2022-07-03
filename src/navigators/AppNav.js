@@ -1,4 +1,4 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { RootStackScreen } from './RootStackScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { useContext } from 'react';
@@ -12,7 +12,7 @@ const { secondary } = colors;
 const Drawer = createDrawerNavigator();
 
 export const AppNav = () => {
-    const { isLoading, userToken } = useContext(AuthContext);
+    const { isLoading, userToken, logout } = useContext(AuthContext);
 
     // if (isLoading) {
     //     return (
@@ -24,7 +24,6 @@ export const AppNav = () => {
     return (
         <NavigationContainer>
             {userToken !== null ? (
-                //appstack
                 <Drawer.Navigator
                     initialRouteName="Home"
                     screenOptions={{
@@ -37,6 +36,14 @@ export const AppNav = () => {
                         headerLeftContainerStyle: {
                             paddingLeft: 100,
                         },
+                    }}
+                    drawerContent={(props) => {
+                        return (
+                            <DrawerContentScrollView {...props}>
+                                <DrawerItemList {...props} />
+                                <DrawerItem label="Se déconnecter" onPress={() => logout()} />
+                            </DrawerContentScrollView>
+                        );
                     }}
                 >
                     <Drawer.Screen name="Home" component={HomeStackScreen} />

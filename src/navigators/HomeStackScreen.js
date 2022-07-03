@@ -1,13 +1,6 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from '../theme/palette';
-import { useState } from 'react';
-import { View, ActivityIndicator, SafeAreaView, Text, StatusBar, Button } from 'react-native';
-
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Login } from '../screens/Login/Login';
-import { Welcome } from '../screens/Welcome/Welcome';
-import { ProfileScreen } from '../screens/profile/index';
+import { ProfileScreen } from '../screens/Profile/index';
 
 const { secondary } = colors;
 
