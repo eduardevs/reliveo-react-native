@@ -16,12 +16,17 @@ export default function CameraPhoto({setRecord, setRecordFinish, record}) {
     const [isCameraRedy, setIsCameraRedy] = useState(false)
 
 
+    useEffect(async () => {
+        if (record) {
+            setRecordFinish(true)
+        }
+    }, [record]);
+
     const takePicture = async () => {
         if (cameraRef) {
             try {
                 const data = await cameraRef.takePictureAsync()
                 await setRecord(data.uri)
-                await setRecordFinish(true)
             } catch (error) {
                 console.warn(error)
             }

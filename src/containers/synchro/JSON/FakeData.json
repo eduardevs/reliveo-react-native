@@ -1,0 +1,38 @@
+{
+  "event": {
+    "Titre": "Hellfest 2022",
+    "Rue": "Rue du Champ Louet",
+    "CodePostal": "44190",
+    "Ville": "Clisson",
+    "DateDébut": "17/06/2022",
+    "DateFin": "19/06/2022",
+    "HeurConcert": "8h",
+    "latitude": 48.8594475,
+    "longitude": 2.4336631,
+    "Scene": [
+      "TEMPLE",
+      "ALTAR",
+      "VALLEY",
+      "WARZONE",
+      "MAINSTAGE 2",
+      "MAINSTAGE 1"
+    ],
+    "Qrcode": 5546245415412
+  },
+  "events": {
+    "title": "string",
+    "geolocation": "string",
+    "qrCode": "string",
+    "posts": [
+      "string"
+    ],
+    "createdAt": "2022-06-29T17:34:43.395Z",
+    "updatedAt": "2022-06-29T17:34:43.395Z",
+    "adresse": "string",
+    "eventsType": "string",
+    "descriptionEvent": "string",
+    "ticketingLink": "string",
+    "eventStart": "2022-06-29T17:34:43.395Z",
+    "dateEnd": "2022-06-29T17:34:43.395Z"
+  }
+}

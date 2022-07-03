@@ -49,7 +49,7 @@ export default function IndexVideo () {
     } else {
       return (
         <>
-          <View style={recordFinish ? styles.containerNo : styles.container }>
+          <View style={recordFinish ? styles.containerNo : styles.container}>
             <CameraRecord setRecord={setRecord} setRecordFinish={setRecordFinish} record={record} />
           </View>
           <View style={recordFinish ? styles.container : styles.containerNo }>

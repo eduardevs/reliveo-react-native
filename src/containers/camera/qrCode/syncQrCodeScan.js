@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, Button} from 'react-native';
+import {Text, View, StyleSheet, Button, Dimensions} from 'react-native';
 import {BarCodeScanner} from 'expo-barcode-scanner';
 
 
 export default function SyncQrCodeScan({setSynchroEtape}) {
-
-
     return (
         <View style={styles.container}>
             <BarCodeScanner
@@ -18,13 +16,12 @@ export default function SyncQrCodeScan({setSynchroEtape}) {
 
 const styles = StyleSheet.create({
     container: {
-        position: "absolute",
         flex: 1,
         backgroundColor: 'black',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems:"center",
-        width: "130%",
+        width: "100%",
         height: "100%",
         borderTopRightRadius: 15,
         borderTopLeftRadius: 15,

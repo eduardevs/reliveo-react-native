@@ -9,40 +9,55 @@ import SyncQrCodeScan from "../camera/qrCode/syncQrCodeScan";
 import {BarCodeScanner} from "expo-barcode-scanner";
 import SyncInfoEvent from "./content/syncInfoEvent";
 import SyncGeolocation from "./content/syncGeolocation";
+import SyncChooseScene from "./content/syncChooseScene";
+import SyncPosterReliveo from "./content/syncPosterReliveo";
+import IndexVideo from "../camera/video/indexVideo";
+import SyncDesynchro from "./content/syncDesynchro";
 
-export default function IndexSynchro() {
-    const [visible, setVisible] = useState(false);
-    const [synchroEtape, setSynchroEtape] = useState('SyncInfoQrCode');
+export default function IndexSynchro({synchroEtape, setSynchroEtape, visible, toggleBottomNavigationView}) {
     const [hasPermission, setHasPermission] = useState(null);
 
     useEffect(() => {
         (async () => {
-            const { status } = await BarCodeScanner.requestPermissionsAsync();
+            const {status} = await BarCodeScanner.requestPermissionsAsync();
             setHasPermission(status === 'granted');
         })();
     }, []);
 
 
-    const toggleBottomNavigationView = () => {
-        setVisible(!visible);
-        setSynchroEtape('SyncInfoQrCode');
-    };
+
 
     const whySynchroEtape = () => {
         if (hasPermission === false || hasPermission === null) {
             return <Text>Nous avons besoin de la caméra !</Text>;
-        }else {
-            switch (synchroEtape){
+        } else {
+            switch (synchroEtape) {
                 case "SyncInfoQrCode":
-                    return <SyncInfoQrCode setSynchroEtape={setSynchroEtape} />;
+                    return <SyncInfoQrCode setSynchroEtape={setSynchroEtape}/>;
                 case "SyncQrCodeScan":
-                    return <SyncQrCodeScan setSynchroEtape={setSynchroEtape}/>;
+                    return (
+                        <View style={styles.overBottomContainer}>
+                            <SyncQrCodeScan setSynchroEtape={setSynchroEtape}/>
+                        </View>
+                    );
                 case "SyncInfoEvent":
-                    return <SyncInfoEvent setSynchroEtape={setSynchroEtape} />;
+                    return <SyncInfoEvent setSynchroEtape={setSynchroEtape}/>;
                 case "SyncGeolocation":
-                    return <SyncGeolocation setSynchroEtape={setSynchroEtape} />;
+                    return <SyncGeolocation setSynchroEtape={setSynchroEtape}/>;
+                case "SyncChooseScene":
+                    return <SyncChooseScene setSynchroEtape={setSynchroEtape}/>;
+                case "SyncPosterReliveo":
+                    return <SyncPosterReliveo setSynchroEtape={setSynchroEtape}/>;
+                case "IndexVideo":
+                    return (
+                        <View style={styles.overBottomContainer}>
+                            <IndexVideo setSynchroEtape={setSynchroEtape}/>
+                        </View>
+                    );
+                case "SyncDesynchro":
+                    return <SyncDesynchro setSynchroEtape={setSynchroEtape}/>;
                 default:
-                    return ;
+                    return;
             }
         }
     };
@@ -50,10 +65,6 @@ export default function IndexSynchro() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.container}>
-                <Button
-                    onPress={toggleBottomNavigationView}
-                    title="Synchronisation"
-                />
                 <BottomSheet
                     visible={visible}
                     onBackButtonPress={toggleBottomNavigationView}
