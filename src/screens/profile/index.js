@@ -4,6 +4,7 @@ import styles from './styles';
 import ProfileNavBar from '../../components/profile/navBar';
 import ProfileHeader from '../../components/profile/profileHeader';
 import ProfileTabs from '../../components/profile/tabs/index';
+import BottomNav from '../../containers/bottomNav/bottomNav';
 
 import { AuthContext } from '../../context/AuthContext';
 
@@ -12,18 +13,7 @@ export const ProfileScreen = ({ navigation }) => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
 
-    // useEffect(() => {
-    //     if (userInfo) {
-    //         console.log(userInfo);
-    //         console.log('it works');
-    //         console.log(userInfo.data);
-    //     }
-    // }, []);
-
     useEffect(() => {
-        console.log('testttt', userInfo);
-        console.log('testeso', userInfo);
-
         if (userInfo) {
             const { data } = userInfo;
             console.log(data);
@@ -41,7 +31,8 @@ export const ProfileScreen = ({ navigation }) => {
             <ProfileNavBar />
             <ProfileHeader name={name} email={email} />
             <ProfileTabs />
-            <Button title="Log out" onPress={() => logout()} />
+            {/* <Button title="Log out" onPress={() => logout()} /> */}
+            <BottomNav />
         </View>
     );
 };
