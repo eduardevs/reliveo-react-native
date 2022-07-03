@@ -23,9 +23,10 @@ export default function CameraRecord({setRecord, setRecordFinish, record}) {
     }, [record]);
 
     const recordVideo = async () => {
+        console.log(Date.now())
         if (cameraRef) {
             try {
-                const options = {maxDuration: 10, quality: Camera.Constants.VideoQuality['480']}
+                const options = {maxDuration: 7}
                 const data = await cameraRef.recordAsync(options)
                 await setRecord(data.uri)
             } catch (error) {
@@ -38,6 +39,7 @@ export default function CameraRecord({setRecord, setRecordFinish, record}) {
     const stopVideo = async () => {
         if (cameraRef) {
             cameraRef.stopRecording()
+            await console.log(Date.now())
         }
     }
     return (
