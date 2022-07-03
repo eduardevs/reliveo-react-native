@@ -31,8 +31,7 @@ export const ProfileScreen = ({ navigation }) => {
             <ProfileNavBar />
             <ProfileHeader name={name} email={email} />
             <ProfileTabs />
-            {/* <Button title="Log out" onPress={() => logout()} /> */}
-            <BottomNav />
+            <BottomNav navigation={navigation} />
         </View>
     );
 };

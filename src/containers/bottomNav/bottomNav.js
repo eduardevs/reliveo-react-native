@@ -7,7 +7,7 @@ import styles from "./styles";
 import IndexSynchro from "../synchro/indexSynchro";
 import ButtonReliveau from "../../assets/buttonReliveau.png";
 
-export default function BottomNav() {
+export default function BottomNav({navigation}) {
     const [bottomSynchroVisible, setBottomSynchroVisible] = useState(false);
     const [synchroEtape, setSynchroEtape] = useState('IndexVideo');
 
@@ -47,7 +47,7 @@ export default function BottomNav() {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.bottomMenuButton}
-                        onPress={() => console.log("Plus")}
+                        onPress={() => navigation.openDrawer()}
                     >
                         <Feather name="menu" size={24} color={'white'}/>
                         <Text style={styles.textButton}>Plus</Text>
