@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [userToken, setUserToken] = useState(null);
     const [userInfo, setUserInfo] = useState(null);
+    const [reqRes, setReqRes] = useState(null);
 
     const login = (email, password) => {
         setIsLoading(true);
@@ -18,10 +19,10 @@ export const AuthProvider = ({ children }) => {
                 password,
             })
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 let userInfo = res.data;
                 userInfo.token = 'qsdfqsdfqs';
-                console.log(userInfo);
+                // console.log(userInfo);
 
                 setUserInfo(userInfo);
                 // console.log(userInfo.token);
@@ -61,6 +62,36 @@ export const AuthProvider = ({ children }) => {
         setIsLoading(false);
     };
 
+    const signup = (data) => {
+        console.log('sign up', data);
+
+        // const url = 'https://limitless-cove-87023.herokuapp.com/user/signup'; // EX: API (NODEJS)
+        const url = 'http://reliveoapi.com/api/users';
+
+        axios
+            .post(url, data)
+            .then((response) => {
+                const result = response.data;
+                const { message, status, data } = result;
+
+                console.log(data);
+                if (status !== 'SUCCESS') {
+                    // setReqRes(message, status);
+                    // ICI TRAVAILLER LE STATE MESSAGE
+                    return message;
+                }
+                // else {
+                //     navigation.navigate('Login');
+                // }
+                // setIsSubmitting(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                // setIsSubmitting(false);
+                // handleMessage('An error occurred. Check your network and try again.');
+            });
+    };
+
     const isLoggedIn = async () => {
         try {
             setIsLoading(true);
@@ -84,7 +115,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ login, logout, isLoading, userToken, userInfo }}>
+        <AuthContext.Provider value={{ login, logout, signup, isLoading, userToken, userInfo }}>
             {children}
         </AuthContext.Provider>
     );

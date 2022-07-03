@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
@@ -8,6 +8,7 @@ import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWra
 import { InputText } from '../../components/inputs/InputText/InputText';
 import { styles } from '../../theme/layout';
 import { colors } from '../../theme/palette';
+import { AuthContext } from '../../context/AuthContext';
 
 const {
     Container,
@@ -30,21 +31,25 @@ export const Signup = ({ navigation }) => {
     const [message, setMessage] = useState();
     const [messageType, setMessageType] = useState();
     const [isSubmitting, setIsSubmitting] = useState();
+
+    const [confirmPassword, setConfirmPassword] = useState();
     // Que pour l'api de test
+
+    const { signup } = useContext(AuthContext);
 
     const [data, setData] = useState({
         email: '',
-        name: '',
+        username: '',
         password: '',
-        confirmPassword: '',
-        //test purpose
-        dateOfBirth: '01-01-2000',
+        photo: 'test',
+        streamPassword: 'key',
+        roles: ['utilisateur'],
     });
 
     const handleTextChange = (val) => {
         setData({
             ...data,
-            name: val,
+            username: val,
         });
     };
 
@@ -63,51 +68,49 @@ export const Signup = ({ navigation }) => {
     };
 
     const handleConfirmPasswordChange = (val) => {
-        setData({
-            ...data,
-            confirmPassword: val,
-        });
+        setConfirmPassword(val);
     };
 
     const handleSubmit = () => {
-        if (data.name == '' || data.email == '' || data.password == '' || data.confirmPassword == '') {
+        if (data.username == '' || data.email == '' || data.password == '' || data.confirmPassword == '') {
             handleMessage('Please fill all the fields');
             setIsSubmitting(false);
-        } else if (data.password !== data.confirmPassword) {
+        } else if (data.password !== confirmPassword) {
             handleMessage('Password do not match');
             setIsSubmitting(false);
         } else {
-            console.log('values', data);
-            handleSignup(data, setIsSubmitting);
+            // console.log('values', data);
+            // handleSignup(data, setIsSubmitting);
+            signup(data);
+            navigation.navigate('Login');
         }
     };
 
-    const handleSignup = (credentials, setIsSubmitting) => {
-        handleMessage(null);
-        setIsSubmitting(true);
-        console.log('credentials', credentials);
-        // URL SIGNUP ENDPOINT HERE
-        const url = 'https://limitless-cove-87023.herokuapp.com/user/signup'; // EX: API (NODEJS)
+    // const handleSignup = (credentials, setIsSubmitting) => {
+    //     handleMessage(null);
+    //     setIsSubmitting(true);
+    //     // console.log('credentials', credentials);
+    //     // URL SIGNUP ENDPOINT HERE
+    //     const url = 'https://limitless-cove-87023.herokuapp.com/user/signup'; // EX: API (NODEJS)
 
-        axios
-            .post(url, credentials)
-            .then((response) => {
-                const result = response.data;
-                const { message, status, data } = result;
+    //     axios
+    //         .post(url, credentials)
+    //         .then((response) => {
+    //             const result = response.data;
+    //             const { message, status, data } = result;
 
-                if (status !== 'SUCCESS') {
-                    handleMessage(message, status);
-                } else {
-                    navigation.navigate('Login');
-                }
-                setIsSubmitting(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setIsSubmitting(false);
-                handleMessage('An error occurred. Check your network and try again.');
-            });
-    };
+    //             if (status !== 'SUCCESS') {
+    //                 handleMessage(message, status);
+    //             } else {
+    //             }
+    //             setIsSubmitting(false);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //             setIsSubmitting(false);
+    //             handleMessage('An error occurred. Check your network and try again.');
+    //         });
+    // };
 
     const handleMessage = (message, type = 'FAILED') => {
         setMessage(message);
@@ -131,7 +134,7 @@ export const Signup = ({ navigation }) => {
                             placeholder="toto"
                             onChangeText={(val) => handleTextChange(val)}
                             // onBlur={handleBlur('identifiant')}
-                            value={data.name}
+                            value={data.username}
                         />
                         <InputText
                             label={'Adresse Mail'}
