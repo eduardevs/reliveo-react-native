@@ -30,11 +30,10 @@ export const AppNav = () => {
                         headerStyled: {
                             backgroundColor: 'transparent',
                         },
-                        headerTintColor: secondary,
                         headerTransparent: true,
                         headerTitle: '',
                         headerLeftContainerStyle: {
-                            paddingLeft: 100,
+                            display: 'none',
                         },
                     }}
                     drawerContent={(props) => {
