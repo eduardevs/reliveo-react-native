@@ -69,7 +69,6 @@ export const Login = ({ navigation }) => {
     };
 
     const handleSubmit = () => {
-        console.log(data);
         if (data.email == '' && data.password == '') {
             handleMessage('Please fill all the fields');
             setIsSubmitting(false);
@@ -77,6 +76,7 @@ export const Login = ({ navigation }) => {
             // console.log(data);
             // handleLogin(data, setIsSubmitting);
             login(data.email, data.password);
+            // setIsSubmitting(true);
         }
     };
 
@@ -84,10 +84,6 @@ export const Login = ({ navigation }) => {
         setMessage(message);
         setMessageType(type);
     };
-
-    // const loginHandle = (email, password) => {
-    //     signIn(email, password);
-    // };
 
     return (
         <KeyboardAvoidingWrapper>
@@ -133,7 +129,7 @@ export const Login = ({ navigation }) => {
                         </Text>
 
                         {!isSubmitting && (
-                            <TouchableOpacity style={StyledButton} onPress={() => login(data.email, data.password)}>
+                            <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
                                 <Text style={ButtonText}>Je me connecte</Text>
                             </TouchableOpacity>
                         )}
