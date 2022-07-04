@@ -20,7 +20,7 @@ Notifications.setNotificationHandler({
 });
 
 
-export default function PreviewVideo({record, setRecordFinish}) {
+export default function PreviewVideo({record, setRecordFinish, setRecord}) {
     const [status, setStatus] = React.useState({});
     const video = React.useRef(null);
 
@@ -98,7 +98,7 @@ export default function PreviewVideo({record, setRecordFinish}) {
                     <View style={styles.sideBarContainer}>
                         <TouchableOpacity
                             style={styles.sideBarButton}
-                            onPress={() => setRecordFinish(false)}
+                            onPress={() => {setRecordFinish(false); setRecord(null)}}
                         >
                             <Feather name="x-circle" size={24} color={'#A65AFF'}/>
                         </TouchableOpacity>

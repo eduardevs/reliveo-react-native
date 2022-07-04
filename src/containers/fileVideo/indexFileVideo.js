@@ -7,7 +7,7 @@ export default function IndexFileVideo() {
     const [IsLike, setIsLike ] = useState(false);
 
     return (
-        <View style={styles.container}>
+        <>
             <View style={styles.containerVideo}>
                 <Text>Ceci est une vidéo</Text>
             </View>
@@ -65,7 +65,7 @@ export default function IndexFileVideo() {
                     </View>
                 </View>
             </View>
-        </View>
+        </>
 
     )
 }

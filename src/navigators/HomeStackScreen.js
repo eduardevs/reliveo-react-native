@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from '../theme/palette';
-import { ProfileScreen } from '../screens/Profile/index';
+import { Home } from '../containers/index';
 
 const { secondary } = colors;
 
@@ -21,6 +21,6 @@ export const HomeStackScreen = ({ navigation }) => (
         }}
     >
         {/* <HomeStack.Screen name="Welcome" component={Welcome} /> */}
-        <HomeStack.Screen name="Profile" component={ProfileScreen} />
+        <HomeStack.Screen name="Home" component={Home} />
     </HomeStack.Navigator>
 );

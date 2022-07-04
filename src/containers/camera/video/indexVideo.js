@@ -36,6 +36,25 @@ export default function IndexVideo () {
       }
     })()
   }, [])
+    
+    const previewOrRecord = () => {
+      switch (recordFinish) {
+          case false:
+              return (
+                  <View style={styles.container}>
+                      <CameraRecord setRecord={setRecord} setRecordFinish={setRecordFinish} record={record} />
+                  </View>
+              )
+          case true:
+              return (
+                  <View style={styles.container}>
+                      <PreviewVideo record={record} setRecord={setRecord} setRecordFinish={setRecordFinish} />
+                  </View>
+              )
+          default:
+              return
+      }
+    }
  
     if(!hasCameraPermissions || !hasAudioPermissions) {
         return (
@@ -49,15 +68,7 @@ export default function IndexVideo () {
     } else {
       return (
         <>
-          <View style={recordFinish ? styles.containerNo : styles.container}>
-            <CameraRecord setRecord={setRecord} setRecordFinish={setRecordFinish} record={record} />
-          </View>
-          <View style={recordFinish ? styles.container : styles.containerNo }>
-            <PreviewVideo record={record} setRecordFinish={setRecordFinish} />
-          </View> 
-          {/* <View  style={{ flex: 1}}>
-            <Gallery />
-          </View> */}
+            {previewOrRecord()}
         </>
       )
     }
