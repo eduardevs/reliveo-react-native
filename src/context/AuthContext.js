@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
     const [reqRes, setReqRes] = useState(null);
 
     const login = (email, password) => {
+        // http://reliveoapi.com/authentication_token
         setIsLoading(true);
         axios
             .post(`https://limitless-cove-87023.herokuapp.com/user/signin/`, {
@@ -21,12 +22,13 @@ export const AuthProvider = ({ children }) => {
             .then((res) => {
                 // console.log(res.data);
                 let userInfo = res.data;
-                userInfo.token = 'qsdfqsdfqs';
+                // userInfo.token = 'qsdfqsdfqs';
+
                 // console.log(userInfo);
 
                 setUserInfo(userInfo);
                 // console.log(userInfo.token);
-
+                console.log();
                 setUserToken(userInfo.token);
 
                 AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
@@ -35,6 +37,10 @@ export const AuthProvider = ({ children }) => {
             .catch((e) => {
                 console.log(`Login error ${e}`);
             });
+
+        // getInfoUser
+        // ? 1 - Si token, faire appel à l'api pour recuperer infoUser
+
         // setUserToken('qsdf');
 
         // AsyncStorage.setItem('userToken', userToken, {
