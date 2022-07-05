@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
-import {Text, View, TouchableOpacity, Image} from 'react-native';
-import {LinearGradient} from 'expo-linear-gradient';
-import {Feather, Foundation} from "@expo/vector-icons";
+import React, { useState } from 'react';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Feather, Foundation } from '@expo/vector-icons';
 
-import styles from "./styles";
-import IndexSynchro from "../synchro/indexSynchro";
-import ButtonReliveau from "../../assets/buttonReliveau.png";
+import styles from './styles';
+import IndexSynchro from '../synchro/indexSynchro';
+import ButtonReliveau from '../../assets/buttonReliveau.png';
+import { colors } from '../../theme/palette';
+import { MenuPlus } from '../../components/buttons/MenuPlus/MenuPlus';
 
-export default function BottomNav({navigation}) {
+export const BottomNav = ({ state, descriptors, navigation, ...props }) => {
     const [bottomSynchroVisible, setBottomSynchroVisible] = useState(false);
     const [synchroEtape, setSynchroEtape] = useState('SyncInfoQrCode');
 
@@ -20,42 +22,37 @@ export default function BottomNav({navigation}) {
         <>
             <View style={styles.container}>
                 <LinearGradient
-                    colors={['#2E2E2E', "transparent"]}
+                    colors={['#2E2E2E', 'transparent']}
                     start={{
                         x: 0,
-                        y: .8
+                        y: 0.8,
                     }}
                     end={{
                         x: 0,
-                        y: .3
+                        y: 0.3,
                     }}
                     style={styles.gradientButtonContainer}
                 />
                 <View style={styles.containerButton}>
-                    <TouchableOpacity
-                        style={styles.bottomMenuButton}
-                        onPress={() => console.log("Explorer")}
-                    >
+                    <TouchableOpacity style={styles.bottomMenuButton} onPress={() => navigation.navigate('Home')}>
                         <Foundation name="magnifying-glass" size={24} color="white" />
                         <Text style={styles.textButton}>Explorer</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.bottomMenuButton}
-                        onPress={toggleBottomNavigationView}
-                    >
-                        <Image source={ButtonReliveau}/>
+                    <TouchableOpacity style={styles.bottomMenuButton} onPress={toggleBottomNavigationView}>
+                        <Image source={ButtonReliveau} />
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.bottomMenuButton}
-                        onPress={() => navigation.openDrawer()}
-                    >
-                        <Feather name="menu" size={24} color={'white'}/>
+                    <TouchableOpacity style={styles.bottomMenuButton} onPress={() => navigation.openDrawer()}>
+                        <Feather name="menu" size={24} color={'white'} />
                         <Text style={styles.textButton}>Plus</Text>
                     </TouchableOpacity>
                 </View>
             </View>
-            <IndexSynchro synchroEtape={synchroEtape} setSynchroEtape={setSynchroEtape} visible={bottomSynchroVisible}
-                          toggleBottomNavigationView={toggleBottomNavigationView}/>
+            <IndexSynchro
+                synchroEtape={synchroEtape}
+                setSynchroEtape={setSynchroEtape}
+                visible={bottomSynchroVisible}
+                toggleBottomNavigationView={toggleBottomNavigationView}
+            />
         </>
     );
-}
+};

@@ -9,7 +9,8 @@ import BottomNav from '../../containers/bottomNav/bottomNav';
 import { AuthContext } from '../../context/AuthContext';
 
 export const ProfileScreen = ({ navigation }) => {
-    const { logout, userInfo } = useContext(AuthContext);
+    const { userInfo } = useContext(AuthContext);
+
     const [name, setName] = useState();
     const [email, setEmail] = useState();
 
@@ -31,7 +32,6 @@ export const ProfileScreen = ({ navigation }) => {
             <ProfileNavBar />
             <ProfileHeader name={name} email={email} />
             <ProfileTabs />
-            <BottomNav navigation={navigation} />
         </View>
     );
 };

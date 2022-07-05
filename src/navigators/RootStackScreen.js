@@ -18,9 +18,7 @@ export const RootStackScreen = ({ navigation }) => (
             headerTintColor: secondary,
             headerTransparent: true,
             headerTitle: '',
-            headerLeftContainerStyle: {
-                paddingLeft: 20,
-            },
+            headerBackVisible: false,
         }}
     >
         <RootStack.Screen name="Login" component={Login} />
