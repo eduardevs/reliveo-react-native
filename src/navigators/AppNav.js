@@ -1,4 +1,5 @@
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
+import { Dimensions } from 'react-native';
 import { RootStackScreen } from './RootStackScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { useContext } from 'react';
@@ -32,6 +33,10 @@ export const AppNav = () => {
                         headerTitle: '',
                         headerLeftContainerStyle: {
                             display: 'none',
+                        },
+                        style: {
+                            drawer: { width: 500, shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3 },
+                            main: { paddingLeft: 10 },
                         },
                     }}
                     drawerContent={(props) => {
