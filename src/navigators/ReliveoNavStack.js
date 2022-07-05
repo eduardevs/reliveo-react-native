@@ -6,9 +6,11 @@ import { EvenementScreen} from '../screens/Evenement/evenementScreen';
 import IndexPhoto from '../containers/camera/photo/indexPhoto'
 import { HomeContainer } from '../containers/fileVideo/index';
 import { ProfileContainer } from '../containers/ProfileContainer';
-import { Home } from '../containers/fileVideo';
-
-
+import { IndexPlus } from "../screens/MenuPlus/IndexPlus";
+import { Contact } from "../screens/MenuPlus/Contact";
+import { SettingsUser } from "../screens/MenuPlus/SettingsUser";
+import { InfoApp } from "../screens/MenuPlus/InfoApp";
+import { InfoProject } from "../screens/MenuPlus/InfoProject";
 
 const BottomStack = createBottomTabNavigator();
 
@@ -39,6 +41,11 @@ export const ReliveoNavStack = ({ navigation }) => {
             <BottomStack.Screen name="IndexPhoto" component={IndexPhoto} />
             <BottomStack.Screen name="DiffuseurScreen" component={DiffuseurScreen} />
             <BottomStack.Screen name="EvenementScreen" component={EvenementScreen} />
+            <BottomStack.Screen name="IndexPlus" component={IndexPlus} />
+            <BottomStack.Screen name="InfoProject" component={InfoProject} />
+            <BottomStack.Screen name="InfoApp" component={InfoApp} />
+            <BottomStack.Screen name="SettingsUser" component={SettingsUser} />
+            <BottomStack.Screen name="Contact" component={Contact} />
         </BottomStack.Navigator>
     );
 };
