@@ -12,7 +12,7 @@ export default function ProfileHeader({ userObject }) {
             setUser(data);
         }
     });
-
+    
     console.log(user);
 	//case, switch avec des composants différents
     return (

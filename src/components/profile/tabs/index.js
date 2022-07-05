@@ -10,18 +10,37 @@ export default function ProfileTabs() {
     const Tab = createMaterialTopTabNavigator();
     const [events, setEvents] = useState([1, 2, 3, 4, 5, 6]);
 
+
     const Content = () => {
         return (
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View
                     style={{
                         flexWrap: 'wrap',
-                        flexDirection: 'row',
-                        justifyContent: 'center',
+                        alignItems: 'center',
                         paddingTop: 30,
                         backgroundColor: '#2E2E2E',
                     }}
-                ></View>
+                >
+                    {events.map((event, index) => {
+                        const [activeBtn, setActiveBtn] = useState(false);
+                        return (
+                            <TouchableOpacity style={styles.carre}>
+                                <View style={styles.smallrect}>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Ionicons name="eye-outline" size={20} color="#FFFFFF" />
+                                        <Text style={{ alignSelf: 'center', color: '#FFFFFF', marginLeft: 5 }}>
+                                            660k
+                                        </Text>
+                                    </View>
+                                </View>
+                                <View style={styles.lock}>
+                                    <MaterialIcons name="lock" size={20} color="#FFFFFF" />
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    })}
+                </View>
             </ScrollView>
         );
     };
@@ -37,22 +56,24 @@ export default function ProfileTabs() {
                         backgroundColor: '#2E2E2E',
                     }}
                 >
-                {events.map((event, index) => {
-                    const [activeBtn, setActiveBtn] = useState(false);
-                    return (
-                        <TouchableOpacity style={styles.carre}>
-                            <View style={styles.smallrect}>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <Ionicons name="eye-outline" size={20} color="#FFFFFF" />
-                                    <Text style={{ alignSelf: 'center', color: '#FFFFFF', marginLeft: 5 }}>660k</Text>
+                    {events.map((event, index) => {
+                        const [activeBtn, setActiveBtn] = useState(false);
+                        return (
+                            <TouchableOpacity style={styles.carre}>
+                                <View style={styles.smallrect}>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Ionicons name="eye-outline" size={20} color="#FFFFFF" />
+                                        <Text style={{ alignSelf: 'center', color: '#FFFFFF', marginLeft: 5 }}>
+                                            660k
+                                        </Text>
+                                    </View>
                                 </View>
-                            </View>
-                            <View style={styles.lock}>
-                                <MaterialIcons name="lock" size={20} color="#FFFFFF" />
-                            </View>
-                        </TouchableOpacity>
-                    );
-                })}
+                                <View style={styles.lock}>
+                                    <MaterialIcons name="lock" size={20} color="#FFFFFF" />
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    })}
                 </View>
             </ScrollView>
         );
@@ -66,7 +87,7 @@ export default function ProfileTabs() {
                         flexDirection: 'column',
                         alignItems: 'center',
                         paddingTop: 30,
-                        backgroundColor: '#2E2E2E',
+                        backgroundColor: '#2E2E2E'
                     }}
                 >
                     {events.map((event, index) => {
@@ -82,6 +103,18 @@ export default function ProfileTabs() {
                                     style={activeBtn ? styles.rectangleActive : styles.rectangle}
                                     value={event}
                                 ></View>
+                                <View style={styles.rectangleBis}>
+                                    <View style={styles.eventContent}>
+                                        <Text style={styles.eventTitle}>Out There</Text>
+                                        <Text style={styles.eventDate}>may 28, 2O15</Text>
+                                        <Text style={styles.eventPlace}>Birmingham, UK</Text>
+                                        <TouchableOpacity
+                                            style={styles.seeMore}
+                                        >
+                                            <Text style={styles.textMore}>Voir</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
                             </TouchableOpacity>
                         );
                     })}
