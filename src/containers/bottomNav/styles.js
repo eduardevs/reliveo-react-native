@@ -1,40 +1,40 @@
-import {StyleSheet, Dimensions} from "react-native";
+import { StyleSheet, Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        position: "absolute",
+        position: 'absolute',
         bottom: 0,
         right: 0,
-        width: Dimensions.get("window").width,
-        height: Dimensions.get("window").height,
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
     },
     containerButton: {
-        position: "absolute",
+        position: 'absolute',
         bottom: 20,
         right: 0,
-        width: Dimensions.get("window").width,
-        justifyContent: "center",
-        alignItems: "center",
+        width: Dimensions.get('window').width,
+        justifyContent: 'center',
+        alignItems: 'center',
         flex: 1,
-        flexDirection: "row",
+        flexDirection: 'row',
     },
     gradientButtonContainer: {
-        width: "100%",
-        height: "40%",
-        position: "absolute",
+        width: '100%',
+        height: '40%',
+        position: 'absolute',
         bottom: 0,
         right: 0,
     },
     bottomMenuButton: {
         flex: 1,
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
     },
     textButton: {
-        fontSize:10,
-        color: "white",
-    }
-})
+        fontSize: 10,
+        color: 'white',
+    },
+});
 export default styles;

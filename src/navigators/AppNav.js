@@ -5,9 +5,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { View, ActivityIndicator } from 'react-native';
 import { colors } from '../theme/palette';
-import { HomeStackScreen } from './HomeStackScreen';
-
-const { secondary } = colors;
+import { ReliveoNavStack } from './ReliveoNavStack';
 
 const Drawer = createDrawerNavigator();
 
@@ -45,7 +43,7 @@ export const AppNav = () => {
                         );
                     }}
                 >
-                    <Drawer.Screen name="Home" component={HomeStackScreen} />
+                    <Drawer.Screen name="Accueil" component={ReliveoNavStack} />
                 </Drawer.Navigator>
             ) : (
                 <RootStackScreen />
