@@ -9,7 +9,7 @@ import ButtonReliveau from '../../assets/buttonReliveau.png';
 import ButtonReliveauSync from '../../assets/buttonReliveauSync.png';
 import { colors } from '../../theme/palette';
 import {SyncEventContext} from "../../context/SyncEventContext";
-// import { MenuPlus } from '../../components/buttons/MenuPlus/MenuPlus';
+
 
 export const BottomNav = ({ state, descriptors, navigation, ...props }) => {
     const [bottomSynchroVisible, setBottomSynchroVisible] = useState(false);
