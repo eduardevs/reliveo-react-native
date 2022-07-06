@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { ReliveoNavStack } from './ReliveoNavStack';
+import { IndexPlus } from "../screens/MenuPlus/IndexPlus";
 
 const Drawer = createDrawerNavigator();
 
@@ -32,10 +33,7 @@ export const AppNav = () => {
                     }}
                     drawerContent={(props) => {
                         return (
-                            <DrawerContentScrollView {...props}>
-                                <DrawerItemList {...props} />
-                                <DrawerItem label="Se déconnecter" onPress={() => logout()} />
-                            </DrawerContentScrollView>
+                            <Drawer.Screen name="IndexPlus" component={IndexPlus} />
                         );
                     }}
                 >
