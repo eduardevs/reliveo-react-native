@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/bottomNav/bottomNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/indexVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/indexVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/indexFileVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/indexFileVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigators/HomeStackScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigators/HomeStackScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/GoogleLoginButton/SvgComponents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/GoogleLoginButton/SvgComponents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/theme/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme/layout.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +46,10 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />

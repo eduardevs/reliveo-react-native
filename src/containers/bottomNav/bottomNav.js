@@ -7,7 +7,7 @@ import styles from './styles';
 import IndexSynchro from '../synchro/indexSynchro';
 import ButtonReliveau from '../../assets/buttonReliveau.png';
 import { colors } from '../../theme/palette';
-import { MenuPlus } from '../../components/buttons/MenuPlus/MenuPlus';
+// import { MenuPlus } from '../../components/buttons/MenuPlus/MenuPlus';
 
 export const BottomNav = ({ state, descriptors, navigation, ...props }) => {
     const [bottomSynchroVisible, setBottomSynchroVisible] = useState(false);

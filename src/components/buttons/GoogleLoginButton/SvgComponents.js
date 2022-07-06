@@ -79,5 +79,6 @@ const style = StyleSheet.create({
         marginVertical: 5,
         height: 60,
         borderRadius: 50,
+        width:"100%",
     },
 });

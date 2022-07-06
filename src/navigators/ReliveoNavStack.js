@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ProfileScreen } from '../screens/Profile/index';
+import { ProfileScreen } from '../screens/Profile/profileScreen';
 import { BottomNav } from '../containers/bottomNav/bottomNav';
 import { Home } from '../containers/index';
 

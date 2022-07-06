@@ -3,19 +3,15 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     profile: {
 		borderRadius: 100,
-		height: 170,
-		width: 170,
+		height: 140,
+		width: 140,
 		borderWidth: 5,
 		borderColor: "#A65AFF",
 	},
 	container: {
-		// display: "flex",
+		paddingTop:30,
 		alignItems: "center",
-		// height: "100%",
-		// textAlign: "center",
-		// flexDirection: "column",
-		// marginTop: 5,
-		backgroundColor: "#2E2E2E"
+		backgroundColor: "#2E2E2E",
 	},
 	nickname: {
 		fontWeight: "600",

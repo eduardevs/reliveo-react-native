@@ -9,10 +9,10 @@ const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = colors;
 export const styles = StyleSheet.create({
     Container: {
         flex: 1,
-        padding: 25,
+        padding: 10,
         paddingTop: 30,
         backgroundColor: primary,
-        height: ScreenHeight,
+        height: ScreenHeight*1.041,
     },
     InnerContainer: {
         flex: 1,
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     PageTitle: {
         fontSize: 30,
         fontWeight: 'bold',
-        textAlign: 'center',
+        textAlign: 'left',
         color: ReliveoBrand,
         padding: 10,
     },

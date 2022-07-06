@@ -19,8 +19,8 @@ export default function ProfileTabs() {
 			<View key={index}>
 				<View
 					style={{
-						width: 170,
-						height: 170,
+						width: 150,
+						height: 150,
 						backgroundColor: "black",
 						marginLeft: 10,
 						marginRight: 10,

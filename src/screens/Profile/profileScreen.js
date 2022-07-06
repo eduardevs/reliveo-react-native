@@ -29,8 +29,8 @@ export const ProfileScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <ProfileNavBar />
             <ProfileHeader name={name} email={email} />
+            <ProfileNavBar />
             <ProfileTabs />
         </View>
     );
