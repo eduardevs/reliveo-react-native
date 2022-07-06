@@ -12,7 +12,7 @@ export default function ProfileHeader({ userObject }) {
             setUser(data);
         }
     });
-    const [iscurrentUser] = useState(false);
+    const [iscurrentUser] = useState(true);
     console.log(user);
     const [activeBtn, setActiveBtn] = useState(true);
     const [showMessage, setshowMessage] = useState(false);

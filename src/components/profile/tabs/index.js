@@ -19,9 +19,11 @@ export default function ProfileTabs() {
                 <View
                     style={{
                         flexWrap: 'wrap',
-                        alignItems: 'center',
+                        display:'flex',
+                        flexDirection: 'row',
                         paddingTop: 30,
                         backgroundColor: '#2E2E2E',
+                        
                     }}
                 >
                     {events.map((content, index) => {
@@ -30,7 +32,7 @@ export default function ProfileTabs() {
                         return (
                             <TouchableOpacity style={styles.carre}>
                                 <View style={styles.smallrect}>
-                                    <View style={{ flexDirection: 'row' }}>
+                                    <View style={{ flexDirection: 'row', }}>
                                         <Ionicons name="eye-outline" size={20} color="#FFFFFF" />
                                         <Text style={{ alignSelf: 'center', color: '#FFFFFF', marginLeft: 5 }}>
                                             660k
@@ -54,6 +56,8 @@ export default function ProfileTabs() {
                 <View
                     style={{
                         flexWrap: 'wrap',
+                        display:'flex',
+                        flexDirection: 'row',
                         alignItems: 'center',
                         paddingTop: 30,
                         backgroundColor: '#2E2E2E',
@@ -124,7 +128,7 @@ export default function ProfileTabs() {
             </ScrollView>
         );
     };
-    const [iscurrentUser] = useState(false);
+    const [iscurrentUser] = useState(true);
     switch (iscurrentUser) {
         case true:
             return (
