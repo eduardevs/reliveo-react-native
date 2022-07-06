@@ -8,8 +8,10 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function ProfileTabs() {
     const Tab = createMaterialTopTabNavigator();
-    const [events, setEvents] = useState([1, 2, 3, 4, 5, 6]);
 
+    const [events, setEvents] = useState([1, 2, 3, 4, 5, 6])
+    const [content, setContent] = useState([1,2,3,4,5])
+    const [favoris, setFavoris] = useState([1,2,3,4,5])
 
     const Content = () => {
         return (
@@ -22,8 +24,9 @@ export default function ProfileTabs() {
                         backgroundColor: '#2E2E2E',
                     }}
                 >
-                    {events.map((event, index) => {
+                    {events.map((content, index) => {
                         const [activeBtn, setActiveBtn] = useState(false);
+                        const [isPrivate, setisPrivate] = useState(false)
                         return (
                             <TouchableOpacity style={styles.carre}>
                                 <View style={styles.smallrect}>
@@ -34,7 +37,7 @@ export default function ProfileTabs() {
                                         </Text>
                                     </View>
                                 </View>
-                                <View style={styles.lock}>
+                                <View style={isPrivate ? styles.lock : styles.nolock}>
                                     <MaterialIcons name="lock" size={20} color="#FFFFFF" />
                                 </View>
                             </TouchableOpacity>
@@ -56,8 +59,9 @@ export default function ProfileTabs() {
                         backgroundColor: '#2E2E2E',
                     }}
                 >
-                    {events.map((event, index) => {
+                    {events.map((favoris, index) => {
                         const [activeBtn, setActiveBtn] = useState(false);
+                        const [isPrivate, setisPrivate] = useState(false)
                         return (
                             <TouchableOpacity style={styles.carre}>
                                 <View style={styles.smallrect}>
@@ -68,7 +72,7 @@ export default function ProfileTabs() {
                                         </Text>
                                     </View>
                                 </View>
-                                <View style={styles.lock}>
+                                <View style={isPrivate ? styles.lock : styles.nolock}>
                                     <MaterialIcons name="lock" size={20} color="#FFFFFF" />
                                 </View>
                             </TouchableOpacity>
@@ -87,7 +91,7 @@ export default function ProfileTabs() {
                         flexDirection: 'column',
                         alignItems: 'center',
                         paddingTop: 30,
-                        backgroundColor: '#2E2E2E'
+                        backgroundColor: '#2E2E2E',
                     }}
                 >
                     {events.map((event, index) => {
@@ -108,9 +112,7 @@ export default function ProfileTabs() {
                                         <Text style={styles.eventTitle}>Out There</Text>
                                         <Text style={styles.eventDate}>may 28, 2O15</Text>
                                         <Text style={styles.eventPlace}>Birmingham, UK</Text>
-                                        <TouchableOpacity
-                                            style={styles.seeMore}
-                                        >
+                                        <TouchableOpacity style={styles.seeMore}>
                                             <Text style={styles.textMore}>Voir</Text>
                                         </TouchableOpacity>
                                     </View>
@@ -122,20 +124,36 @@ export default function ProfileTabs() {
             </ScrollView>
         );
     };
-
-    return (
-        <Tab.Navigator
-            screenOptions={{
-                tabBarStyle: { backgroundColor: '#2E2E2E', position: 'relative' },
-                tabBarActiveTintColor: '#F2F2F2',
-                tabBarInactiveTintColor: '#C5C5C5',
-                tabBarIndicatorStyle: { backgroundColor: '#F2F2F2', position: 'absolute' },
-                // tabBarIndicatorContainerStyle: { position: "relative"}
-            }}
-        >
-            <Tab.Screen name="Content" component={Content} />
-            <Tab.Screen name="Favoris" component={Favoris} />
-            <Tab.Screen name="Events" component={Events} />
-        </Tab.Navigator>
-    );
+    const [iscurrentUser] = useState(false);
+    switch (iscurrentUser) {
+        case true:
+            return (
+                <Tab.Navigator
+                    screenOptions={{
+                        tabBarStyle: { backgroundColor: '#2E2E2E', position: 'relative' },
+                        tabBarActiveTintColor: '#F2F2F2',
+                        tabBarInactiveTintColor: '#C5C5C5',
+                        tabBarIndicatorStyle: { backgroundColor: '#F2F2F2', position: 'absolute' }
+                    }}
+                >
+                    <Tab.Screen name="Content" component={Content} />
+                    <Tab.Screen name="Favoris" component={Favoris} />
+                    <Tab.Screen name="Events" component={Events} />
+                </Tab.Navigator>
+            );
+        case false:
+            return (
+                <Tab.Navigator
+                    screenOptions={{
+                        tabBarStyle: { backgroundColor: '#2E2E2E', position: 'relative' },
+                        tabBarActiveTintColor: '#F2F2F2',
+                        tabBarInactiveTintColor: '#C5C5C5',
+                        tabBarIndicatorStyle: { backgroundColor: '#F2F2F2', position: 'absolute' },
+                    }}
+                >
+                    <Tab.Screen name="Content" component={Content} />
+                    <Tab.Screen name="Events" component={Events} />
+                </Tab.Navigator>
+            );
+    }
 }

@@ -26,6 +26,31 @@ const styles = StyleSheet.create({
 		color: "#fff",
 		marginBottom: 5,
 	},
+	addUser:{
+        backgroundColor: '#A65AFF',
+        marginTop:5,
+        paddingTop: 3,
+        paddingBottom: 3,
+        paddingLeft:15,
+        paddingRight: 15,
+        borderRadius:10
+    },
+    textAdd:{
+        color:'#FFFFFF',
+        alignSelf:'center',
+        fontSize:15,
+    },
+	addUsertext:{
+		display:'none'
+	},
+	textaddedUser:{
+		opacity:1,
+		fontSize:14,
+		color:'#A65AFF'
+	},
+	textnotaddedUser:{
+		opacity:0
+	}
 });
 
 export default styles

@@ -86,7 +86,9 @@ const styles = StyleSheet.create({
         bottom: 10,
         right: 10
     },
-
+    nolock:{
+        display:'none'
+    },
     eventTitle: {
         color: 'white',
         textTransform: 'capitalize',
