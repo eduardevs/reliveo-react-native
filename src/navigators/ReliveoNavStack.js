@@ -1,15 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNav } from '../containers/bottomNav/bottomNav';
-<<<<<<< HEAD
 import { EditProfile } from '../screens/EditProfile/editProfile';
 import { DiffuseurScreen} from '../screens/Diffuseur/diffuseurProfile';
 import { EvenementScreen} from '../screens/Evenement/evenementScreen';
 import IndexPhoto from '../containers/camera/photo/indexPhoto'
 import { HomeContainer } from '../containers/fileVideo/index';
 import { ProfileContainer } from '../containers/ProfileContainer';
-=======
-import { Home } from '../containers/index';
->>>>>>> 48378f7 (route menu plus as screen)
 import { IndexPlus } from "../screens/MenuPlus/IndexPlus";
 import { Contact } from "../screens/MenuPlus/Contact";
 import { SettingsUser } from "../screens/MenuPlus/SettingsUser";
