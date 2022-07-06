@@ -33,14 +33,13 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "flex-start",
-
         paddingHorizontal:10,
 
     },
     containerVideoButtonSectionBottom: {
         width: Dimensions.get("window").width,
         display: "flex",
-        bottom: -Dimensions.get("window").height * 0.4,
+        bottom: -Dimensions.get("window").height * 0.35,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "flex-end",

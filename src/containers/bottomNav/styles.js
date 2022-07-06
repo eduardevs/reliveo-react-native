@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     gradientButtonContainer: {
         width: '100%',
-        height: '40%',
+        height: '25%',
         position: 'absolute',
         bottom: 0,
         right: 0,

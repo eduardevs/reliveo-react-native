@@ -2,16 +2,11 @@ import {StyleSheet,Dimensions } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        margin: 2,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     overBottomContainer: {
         position:"absolute",
         top:"-11%",
         flex: 1,
-        backgroundColor: 'black',
         width: Dimensions.get("window").width,
         height:Dimensions.get("window").height,
     },
