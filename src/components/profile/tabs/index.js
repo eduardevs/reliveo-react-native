@@ -1,163 +1,163 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
-import styles from "./styles";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { ScrollView } from "react-native-gesture-handler";
-import { Ionicons } from "@expo/vector-icons";
+import { View, Text, Image, Animated, TouchableOpacity, TouchableHighlight } from 'react-native';
+import React, { useState } from 'react';
+import styles from './styles';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { ScrollView } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function ProfileTabs() {
-	const Tab = createMaterialTopTabNavigator();
+    const Tab = createMaterialTopTabNavigator();
 
-	let squares = [];
-	let numberOfSquares = 10;
-	let rectangles = [];
-	let numberOfRectangles = 10;
+    const [events, setEvents] = useState([1, 2, 3, 4, 5, 6])
+    const [content, setContent] = useState([1,2,3,4,5])
+    const [favoris, setFavoris] = useState([1,2,3,4,5])
 
-	for (let index = 0; index < numberOfSquares; index++) {
-		squares.push(
-			<View key={index}>
-				<View
-					style={{
-						width: 150,
-						height: 150,
-						backgroundColor: "black",
-						marginLeft: 10,
-						marginRight: 10,
-						marginBottom: 30,
-						borderBottomColor: "black",
-						borderWidth: 1,
-						borderRadius: 5,
-						position: "relative",
-					}}
-				>
-					<View
-						style={{
-							paddingTop: 2,
-							paddingBottom: 2,
-							paddingLeft: 5,
-							paddingRight: 20,
-							backgroundColor: "#3E3E3E",
-							marginLeft: 15,
-							marginRight: 15,
-							marginBottom: 30,
-							borderBottomColor: "black",
-							borderWidth: 1,
-							borderRadius: 5,
-							position: "absolute",
-							top: 15,
-						}}
-					>
-						<View style={{ flexDirection: "row" }}>
-							<Ionicons name="eye-outline" size={20} color="#FFFFFF" />
-							<Text
-								style={{ alignSelf: "center", color: "#FFFFFF", marginLeft: 5 }}
-							>
-								660k
-							</Text>
-						</View>
-						
-					</View>
-                    <View style={{
-                            width: 20,
-                            height: 20,
-							backgroundColor: "#3E3E3E",
-							position: "absolute",
-							bottom: 10,
-                            right: 10,
-						}}>
-							<MaterialIcons name="lock" size={20} color="#FFFFFF" />
-					</View>
-				</View>
-			</View>
-		);
-	}
+    const Content = () => {
+        return (
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View
+                    style={{
+                        flexWrap: 'wrap',
+                        display:'flex',
+                        flexDirection: 'row',
+                        paddingTop: 30,
+                        backgroundColor: '#2E2E2E',
+                        
+                    }}
+                >
+                    {events.map((content, index) => {
+                        const [activeBtn, setActiveBtn] = useState(false);
+                        const [isPrivate, setisPrivate] = useState(false)
+                        return (
+                            <TouchableOpacity style={styles.carre}>
+                                <View style={styles.smallrect}>
+                                    <View style={{ flexDirection: 'row', }}>
+                                        <Ionicons name="eye-outline" size={20} color="#FFFFFF" />
+                                        <Text style={{ alignSelf: 'center', color: '#FFFFFF', marginLeft: 5 }}>
+                                            660k
+                                        </Text>
+                                    </View>
+                                </View>
+                                <View style={isPrivate ? styles.lock : styles.nolock}>
+                                    <MaterialIcons name="lock" size={20} color="#FFFFFF" />
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    })}
+                </View>
+            </ScrollView>
+        );
+    };
 
-	for (let index = 0; index < numberOfRectangles; index++) {
-		rectangles.push(
-			<View key={index}>
-				<View
-					style={{
-						width: 300,
-						height: 150,
-						backgroundColor: "black",
-						opacity: 0.1,
-						marginBottom: 30,
-						borderBottomColor: "black",
-						borderWidth: 1,
-						borderRadius: 17,
-					}}
-				></View>
-			</View>
-		);
-	}
+    const Favoris = () => {
+        return (
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View
+                    style={{
+                        flexWrap: 'wrap',
+                        display:'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        paddingTop: 30,
+                        backgroundColor: '#2E2E2E',
+                    }}
+                >
+                    {events.map((favoris, index) => {
+                        const [activeBtn, setActiveBtn] = useState(false);
+                        const [isPrivate, setisPrivate] = useState(false)
+                        return (
+                            <TouchableOpacity style={styles.carre}>
+                                <View style={styles.smallrect}>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Ionicons name="eye-outline" size={20} color="#FFFFFF" />
+                                        <Text style={{ alignSelf: 'center', color: '#FFFFFF', marginLeft: 5 }}>
+                                            660k
+                                        </Text>
+                                    </View>
+                                </View>
+                                <View style={isPrivate ? styles.lock : styles.nolock}>
+                                    <MaterialIcons name="lock" size={20} color="#FFFFFF" />
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    })}
+                </View>
+            </ScrollView>
+        );
+    };
 
-	const Content = () => {
-		return (
-			<ScrollView showsVerticalScrollIndicator={false}>
-				<View
-					style={{
-						flexWrap: "wrap",
-						flexDirection: "row",
-						justifyContent: "center",
-						paddingTop: 30,
-						backgroundColor: "#2E2E2E",
-					}}
-				>
-					{squares}
-				</View>
-			</ScrollView>
-		);
-	};
-
-	const Favoris = () => {
-		return (
-			<ScrollView showsVerticalScrollIndicator={false}>
-				<View
-					style={{
-						flexWrap: "wrap",
-						flexDirection: "row",
-						justifyContent: "center",
-						paddingTop: 30,
-						backgroundColor: "#2E2E2E",
-					}}
-				>
-					{squares}
-				</View>
-			</ScrollView>
-		);
-	};
-
-	const Events = () => {
-		return (
-			<ScrollView showsVerticalScrollIndicator={false}>
-				<View
-					style={{
-						flexDirection: "column",
-						alignItems: "center",
-						paddingTop: 30,
-						backgroundColor: "#2E2E2E",
-					}}
-				>
-					{rectangles}
-				</View>
-			</ScrollView>
-		);
-	};
-
-	return (
-		<Tab.Navigator
-			screenOptions={{
-				tabBarStyle: { backgroundColor: "#2E2E2E", position: "relative" },
-				tabBarActiveTintColor: "#F2F2F2",
-				tabBarInactiveTintColor: "#C5C5C5",
-				tabBarIndicatorStyle: { backgroundColor: "#F2F2F2", position: "absolute"},
-                // tabBarIndicatorContainerStyle: { position: "relative"}
-			}}
-		>
-			<Tab.Screen name="Content" component={Content} />
-			<Tab.Screen name="Favoris" component={Favoris} />
-			<Tab.Screen name="Events" component={Events} />
-		</Tab.Navigator>
-	);
+    const Events = () => {
+        return (
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View
+                    style={{
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        paddingTop: 30,
+                        backgroundColor: '#2E2E2E',
+                    }}
+                >
+                    {events.map((event, index) => {
+                        const [activeBtn, setActiveBtn] = useState(false);
+                        return (
+                            <TouchableOpacity
+                                key={index}
+                                onPress={() => {
+                                    setActiveBtn(!activeBtn);
+                                }}
+                            >
+                                <View
+                                    style={activeBtn ? styles.rectangleActive : styles.rectangle}
+                                    value={event}
+                                ></View>
+                                <View style={styles.rectangleBis}>
+                                    <View style={styles.eventContent}>
+                                        <Text style={styles.eventTitle}>Out There</Text>
+                                        <Text style={styles.eventDate}>may 28, 2O15</Text>
+                                        <Text style={styles.eventPlace}>Birmingham, UK</Text>
+                                        <TouchableOpacity style={styles.seeMore}>
+                                            <Text style={styles.textMore}>Voir</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    })}
+                </View>
+            </ScrollView>
+        );
+    };
+    const [iscurrentUser] = useState(true);
+    switch (iscurrentUser) {
+        case true:
+            return (
+                <Tab.Navigator
+                    screenOptions={{
+                        tabBarStyle: { backgroundColor: '#2E2E2E', position: 'relative' },
+                        tabBarActiveTintColor: '#F2F2F2',
+                        tabBarInactiveTintColor: '#C5C5C5',
+                        tabBarIndicatorStyle: { backgroundColor: '#F2F2F2', position: 'absolute' }
+                    }}
+                >
+                    <Tab.Screen name="Content" component={Content} />
+                    <Tab.Screen name="Favoris" component={Favoris} />
+                    <Tab.Screen name="Events" component={Events} />
+                </Tab.Navigator>
+            );
+        case false:
+            return (
+                <Tab.Navigator
+                    screenOptions={{
+                        tabBarStyle: { backgroundColor: '#2E2E2E', position: 'relative' },
+                        tabBarActiveTintColor: '#F2F2F2',
+                        tabBarInactiveTintColor: '#C5C5C5',
+                        tabBarIndicatorStyle: { backgroundColor: '#F2F2F2', position: 'absolute' },
+                    }}
+                >
+                    <Tab.Screen name="Content" component={Content} />
+                    <Tab.Screen name="Events" component={Events} />
+                </Tab.Navigator>
+            );
+    }
 }
