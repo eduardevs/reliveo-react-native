@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { AntDesign, Ionicons, Feather, MaterialIcons } from '@expo/vector-icons';
+import { Header } from '../../components/menuPlusItems/Header';
 import { stylesPlus } from '../../theme/stylesWylohn';
 import { AuthContext } from '../../context/AuthContext';
 

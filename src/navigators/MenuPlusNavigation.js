@@ -17,8 +17,19 @@ export const MenuPlusNavigation = () => {
         }}
         initialRouteName="IndexPlus"
       >
-        <Stack.Screen name="IndexPlus" component={IndexPlus} />
-        <Stack.Screen name="InfoProject" component={InfoProject} />
+        <Stack.Screen
+        name="IndexPlus"
+        component={IndexPlus}
+        options={{
+          animation: 'slide_from_right',
+          animationDuration: 8000,
+        }} />
+        <Stack.Screen
+        name="InfoProject"
+        component={InfoProject}
+        options={{
+          animation: 'slide_from_right',
+        }}  />
         <Stack.Screen name="InfoApp" component={InfoApp} />
         <Stack.Screen name="SettingsUser" component={SettingsUser} />
         <Stack.Screen name="Contact" component={Contact} />
