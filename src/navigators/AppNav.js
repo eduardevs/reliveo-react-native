@@ -13,13 +13,6 @@ const Drawer = createDrawerNavigator();
 export const AppNav = () => {
     const { isLoading, userToken, logout } = useContext(AuthContext);
 
-    // if (isLoading) {
-    //     return (
-    //         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    //             <ActivityIndicator size={'large'} />
-    //         </View>
-    //     );
-    // }
     return (
         <NavigationContainer>
             {userToken !== null ? (

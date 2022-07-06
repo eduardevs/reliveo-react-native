@@ -76,7 +76,7 @@ export const Login = ({ navigation }) => {
             // console.log(data);
             // handleLogin(data, setIsSubmitting);
             login(data.email, data.password);
-            // setIsSubmitting(true);
+            setIsSubmitting(true);
         }
     };
 

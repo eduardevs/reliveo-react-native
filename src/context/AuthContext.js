@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BASE_URL } from '../utils/config';
 import axios from '../utils/axios';
-// import https from 'react-native-https';
 
 export const AuthContext = createContext();
 
@@ -29,13 +28,13 @@ export const AuthProvider = ({ children }) => {
 
         axios
             // .post('/authentication_token', body)
-            .post('user/signin', body)
+            .post('/user/signin', body)
             .then((res) => {
                 // console.log(res);
                 let userInfo = res.data;
                 userInfo.token = 'qsdfqsdfqs';
                 setUserToken(userInfo.token);
-                //     console.log(res.data);
+                console.log(res.data);
 
                 AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
                 AsyncStorage.setItem('userToken', userInfo.token);
@@ -71,77 +70,24 @@ export const AuthProvider = ({ children }) => {
     };
 
     const signup = (data) => {
-        console.log('sign up', data);
-
-        // const url = `${BASE_URL}/api/users`;
-        const url = 'https://reliveoapi.com/api/users';
-        // console.log(url);
-        // axios
-        //     .post(url, data)
-        //     .then((response) => {
-        //         const result = response.data;
-        //         const { message, status, data } = result;
-        //         console.log(result);
-        //         console.log(data);
-
-        //         if (status !== 'SUCCESS') {
-        //             // setReqRes(message, status);
-        //             // ICI TRAVAILLER LE STATE MESSAGE
-        //             return message;
-        //         }
-        //         // else {
-        //         //     navigation.navigate('Login');
-        //         // }
-        //         // setIsSubmitting(false);
-        //     })
-        //     .catch((e) => {
-        //         console.log(`Sign up error: ${e}`);
-        //         // setIsSubmitting(false);
-        //         // handleMessage('An error occurred. Check your network and try again.');
-        //     });
-        // let cert_file = fs.readFileSync('./ssl/my_self_signed_certificate.crt');
-        // let ca_file = fs.readFileSync('./ssl/my_self_signed_certificate_ca.crt');
-        // const agent = new https.Agent({
-        //     requestCert: true,
-        //     rejectUnauthorized: true,
-        //     cert: cert_file,
-        //     ca: ca_file,
-        // });
-        // const options = {
-        //     url: url,
-        //     method: 'POST',
-        //     httpsAgent: agent,
-        //     headers: {
-        //         Accept: 'application/json',
-        //         'Content-Type': 'application/txt;charset=UTF-8',
-        //     },
-        //     data: {},
-        // };
+        // console.log('sign up', data);
 
         axios
-            .post(url, data, {
-                httpsAgent: new https.Agent({ rejectUnauthorized: false }),
-            })
+            .post('/user/signup', data)
             .then((response) => {
                 const result = response.data;
                 const { message, status, data } = result;
                 console.log(result);
-                console.log(data);
 
                 if (status !== 'SUCCESS') {
-                    // setReqRes(message, status);
-                    // ICI TRAVAILLER LE STATE MESSAGE
+                    // handleMessage(message, status);
                     return message;
                 }
-                // else {
-                //     navigation.navigate('Login');
-                // }
-                // setIsSubmitting(false);
             })
-            .catch((e) => {
-                console.log(`Sign up error: ${e}`);
+            .catch((error) => {
+                console.log(error);
                 // setIsSubmitting(false);
-                // handleMessage('An error occurred. Check your network and try again.');
+                console.log('An error occurred. Check your network and try again.');
             });
     };
 

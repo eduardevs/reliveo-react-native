@@ -37,19 +37,32 @@ export const Signup = ({ navigation }) => {
 
     const { signup } = useContext(AuthContext);
 
+    // RELIVEO API
+    // const [data, setData] = useState({
+    //     email: '',
+    //     username: '',
+    //     password: '',
+    //     photo: 'test',
+    //     streamPassword: 'key',
+    //     roles: ['utilisateur'],
+    // });
+    // TEST API
     const [data, setData] = useState({
         email: '',
-        username: '',
+        name: '',
         password: '',
-        photo: 'test',
-        streamPassword: 'key',
-        roles: ['utilisateur'],
+        confirmPassword: '',
+        //test purpose
+        dateOfBirth: '01-01-2000',
     });
 
     const handleTextChange = (val) => {
         setData({
             ...data,
-            username: val,
+            // RELIVEO API
+            // username: val,
+            // TEST API
+            name: val,
         });
     };
 
@@ -68,21 +81,25 @@ export const Signup = ({ navigation }) => {
     };
 
     const handleConfirmPasswordChange = (val) => {
-        setConfirmPassword(val);
+        // setConfirmPassword(val); // TEST API
+        setData({
+            ...data,
+            confirmPassword: val,
+        });
     };
 
     const handleSubmit = () => {
         if (data.username == '' || data.email == '' || data.password == '' || data.confirmPassword == '') {
             handleMessage('Please fill all the fields');
             setIsSubmitting(false);
-        } else if (data.password !== confirmPassword) {
+        } else if (data.password !== data.confirmPassword) {
             handleMessage('Password do not match');
             setIsSubmitting(false);
         } else {
             // console.log('values', data);
             // handleSignup(data, setIsSubmitting);
             signup(data);
-            navigation.navigate('Login');
+            // navigation.navigate('Login');
         }
     };
 
@@ -164,7 +181,7 @@ export const Signup = ({ navigation }) => {
                             placeholder="* * * * * * * *"
                             onChangeText={(val) => handleConfirmPasswordChange(val)}
                             // onBlur={handleBlur('confirmPasswords')}
-                            value={data.confirmPassword}
+                            value={confirmPassword}
                             secureTextEntry={hidePassword}
                             isPassword={true}
                             hidePassword={hidePassword}
