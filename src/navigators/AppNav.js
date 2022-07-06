@@ -6,6 +6,13 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { ReliveoNavStack } from './ReliveoNavStack';
 
+import { IndexPlus } from "../screens/MenuPlus/IndexPlus";
+
+import { InfoApp } from "../screens/MenuPlus/InfoApp";
+import { SettingsUser } from "../screens/MenuPlus/SettingsUser";
+import { Contact } from "../screens/MenuPlus/Contact";
+import { InfoProject } from "../screens/MenuPlus/InfoProject";
+
 const Drawer = createDrawerNavigator();
 
 export const AppNav = () => {
@@ -30,16 +37,15 @@ export const AppNav = () => {
                             main: { paddingLeft: 10 },
                         },
                     }}
-                    drawerContent={(props) => {
-                        return (
-                            <DrawerContentScrollView {...props}>
-                                <DrawerItemList {...props} />
-                                <DrawerItem label="Se déconnecter" onPress={() => logout()} />
-                            </DrawerContentScrollView>
-                        );
-                    }}
+                    drawerContent={props => 
+                        <IndexPlus {...props}/>
+                    }
                 >
                     <Drawer.Screen name="Accueil" component={ReliveoNavStack} />
+                    <Drawer.Screen name="InfoApp" component={InfoApp} />
+                    <Drawer.Screen name="SettingsUser" component={SettingsUser} />
+                    <Drawer.Screen name="Contact" component={Contact} />
+                    <Drawer.Screen name="InfoProject" component={InfoProject} />
                 </Drawer.Navigator>
             ) : (
                 <RootStackScreen />

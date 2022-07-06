@@ -35,22 +35,20 @@ export const ReliveoNavStack = ({ navigation }) => {
             }}
             tabBar={(props) => <BottomNav {...props} />}
         >
-<<<<<<< HEAD
             <BottomStack.Screen name="Home" component={HomeContainer} />
             <BottomStack.Screen name="Profile" component={ProfileContainer} />
             <BottomStack.Screen name="EditProfile" component={EditProfile} />
             <BottomStack.Screen name="IndexPhoto" component={IndexPhoto} />
             <BottomStack.Screen name="DiffuseurScreen" component={DiffuseurScreen} />
             <BottomStack.Screen name="EvenementScreen" component={EvenementScreen} />
-=======
             <BottomStack.Screen name="Home" component={Home} />
             <BottomStack.Screen name="Profile" component={ProfileScreen} />
->>>>>>> 48378f7 (route menu plus as screen)
             <BottomStack.Screen name="IndexPlus" component={IndexPlus} />
+            {/* <BottomStack.Screen name="IndexPlus" component={IndexPlus} />
             <BottomStack.Screen name="InfoProject" component={InfoProject} />
             <BottomStack.Screen name="InfoApp" component={InfoApp} />
             <BottomStack.Screen name="SettingsUser" component={SettingsUser} />
-            <BottomStack.Screen name="Contact" component={Contact} />
+            <BottomStack.Screen name="Contact" component={Contact} /> */}
         </BottomStack.Navigator>
     );
 };

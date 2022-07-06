@@ -22,7 +22,6 @@ export const MenuPlusNavigation = () => {
         component={IndexPlus}
         options={{
           animation: 'slide_from_right',
-          animationDuration: 8000,
         }} />
         <Stack.Screen
         name="InfoProject"

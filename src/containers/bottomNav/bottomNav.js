@@ -51,7 +51,7 @@ export const BottomNav = ({ state, descriptors, navigation, ...props }) => {
                     <TouchableOpacity style={styles.bottomMenuButton} onPress={toggleBottomNavigationView}>
                         <Image source={userSynchro ? ButtonReliveauSync : ButtonReliveau} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.bottomMenuButton} onPress={() => navigation.navigate('IndexPlus')}>
+                    <TouchableOpacity style={styles.bottomMenuButton} onPress={() => navigation.openDrawer()}>
                         <Feather name="menu" size={24} color={'white'} />
                         <Text style={styles.textButton}>Plus</Text>
                     </TouchableOpacity>
