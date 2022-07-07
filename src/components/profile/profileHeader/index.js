@@ -3,19 +3,21 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import styles from './styles';
 
-export default function ProfileHeader({ userObject }) {
+export default function ProfileHeader({ navigation, ...props }) {
     const data = [];
     const [user, setUser] = useState(null);
     const currentUser = user;
+
     useEffect(() => {
         if (currentUser == null) {
             setUser(data);
         }
     });
+
     const [iscurrentUser] = useState(true);
-    console.log(user);
     const [activeBtn, setActiveBtn] = useState(true);
     const [showMessage, setshowMessage] = useState(false);
+
     switch (iscurrentUser) {
         case true:
             return (
@@ -30,18 +32,21 @@ export default function ProfileHeader({ userObject }) {
             return (
                 <View style={styles.container}>
                     <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
-                    <Text style={styles.nickname}>{user}tada</Text>
+                    <Text style={styles.nickname}>{user} tada</Text>
+                    <Text style={styles.hashtagfollowers}>{followers || 'more and more followers'}</Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>
-                    <Text style={styles.hashtagfollowers}>{user}</Text>
-                    <Text style={showMessage ? styles.textaddedUser : styles.textnotaddedUser}>Vous suivez cet utilisateur</Text>
-                    <TouchableOpacity onPress={() => {
-                                     setActiveBtn(!activeBtn)
-                                    console.log('hello')
-                                    setshowMessage(!showMessage)
-                                }}
-                                style={activeBtn ? styles.addUser : styles.addUsertext}>
+                    <Text style={showMessage ? styles.textaddedUser : styles.textnotaddedUser}>
+                        Vous suivez cet utilisateur
+                    </Text>
+                    <TouchableOpacity
+                        onPress={() => {
+                            setActiveBtn(!activeBtn);
+                            console.log('hello');
+                            setshowMessage(!showMessage);
+                        }}
+                        style={activeBtn ? styles.addUser : styles.addUsertext}
+                    >
                         <Text style={styles.textAdd}>Ajouter +</Text>
-                        
                     </TouchableOpacity>
                 </View>
             );
