@@ -25,7 +25,7 @@ export default function ProfileHeader({ ...props }) {
                     <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
                     <Text style={styles.nickname}>{'Gigachad'}</Text>
                     <Text style={styles.hashtagfollowers}>{`@${'gigachad'}`}</Text>
-                    <Text style={styles.hashtagfollowers}>{`${0} followers`}</Text>
+                    <Text style={styles.hashtagfollowers}>{`${0}`}</Text>
                 </View>
             );
         case false:
