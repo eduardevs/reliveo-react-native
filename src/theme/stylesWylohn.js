@@ -57,7 +57,7 @@ export const stylesPlus = StyleSheet.create({
 
     choice: {
         width: ScreenWidth * 0.94,
-        height: ScreenHeight * 0.1,
+        height: ScreenHeight * 0.08,
         paddingLeft: 10,
         flexDirection: 'row',
         alignItems: 'center',
