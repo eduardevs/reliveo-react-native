@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import styles from './styles';
 
-export default function ProfileHeader({ name, email, followers }) {
+export default function ProfileHeader({ ...props }) {
     const data = [];
     const [user, setUser] = useState(null);
     const currentUser = user;
@@ -23,9 +23,9 @@ export default function ProfileHeader({ name, email, followers }) {
             return (
                 <View style={styles.container}>
                     <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
-                    <Text style={styles.nickname}>{name || 'Gigachad'}</Text>
-                    <Text style={styles.hashtagfollowers}>{`@${email || 'gigachad'}`}</Text>
-                    <Text style={styles.hashtagfollowers}>{`${followers || 0} followers`}</Text>
+                    <Text style={styles.nickname}>{'Gigachad'}</Text>
+                    <Text style={styles.hashtagfollowers}>{`@${'gigachad'}`}</Text>
+                    <Text style={styles.hashtagfollowers}>{`${0} followers`}</Text>
                 </View>
             );
         case false:
