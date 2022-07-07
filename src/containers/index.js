@@ -3,7 +3,7 @@ import BottomNav from './bottomNav/bottomNav';
 import IndexFileVideo from './fileVideo/indexFileVideo';
 import { Dimensions, StyleSheet, View } from 'react-native';
 
-export const Home = ({ navigation }) => {
+export const HomeContainer = ({ navigation }) => {
     return (
         <>
             <View style={styles.container}>

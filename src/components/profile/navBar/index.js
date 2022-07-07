@@ -27,7 +27,6 @@ export default function ProfileNavBar({ navigation }) {
                     <TouchableOpacity
                         onPress={() => {
                             setanimateBtn(!animateBtn);
-                            console.log(name);
                             setshowPopup(!showPopup);
                         }}
                         style={animateBtn ? styles.gear : styles.gearPressed}

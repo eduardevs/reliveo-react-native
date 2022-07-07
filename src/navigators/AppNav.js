@@ -4,8 +4,6 @@ import { RootStackScreen } from './RootStackScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { View, ActivityIndicator } from 'react-native';
-import { colors } from '../theme/palette';
 import { ReliveoNavStack } from './ReliveoNavStack';
 
 const Drawer = createDrawerNavigator();
