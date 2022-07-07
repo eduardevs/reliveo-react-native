@@ -1,8 +1,6 @@
 import { useContext, useState } from 'react';
 import { Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import axios from 'axios';
-
 import { GoogleInscriptionLogo } from '../../components/buttons/GoogleLoginButton/SvgComponents';
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper';
 import { InputText } from '../../components/inputs/InputText/InputText';
@@ -102,32 +100,6 @@ export const Signup = ({ navigation }) => {
             // navigation.navigate('Login');
         }
     };
-
-    // const handleSignup = (credentials, setIsSubmitting) => {
-    //     handleMessage(null);
-    //     setIsSubmitting(true);
-    //     // console.log('credentials', credentials);
-    //     // URL SIGNUP ENDPOINT HERE
-    //     const url = 'https://limitless-cove-87023.herokuapp.com/user/signup'; // EX: API (NODEJS)
-
-    //     axios
-    //         .post(url, credentials)
-    //         .then((response) => {
-    //             const result = response.data;
-    //             const { message, status, data } = result;
-
-    //             if (status !== 'SUCCESS') {
-    //                 handleMessage(message, status);
-    //             } else {
-    //             }
-    //             setIsSubmitting(false);
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //             setIsSubmitting(false);
-    //             handleMessage('An error occurred. Check your network and try again.');
-    //         });
-    // };
 
     const handleMessage = (message, type = 'FAILED') => {
         setMessage(message);
