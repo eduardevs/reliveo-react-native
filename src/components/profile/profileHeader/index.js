@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import styles from './styles';
 
-export default function ProfileHeader({ ...props }) {
+export default function ProfileHeader({ navigation, ...props }) {
     const data = [];
     const [user, setUser] = useState(null);
     const currentUser = user;
@@ -23,16 +23,16 @@ export default function ProfileHeader({ ...props }) {
             return (
                 <View style={styles.container}>
                     <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
-                    <Text style={styles.nickname}>{'Gigachad'}</Text>
-                    <Text style={styles.hashtagfollowers}>{`@${'gigachad'}`}</Text>
-                    <Text style={styles.hashtagfollowers}>{`${0}`}</Text>
+                    <Text style={styles.nickname}>{user}</Text>
+                    <Text style={styles.hashtagfollowers}>{user}</Text>
+                    <Text style={styles.hashtagfollowers}>{user}</Text>
                 </View>
             );
         case false:
             return (
                 <View style={styles.container}>
                     <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
-                    <Text style={styles.nickname}>{name || 'Autre Gigachad'} tada</Text>
+                    <Text style={styles.nickname}>{user} tada</Text>
                     <Text style={styles.hashtagfollowers}>{followers || 'more and more followers'}</Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>
                     <Text style={showMessage ? styles.textaddedUser : styles.textnotaddedUser}>
