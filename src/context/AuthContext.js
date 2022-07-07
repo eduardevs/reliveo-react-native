@@ -1,8 +1,10 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { BASE_URL } from '../utils/config';
-import axios from '../utils/axios';
-import useAxios from '../utils/hooks/useAxios';
+// import { BASE_URL } from '../utils/config';
+// import axios from '../utils/axios';
+// import useAxios from '../utils/hooks/useAxios';
+// import { useAxios } from '../utils/hooks/useAxiosFunction';
+import useLogin from '../utils/hooks/useLogin';
 
 export const AuthContext = createContext();
 
@@ -10,6 +12,8 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [userToken, setUserToken] = useState(null);
     const [userInfo, setUserInfo] = useState(null);
+
+    const loginHook = useLogin();
 
     // here to only store USER INFO, if Token = true, we call t`
     // `https://reliveoapi.com/api/users?email=${emai}`
@@ -21,26 +25,9 @@ export const AuthProvider = ({ children }) => {
         // setIsLoading(true);
         // const url = 'http://reliveoapi.com/authentication_token';
 
-        const body = {
-            email,
-            password,
-        };
+        // const signin = useLogin();
 
-        axios
-            // .post('/authentication_token', body)
-            .post('/user/signin', body)
-            .then((res) => {
-                let userInfo = res.data;
-                userInfo.token = 'qsdfqsdfqs';
-                setUserToken(userInfo.token);
-                // console.log(res.data);
-
-                AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-                AsyncStorage.setItem('userToken', userInfo.token);
-            })
-            .catch((e) => {
-                console.log(`Login error: ${e}`);
-            });
+        setUserToken('567777DHF7DH7FD7HF7HD');
 
         // ? 1 - Si token, faire appel à l'api pour recuperer infoUser
     };

@@ -9,6 +9,7 @@ import { styles } from '../../theme/layout';
 import { colors } from '../../theme/palette';
 // import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
+import useLogin from '../../utils/hooks/useLogin';
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const {
@@ -38,6 +39,8 @@ export const Login = ({ navigation }) => {
     });
 
     const { login } = useContext(AuthContext);
+
+    const loginHook = useLogin();
 
     const handleLogin = (credentials, setIsSubmitting) => {
         handleMessage(null);
@@ -75,7 +78,7 @@ export const Login = ({ navigation }) => {
         } else {
             // console.log(data);
             // handleLogin(data, setIsSubmitting);
-            login(data.email, data.password);
+            loginHook(data.email, data.password).then((data) => data && login(data));
             setIsSubmitting(true);
         }
     };
