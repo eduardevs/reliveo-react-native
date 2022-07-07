@@ -5,7 +5,7 @@ import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNat
 let ScreenHeight = Dimensions.get("window").height;
 let ScreenWidth = Dimensions.get("window").width;
 
-let HeaderHeight = ScreenHeight * 0.15;
+let HeaderHeight = ScreenHeight * 0.10;
 
 
 
@@ -74,7 +74,7 @@ export const stylesPlus = StyleSheet.create({
     },
 
     choiceText: {
-        paddingLeft: 20,
+        paddingLeft: 30,
         fontSize: 20,
         fontWeight: 'bold',
         color: ternary,
