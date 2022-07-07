@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Button } from 'react-native';
+import { View } from 'react-native';
 import React, { useEffect, useContext, useState } from 'react';
 import styles from './styles';
 import ProfileNavBar from '../../components/profile/navBar';
