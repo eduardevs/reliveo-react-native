@@ -29,8 +29,6 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
     const notificationListener = useRef();
     const responseListener = useRef();
 
-    const [uploding, setUploding] = useState(false);
-
 
     useEffect(() => {
         registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
@@ -49,19 +47,19 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
     }, []);
 
     const uplodVideo = async () => {
-        setUploding(true)
         const response = await fetch(record)
         console.log(response)
         const blob = await response.blob()
-        const filename = record.substring(record.lastIndexOf('/'+1))
-        var ref = firebase.storage().ref().child(filename).put(blob)
-
-        try {
-            await ref
-        } catch (e) {
-            console.log(e)
-        }
-        setUploding(false)
+        console.log(record)
+        const filename = `reliveo/reliveo${record.slice(-40, -4)}`
+        const ref = firebase.storage().ref().child(filename).put(blob)
+        ref.on(firebase.storage.TaskEvent.STATE_CHANGED, () => {
+            ref.snapshot.ref.getDownloadURL().then((url) => {
+                console.log("download url : " + url)
+                blob.close()
+                return url
+            })
+        })
     }
 
 
@@ -98,7 +96,10 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
                     <View style={styles.sideBarContainer}>
                         <TouchableOpacity
                             style={styles.sideBarButton}
-                            onPress={() => {setRecordFinish(false); setRecord(null)}}
+                            onPress={() => {
+                                setRecordFinish(false);
+                                setRecord(null)
+                            }}
                         >
                             <Feather name="x-circle" size={24} color={'#A65AFF'}/>
                         </TouchableOpacity>
@@ -114,7 +115,7 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
                             style={styles.sideBarButton}
                             onPress={uplodVideo}
                         >
-                            <Feather name="download" size={24} color={'#A65AFF'}/>
+                            <Feather name="upload" size={24} color={'#A65AFF'}/>
                         </TouchableOpacity>
                     </View>
                 </View>

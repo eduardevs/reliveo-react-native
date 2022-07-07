@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     containerVideo: {
+        backgroundColor:"black",
         position: "absolute",
         width: Dimensions.get("window").width,
         height: Dimensions.get("window").height,
