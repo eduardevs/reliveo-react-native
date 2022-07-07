@@ -19,7 +19,6 @@ export const ProfileScreen = ({ navigation }) => {
             const { data } = userInfo;
             if (data) {
                 const [user] = data;
-                console.log(user.name);
                 setName(user.name);
                 setEmail(user.email);
             }
