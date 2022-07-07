@@ -4,7 +4,6 @@ import styles from './styles';
 import ProfileNavBar from '../../components/profile/navBar';
 import ProfileHeader from '../../components/profile/profileHeader';
 import ProfileTabs from '../../components/profile/tabs/index';
-import BottomNav from '../../containers/bottomNav/bottomNav';
 
 import { AuthContext } from '../../context/AuthContext';
 
@@ -13,11 +12,11 @@ export const ProfileScreen = ({ navigation }) => {
 
     const [name, setName] = useState();
     const [email, setEmail] = useState();
+    const [followers, setFollowers] = useState();
 
     useEffect(() => {
         if (userInfo) {
             const { data } = userInfo;
-            console.log(data);
             if (data) {
                 const [user] = data;
                 console.log(user.name);
@@ -27,11 +26,21 @@ export const ProfileScreen = ({ navigation }) => {
         }
     }, [userInfo]);
 
+    const userProps = {
+        name,
+        email, // -> username
+        //followers
+    };
+
+    const navProps = {
+        navigation,
+    };
+
     return (
         <View style={styles.container}>
-            <ProfileHeader name={name} email={email} />
-            <ProfileNavBar navigation={navigation}/>
-            <ProfileTabs  />
+            <ProfileHeader {...userProps} />
+            <ProfileNavBar {...navProps} />
+            <ProfileTabs />
         </View>
     );
 };
