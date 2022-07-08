@@ -25,25 +25,6 @@ const styles = StyleSheet.create({
         color: 'white',
         marginLeft: 3,
     },
-    popupcontainer: {
-        position: 'absolute',
-        right: 20,
-        padding: 10,
-        top: 80,
-        backgroundColor: '#2E2E2E',
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.34,
-        shadowRadius: 6.27,
-
-        elevation: 10,
-    },
-    popupnocontainer: {
-        display: 'none',
-    },
     reportButton: {
         borderWidth: 2,
         borderColor: '#282828',

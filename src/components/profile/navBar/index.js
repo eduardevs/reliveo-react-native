@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import { View, Text, Image, TouchableOpacity, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 import styles from './styles';
@@ -14,41 +15,31 @@ export default function ProfileNavBar({ navigation }) {
     const [iscurrentUser] = useState(true)
     
 
+
     switch (iscurrentUser) {
         case true:
             return (
                 <View style={styles.container}>
                     <TouchableOpacity
+
                         onPress={() =>
                             navigation.goBack()
                         }
+
                         style={{ padding: 10, display: 'flex', alignItems: 'center' }}
                     >
                         <Entypo name="chevron-left" size={24} color="white" style={{}} />
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => {
-                           
-                            setshowPopup(!showPopup);
+                            navigation.navigate('EditProfile')
+                            
                         }}
                         style={styles.gear}
 
                     >
                         <FontAwesome name="gear" size={24} color="white" />
                     </TouchableOpacity>
-                    <View
-                        style={{
-                            position: 'absolute',
-                            right: 20,
-                            padding: 10,
-                            top: 80,
-                        }}
-                    >
-                        <TouchableOpacity style={showPopup ? styles.popupcontainer : styles.popupnocontainer}>
-                            <Ionicons name="flag-sharp" size={20} color="white" />
-                            <Text style={styles.textpopup}>WORK IN PROGRESS</Text>
-                        </TouchableOpacity>
-                    </View>
                 </View>
             );
         case false:
@@ -56,7 +47,6 @@ export default function ProfileNavBar({ navigation }) {
                 <View style={styles.container}>
                     <TouchableOpacity
                         onPress={() =>
-
                             navigation.goBack()
                         }
                         style={{ padding: 10, display: 'flex', alignItems: 'center' }}
