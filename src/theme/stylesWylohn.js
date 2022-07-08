@@ -106,14 +106,15 @@ export const stylesPlus = StyleSheet.create({
 
     containerPopup: {
         width: '100%',
-        height: '70%',
+        height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#00000070',
     },
 
     containPopup: {
         width: ScreenWidth * 0.8,
-        height: ScreenHeight * 0.4,
+        height: ScreenHeight * 0.3,
         justifyContent:'center',
         alignItems: 'center',
         backgroundColor: primary,
@@ -129,7 +130,7 @@ export const stylesPlus = StyleSheet.create({
     textPopup: {
         textAlign: 'center',
         color: ternary,
-        fontSize: 13,
+        fontSize: 14,
         paddingBottom: 20,
     },
 
@@ -138,13 +139,13 @@ export const stylesPlus = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 10,
         backgroundColor: secondary,
-        height: '15%',
-        width: '70%'
+        height: 32,
+        width: 212,
     },
 
     textButtonPopup: {
         color: ternary,
-        fontSize: 13,
+        fontSize: 20,
     }
 
 })

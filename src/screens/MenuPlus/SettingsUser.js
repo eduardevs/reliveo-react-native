@@ -4,10 +4,20 @@ import { Header } from '../../components/menuPlusItems/Header';
 import { stylesPlus } from '../../theme/stylesWylohn';
 import { useState } from 'react';
 import { Popup } from '../../containers/menuPlus/Popup';
+import React from "react";
 
 export const SettingsUser = ({ navigation }) => {
 
     const [showPopup, setShowPopup] = useState(true);
+    let popupRef = React.createRef()
+
+    const onShowPopup = () => {
+        popupRef.show()
+    }
+
+    const onClosePopup = () => {
+        popupRef.close()
+    }
 
   return (
     <View style={stylesPlus.container}>
@@ -22,17 +32,17 @@ export const SettingsUser = ({ navigation }) => {
                 </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={stylesPlus.choice} onPress={() => setShowPopup(!showPopup)}>
+            <TouchableOpacity style={stylesPlus.choice} onPress={onShowPopup}>
                 <AntDesign name="closecircleo" size={24} color="white" />
                 <Text style={stylesPlus.choiceText}>
                     Supprimer le compte
                 </Text>
             </TouchableOpacity>
 
-            {!showPopup ? 
-                (
-                    <Popup />
-                ) : null}
+            <Popup
+                ref={(target) => popupRef = target}
+                onTouchOutside={onClosePopup}
+            />
         </View>
     </View>
   )
