@@ -7,8 +7,6 @@ import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWra
 import { InputText } from '../../components/inputs/InputText/InputText';
 import { styles } from '../../theme/layout';
 import { colors } from '../../theme/palette';
-// import axios from 'axios';
-// import useLogin from '../../utils/hooks/useLogin';
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const {
@@ -27,16 +25,17 @@ const {
 
 const { secondary } = colors;
 
-export const LoginScreen = ({ navigation, handleSubmit }) => {
-    const [hidePassword, setHidePassword] = useState(true);
-    const [message, setMessage] = useState();
-    const [messageType, setMessageType] = useState();
-    const [isSubmitting, setIsSubmitting] = useState();
-    const [data, setData] = useState({
-        email: '',
-        password: '',
-    });
-
+export const LoginScreen = ({
+    navigation,
+    handleSubmit,
+    data,
+    setData,
+    hidePassword,
+    setHidePassword,
+    isSubmitting,
+    messageType,
+    message,
+}) => {
     return (
         <KeyboardAvoidingWrapper>
             <View style={Container}>
