@@ -81,7 +81,7 @@ export const stylesPlus = StyleSheet.create({
     },
     
     choiceSubText: {
-        paddingLeft: 20,
+        paddingLeft: 30,
         fontSize: 14,
         color: ternary,
     },
