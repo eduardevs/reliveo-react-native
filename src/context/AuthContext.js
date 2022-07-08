@@ -21,6 +21,9 @@ export const AuthProvider = ({ children }) => {
         setUserInfo(data);
         setUserToken('567777DHF7DH7FD7HF7HD');
 
+        // AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+        // AsyncStorage.setItem('userToken', userInfo.token);
+
         // ? 1 - Si token, faire appel à l'api pour recuperer infoUser
     };
 
@@ -37,6 +40,9 @@ export const AuthProvider = ({ children }) => {
         //fake token
         setUserToken('567777DHF7DH7FD7HF7HD');
         setUserInfo(data);
+
+        // AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+        // AsyncStorage.setItem('userToken', userInfo.token);
     };
 
     // check if user is logged
