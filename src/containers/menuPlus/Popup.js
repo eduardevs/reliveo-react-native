@@ -12,7 +12,7 @@ et votre mot de passe)
             </Text>
             <Button 
             style={styles.textPopup}
-            onPress={bla}
+            onPress={console.log('ça marche')}
             title="J'accepte"
             color={"white"}
             />
