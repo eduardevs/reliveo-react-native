@@ -21,12 +21,8 @@ export const AuthProvider = ({ children }) => {
     // const [userInfoToken, setUserInfoToken] = useState(null);
     // const [reqRes, setReqRes] = useState(null);
 
-    const login = (email, password) => {
-        // setIsLoading(true);
-        // const url = 'http://reliveoapi.com/authentication_token';
-
-        // const signin = useLogin();
-
+    const login = (data) => {
+        setUserInfo(data);
         setUserToken('567777DHF7DH7FD7HF7HD');
 
         // ? 1 - Si token, faire appel à l'api pour recuperer infoUser
@@ -78,9 +74,14 @@ export const AuthProvider = ({ children }) => {
         isLoggedIn();
     }, []);
 
-    return (
-        <AuthContext.Provider value={{ login, logout, signup, isLoading, userToken, userInfo }}>
-            {children}
-        </AuthContext.Provider>
-    );
+    const valuesProps = {
+        login,
+        logout,
+        signup,
+        isLoading,
+        userToken,
+        userInfo,
+    };
+
+    return <AuthContext.Provider value={valuesProps}>{children}</AuthContext.Provider>;
 };

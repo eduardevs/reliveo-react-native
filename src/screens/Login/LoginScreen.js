@@ -8,8 +8,7 @@ import { InputText } from '../../components/inputs/InputText/InputText';
 import { styles } from '../../theme/layout';
 import { colors } from '../../theme/palette';
 // import axios from 'axios';
-import { AuthContext } from '../../context/AuthContext';
-import useLogin from '../../utils/hooks/useLogin';
+// import useLogin from '../../utils/hooks/useLogin';
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const {
@@ -28,7 +27,7 @@ const {
 
 const { secondary } = colors;
 
-export const Login = ({ navigation }) => {
+export const LoginScreen = ({ navigation, handleSubmit }) => {
     const [hidePassword, setHidePassword] = useState(true);
     const [message, setMessage] = useState();
     const [messageType, setMessageType] = useState();
@@ -37,56 +36,6 @@ export const Login = ({ navigation }) => {
         email: '',
         password: '',
     });
-
-    const { login } = useContext(AuthContext);
-
-    const loginHook = useLogin();
-
-    const handleLogin = (credentials, setIsSubmitting) => {
-        handleMessage(null);
-        // URL LOGIN ENDPOINT HERE
-        const url = 'https://limitless-cove-87023.herokuapp.com/user/signin'; // EX: API (NODEJS)
-        // axios
-        //     .post(url, credentials)
-        //     .then((response) => {
-        //         const result = response.data;
-        //         const { message, status, data } = result;
-
-        //         if (status !== 'SUCCESS') {
-        //             handleMessage(message, status);
-        //         } else {
-        //             // HERE LOGIN WITH NAVIGATION OR REDUCER
-        //             login(data.email, data.password);
-        //             // signIn();
-        //             // loginHandle(data.email, data.password);
-        //             // navigation.navigate('Welcome', { ...data[0] });
-        //             // navigation.navigate('Welcome');
-        //         }
-        //         setIsSubmitting(false);
-        //     })
-        //     .catch((error) => {
-        //         console.log(error);
-        //         setIsSubmitting(false);
-        //         handleMessage('An error occurred. Check your network and try again.');
-        //     });
-    };
-
-    const handleSubmit = () => {
-        if (data.email == '' && data.password == '') {
-            handleMessage('Please fill all the fields');
-            setIsSubmitting(false);
-        } else {
-            // console.log(data);
-            // handleLogin(data, setIsSubmitting);
-            loginHook(data.email, data.password).then((data) => data && login(data));
-            setIsSubmitting(true);
-        }
-    };
-
-    const handleMessage = (message, type = 'FAILED') => {
-        setMessage(message);
-        setMessageType(type);
-    };
 
     return (
         <KeyboardAvoidingWrapper>
@@ -132,7 +81,7 @@ export const Login = ({ navigation }) => {
                         </Text>
 
                         {!isSubmitting && (
-                            <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
+                            <TouchableOpacity style={StyledButton} onPress={() => handleSubmit(data)}>
                                 <Text style={ButtonText}>Je me connecte</Text>
                             </TouchableOpacity>
                         )}
