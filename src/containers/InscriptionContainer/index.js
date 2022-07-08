@@ -96,9 +96,9 @@ export const InscriptionContainer = ({ navigation }) => {
             handleMessage('Veuillez choisir un pseudo');
             setIsSubmitting(false);
         } else {
+            // FAKE API DOESNT NEED THIS DATA, ONLY DUMMY STUFF
             delete data.username;
-            registerHook(data).then((data) => data && signup(data));
-            // console.log(data);
+            registerHook(data).then((data) => data && console.log(data));
             setIsSubmitting(true);
             navigation.navigate('Login');
         }
