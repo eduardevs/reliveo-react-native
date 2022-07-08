@@ -1,9 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import { BASE_URL } from '../utils/config';
-// import axios from '../utils/axios';
-// import useAxios from '../utils/hooks/useAxios';
-// import { useAxios } from '../utils/hooks/useAxiosFunction';
 import useLogin from '../utils/hooks/useLogin';
 
 export const AuthContext = createContext();
@@ -36,23 +32,14 @@ export const AuthProvider = ({ children }) => {
     };
 
     const signup = (data) => {
-        axios
-            .post('/user/signup', data)
-            .then((response) => {
-                const result = response.data;
-                const { message, status, data } = result;
-                console.log(result);
-
-                if (status !== 'SUCCESS') {
-                    return message;
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-                console.log('An error occurred. Check your network and try again.');
-            });
+        // ? Peut être, d'aller à la page après avoir fait l'inscription, donc ici je vais devoir faire quelque chose pareil comme pour le login.
+        // ? if token true
+        //fake token
+        setUserToken('567777DHF7DH7FD7HF7HD');
+        setUserInfo(data);
     };
 
+    // check if user is logged
     const isLoggedIn = async () => {
         try {
             setIsLoading(true);

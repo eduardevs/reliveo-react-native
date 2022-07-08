@@ -3,15 +3,14 @@ import { colors } from '../theme/palette';
 import { Signup } from '../screens/Signup/SignupScreen';
 import { InscriptionContainer } from '../containers/InscriptionContainer/index';
 // import { Login } from '../screens/Login/Login';
-import { ConnexionContainer } from '../containers/ConnexionContainer/index';
 import { ProfileSignupScreen } from '../screens/Signup/ProfileSignupScreen';
 
 const { secondary } = colors;
 
-const RootStack = createNativeStackNavigator();
+const InscriptionStack = createNativeStackNavigator();
 
-export const RootStackScreen = ({ navigation }) => (
-    <RootStack.Navigator
+export const InscriptionStackScreen = ({ navigation }) => (
+    <InscriptionStack.Navigator
         initialRouteName="Login"
         headerMode="none"
         screenOptions={{
@@ -24,8 +23,7 @@ export const RootStackScreen = ({ navigation }) => (
             headerBackVisible: false,
         }}
     >
-        <RootStack.Screen name="Login" component={ConnexionContainer} />
-        <RootStack.Screen name="Signup" component={InscriptionContainer} />
-        {/* <RootStack.Screen name="ProfileSignupScreen" component={ProfileSignupScreen} /> */}
-    </RootStack.Navigator>
+        <InscriptionStack.Screen name="Signup" component={InscriptionContainer} />
+        <InscriptionStack.Screen name="Profile" component={ProfileSignupScreen} />
+    </InscriptionStack.Navigator>
 );
