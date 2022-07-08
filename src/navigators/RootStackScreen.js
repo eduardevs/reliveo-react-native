@@ -1,8 +1,10 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from '../theme/palette';
-import { Signup } from '../screens/Signup/Signup';
+import { Signup } from '../screens/Signup/SignupScreen';
+import { InscriptionContainer } from '../containers/InscriptionContainer/index';
 // import { Login } from '../screens/Login/Login';
 import { ConnexionContainer } from '../containers/ConnexionContainer/index';
+import { ProfileSignupScreen } from '../screens/Signup/ProfileSignupScreen';
 
 const { secondary } = colors;
 
@@ -23,6 +25,7 @@ export const RootStackScreen = ({ navigation }) => (
         }}
     >
         <RootStack.Screen name="Login" component={ConnexionContainer} />
-        <RootStack.Screen name="Signup" component={Signup} />
+        <RootStack.Screen name="Signup" component={InscriptionContainer} />
+        {/* <RootStack.Screen name="ProfileSignupScreen" component={ProfileSignupScreen} /> */}
     </RootStack.Navigator>
 );

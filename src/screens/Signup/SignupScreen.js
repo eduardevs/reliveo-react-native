@@ -1,12 +1,11 @@
+import { StatusBar } from 'expo-status-bar';
 import { useContext, useState } from 'react';
 import { Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 import { GoogleInscriptionLogo } from '../../components/buttons/GoogleLoginButton/SvgComponents';
 import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper';
 import { InputText } from '../../components/inputs/InputText/InputText';
 import { styles } from '../../theme/layout';
 import { colors } from '../../theme/palette';
-import { AuthContext } from '../../context/AuthContext';
 
 const {
     Container,
@@ -24,88 +23,23 @@ const {
 
 const { secondary } = colors;
 
-export const Signup = ({ navigation }) => {
-    const [hidePassword, setHidePassword] = useState(true);
-    const [message, setMessage] = useState();
-    const [messageType, setMessageType] = useState();
-    const [isSubmitting, setIsSubmitting] = useState();
-
-    const [confirmPassword, setConfirmPassword] = useState();
-    // Que pour l'api de test
-
-    const { signup } = useContext(AuthContext);
-
-    // RELIVEO API
-    // const [data, setData] = useState({
-    //     email: '',
-    //     username: '',
-    //     password: '',
-    //     photo: 'test',
-    //     streamPassword: 'key',
-    //     roles: ['utilisateur'],
-    // });
-    // TEST API
-    const [data, setData] = useState({
-        email: '',
-        name: '',
-        password: '',
-        confirmPassword: '',
-        //test purpose
-        dateOfBirth: '01-01-2000',
-    });
-
-    const handleTextChange = (val) => {
-        setData({
-            ...data,
-            // RELIVEO API
-            // username: val,
-            // TEST API
-            name: val,
-        });
-    };
-
-    const handleEmailChange = (val) => {
-        setData({
-            ...data,
-            email: val,
-        });
-    };
-
-    const handlePasswordChange = (val) => {
-        setData({
-            ...data,
-            password: val,
-        });
-    };
-
-    const handleConfirmPasswordChange = (val) => {
-        // setConfirmPassword(val); // TEST API
-        setData({
-            ...data,
-            confirmPassword: val,
-        });
-    };
-
-    const handleSubmit = () => {
-        if (data.username == '' || data.email == '' || data.password == '' || data.confirmPassword == '') {
-            handleMessage('Please fill all the fields');
-            setIsSubmitting(false);
-        } else if (data.password !== data.confirmPassword) {
-            handleMessage('Password do not match');
-            setIsSubmitting(false);
-        } else {
-            // console.log('values', data);
-            // handleSignup(data, setIsSubmitting);
-            signup(data);
-            // navigation.navigate('Login');
-        }
-    };
-
-    const handleMessage = (message, type = 'FAILED') => {
-        setMessage(message);
-        setMessageType(type);
-    };
-
+export const SignupScreen = ({
+    navigation,
+    handleConfirmPasswordChange,
+    handlePasswordChange,
+    handleEmailChange,
+    handleMessage,
+    confirmPassword,
+    handleTextChange,
+    handlePreSubmit,
+    message,
+    messageType,
+    isSubmitting,
+    setIsSubmitting,
+    hidePassword,
+    data,
+    setHidePassword,
+}) => {
     return (
         <KeyboardAvoidingWrapper>
             <View style={Container}>
@@ -120,16 +54,16 @@ export const Signup = ({ navigation }) => {
                         <InputText
                             label={'Identifiant'}
                             icon="person"
-                            placeholder="toto"
-                            onChangeText={(val) => handleTextChange(val)}
+                            placeholder="gigachad"
+                            onChangeText={handleTextChange}
                             // onBlur={handleBlur('identifiant')}
-                            value={data.username}
+                            value={data.name}
                         />
                         <InputText
                             label={'Adresse Mail'}
                             icon="mail"
-                            placeholder="toto@mail.com"
-                            onChangeText={(val) => handleEmailChange(val)}
+                            placeholder="gigachad@mail.com"
+                            onChangeText={handleEmailChange}
                             // onBlur={handleBlur('email')}
                             value={data.email}
                             keyboardType="email-address"
@@ -138,7 +72,7 @@ export const Signup = ({ navigation }) => {
                             label={'Mot de passe'}
                             icon="lock"
                             placeholder="* * * * * * * *"
-                            onChangeText={(val) => handlePasswordChange(val)}
+                            onChangeText={handlePasswordChange}
                             // onBlur={handleBlur('password')}
                             value={data.password}
                             secureTextEntry={hidePassword}
@@ -146,12 +80,11 @@ export const Signup = ({ navigation }) => {
                             hidePassword={hidePassword}
                             setHidePassword={setHidePassword}
                         />
-                        {/* CONFIRMER MOT DE PASSE */}
                         <InputText
                             label={'Confirmez mot de passe'}
                             icon="lock"
                             placeholder="* * * * * * * *"
-                            onChangeText={(val) => handleConfirmPasswordChange(val)}
+                            onChangeText={handleConfirmPasswordChange}
                             // onBlur={handleBlur('confirmPasswords')}
                             value={confirmPassword}
                             secureTextEntry={hidePassword}
@@ -163,7 +96,7 @@ export const Signup = ({ navigation }) => {
                             {message}
                         </Text>
                         {!isSubmitting && (
-                            <TouchableOpacity style={StyledButton} onPress={handleSubmit}>
+                            <TouchableOpacity style={StyledButton} onPress={handlePreSubmit}>
                                 <Text style={ButtonText}>Je m'inscris</Text>
                             </TouchableOpacity>
                         )}

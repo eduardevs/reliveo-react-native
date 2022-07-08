@@ -1,4 +1,4 @@
-import { LoginScreen } from '../../screens/Login/LoginScreen';
+import { LoginScreen, LoginTest } from '../../screens/Login/LoginScreen';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
 import useLogin from '../../utils/hooks/useLogin';
