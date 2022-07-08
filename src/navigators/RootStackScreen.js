@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from '../theme/palette';
 import { Signup } from '../screens/Signup/Signup';
-import { Login } from '../screens/Login/Login';
+// import { Login } from '../screens/Login/Login';
+import { ConnexionContainer } from '../containers/ConnexionContainer/index';
 
 const { secondary } = colors;
 
@@ -21,7 +22,7 @@ export const RootStackScreen = ({ navigation }) => (
             headerBackVisible: false,
         }}
     >
-        <RootStack.Screen name="Login" component={Login} />
+        <RootStack.Screen name="Login" component={ConnexionContainer} />
         <RootStack.Screen name="Signup" component={Signup} />
     </RootStack.Navigator>
 );

@@ -1,15 +1,14 @@
 import axios from 'axios';
-// export const BASE_URL_TEST_SIGNIN = 'https://limitless-cove-87023.herokuapp.com/user/signin/';
+import { BASE_URL_TEST } from './config';
 
 const instance = axios.create({
+    baseURL: 'https://limitless-cove-87023.herokuapp.com',
     // baseURL: 'https://reliveoapi.com',
     // withCredentials: true,
     // headers: {
-    //     ContentType: 'application/json',
-    //     Accept: 'application/json',
-    //     // ''
+    //     'Content-Type': 'application/json',
+    //     // Accept: 'application/json',
     // },
-    baseURL: 'https://limitless-cove-87023.herokuapp.com',
 });
 
 export default instance;

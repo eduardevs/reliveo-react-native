@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import styles from './styles';
 
-export default function ProfileHeader({ navigation, ...props }) {
+export default function ProfileHeader({ name, email }) {
     const data = [];
     const [user, setUser] = useState(null);
     const currentUser = user;
