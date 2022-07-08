@@ -1,4 +1,4 @@
-import {View, TouchableOpacity, Text, Button, Platform, Alert} from 'react-native'
+import {View, TouchableOpacity, Text, Button, Platform, Alert, ActivityIndicator} from 'react-native'
 import React, {useState, useEffect, useRef} from 'react'
 import * as Notifications from 'expo-notifications'
 import {Audio, Video} from 'expo-av'
@@ -10,6 +10,7 @@ import {firebase} from '../../../../firebaseConfig'
 
 import styles from '../styles'
 import alert from "react-native-web/dist/exports/Alert";
+import {Activity} from "react-native-feather";
 
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
@@ -30,6 +31,9 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
     const responseListener = useRef();
 
 
+    const [uploding, setUploding] = useState(false);
+
+
     useEffect(() => {
         registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
 
@@ -48,18 +52,26 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
 
     const uplodVideo = async () => {
         const response = await fetch(record)
-        console.log(response)
         const blob = await response.blob()
         console.log(record)
         const filename = `reliveo/reliveo${record.slice(-40, -4)}`
         const ref = firebase.storage().ref().child(filename).put(blob)
         ref.on(firebase.storage.TaskEvent.STATE_CHANGED, () => {
-            ref.snapshot.ref.getDownloadURL().then((url) => {
-                console.log("download url : " + url)
-                blob.close()
-                return url
+                setUploding(true)
+            },
+            (error) => {
+                setUploding(false)
+                console.log(error)
+                return
+            },
+            () => {
+                ref.snapshot.ref.getDownloadURL().then((url) => {
+                    setUploding(false)
+                    console.log("download url : " + url)
+                    blob.close()
+                    return url
+                })
             })
-        })
     }
 
 
@@ -111,12 +123,16 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
                         >
                             <Feather name="download" size={24} color={'#A65AFF'}/>
                         </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.sideBarButton}
-                            onPress={uplodVideo}
-                        >
-                            <Feather name="upload" size={24} color={'#A65AFF'}/>
-                        </TouchableOpacity>
+                        {!uploding ?
+                            <TouchableOpacity
+                                style={styles.sideBarButton}
+                                onPress={uplodVideo}
+                            >
+                                <Feather name="upload" size={24} color={'#A65AFF'}/>
+                            </TouchableOpacity>
+                            :
+                            <ActivityIndicator size="large" color="white"/>
+                        }
                     </View>
                 </View>
             </View>

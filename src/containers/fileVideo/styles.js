@@ -6,9 +6,6 @@ const styles = StyleSheet.create({
         position: "relative",
         width: Dimensions.get("window").width,
         height: Dimensions.get("window").height,
-        display:"flex",
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     containerVideo: {
         backgroundColor:"black",
