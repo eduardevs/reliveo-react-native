@@ -6,12 +6,14 @@ import { AuthContext } from '../../context/AuthContext';
 import { Entypo } from '@expo/vector-icons';
 import ProfileNavBar from '../../components/profile/navBar';
 import { InputText } from '../../components/inputs/InputText/InputText';
+import { Feather } from '@expo/vector-icons';
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line } = styles;
 
 export const EditProfile = ({ navigation }) => {
     const { userInfo } = useContext(AuthContext);
     const [validateEdit, setvalidateEdit] = useState(false);
+    const [privatise, setPrivatise] = useState(false)
     const [name, setName] = useState();
     const [email, setEmail] = useState();
 
@@ -30,27 +32,35 @@ export const EditProfile = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <ProfileNavBar navigation={navigation}/>
+            <ProfileNavBar navigation={navigation} />
             <View>
-                <Text style={{alignSelf:'center', marginTop:50, color:'white'}}>Modifier Profile</Text>
+                <Text style={{ alignSelf: 'center', marginTop: 50, color: 'white' }}>Modifier Profile</Text>
             </View>
-            <View style={{marginTop: 40, marginLeft: 35}}>
-                <TouchableOpacity>
-                    <Image style={styles.profile} source={require('../../assets/gigachad.png')} />
-                </TouchableOpacity>
+            <TouchableOpacity style={{ marginTop: 40, marginLeft: 35, height: 45, width: 50 }}>
+                <Image style={styles.profile} source={require('../../assets/gigachad.png')} />
+                <Feather name="camera" size={20} color="white" style={{ position: 'relative', bottom: 16, left: 35 }} />
+            </TouchableOpacity>
+            <View style={{ marginTop: 30, marginLeft: 35 }}>
+                <Text style={{ color: 'white' }}>Modifier le pseudo</Text>
+                <InputText placeholder="Nouveau pseudo" />
             </View>
-            <View style={{marginTop: 15, marginLeft: 35}}>
-                <Text>Modifier le pseudo</Text>
-                <InputText placeholder="Nouveau pseudo"/>
-            </View>
-            <View>
-                <Text>Visibilité du contenu</Text>
-                <View>
-                    <Text>
+            <View style={{ marginLeft: 35, marginTop: 10 }}>
+                <Text style={{ marginBottom: 10, color: 'white' }}>Visibilité du contenu</Text>
+                <View style={{ display: 'flex', flexDirection: 'row', width: 230 }}>
+                    <Text style={{ color: 'white' }}>
                         Choississez si toutes vos publications sont publiques ou privées. Si vous réactivez la
                         visibilité du contenu, les posts marqués individuellement comme privés resteront privés
                     </Text>
-                    <Text>Switch on/off</Text>
+                    <TouchableOpacity
+                        style={privatise ? styles.privateBtn : styles.privateBoxactive}
+                        onPress={() => {
+                            setPrivatise(!privatise);
+                        }}
+                    >
+                        <View
+                            style={privatise ? styles.privateBtnball : styles.privateBtnballactive}
+                        ></View>
+                    </TouchableOpacity>
                 </View>
             </View>
             <TouchableOpacity
