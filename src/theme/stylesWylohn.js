@@ -102,4 +102,49 @@ export const stylesPlus = StyleSheet.create({
         resizeMode: 'cover',
     },
 
+    // Popup
+
+    containerPopup: {
+        width: '100%',
+        height: '70%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    containPopup: {
+        width: ScreenWidth * 0.8,
+        height: ScreenHeight * 0.4,
+        justifyContent:'center',
+        alignItems: 'center',
+        backgroundColor: primary,
+        elevation: 20,
+        shadowColor: '#000000',
+    },
+
+    popupContain: {
+        width: '70%',
+        alignItems:'center',
+    },
+
+    textPopup: {
+        textAlign: 'center',
+        color: ternary,
+        fontSize: 13,
+        paddingBottom: 20,
+    },
+
+    buttonPopup: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+        backgroundColor: secondary,
+        height: '15%',
+        width: '70%'
+    },
+
+    textButtonPopup: {
+        color: ternary,
+        fontSize: 13,
+    }
+
 })

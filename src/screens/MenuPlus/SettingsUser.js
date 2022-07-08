@@ -29,7 +29,7 @@ export const SettingsUser = ({ navigation }) => {
                 </Text>
             </TouchableOpacity>
 
-            {showPopup ? 
+            {!showPopup ? 
                 (
                     <Popup />
                 ) : null}
