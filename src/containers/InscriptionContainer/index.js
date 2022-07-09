@@ -1,4 +1,4 @@
-import { Signup, SignupScreen } from '../../screens/Signup/SignupScreen';
+import { SignupScreen } from '../../screens/Signup/SignupScreen';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
 import useRegister from '../../utils/hooks/useRegister';

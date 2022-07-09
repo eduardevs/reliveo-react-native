@@ -3,9 +3,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import styles from './styles';
 
-
 export default function ProfileHeader({ name }) {
-
     const data = [];
     const [user, setUser] = useState(null);
     const currentUser = user;
@@ -16,9 +14,8 @@ export default function ProfileHeader({ name }) {
         }
     });
 
-    
     const [iscurrentUser] = useState(false);
-    console.log(user);
+    // console.log(user);
 
     const [activeBtn, setActiveBtn] = useState(true);
     const [showMessage, setshowMessage] = useState(false);
@@ -51,7 +48,6 @@ export default function ProfileHeader({ name }) {
                         }}
                         style={activeBtn ? styles.addUser : styles.addUsertext}
                     >
-
                         <Text style={styles.textAdd}>Ajouter +</Text>
                     </TouchableOpacity>
                 </View>

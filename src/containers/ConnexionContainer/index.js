@@ -1,4 +1,4 @@
-import { LoginScreen, LoginTest } from '../../screens/Login/LoginScreen';
+import { LoginScreen } from '../../screens/Login/LoginScreen';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
 import useLogin from '../../utils/hooks/useLogin';
@@ -18,8 +18,6 @@ export const ConnexionContainer = ({ navigation }) => {
     const loginHook = useLogin();
 
     const handleSubmit = (data) => {
-        // console.log(data);
-
         if (data.email == '' && data.password == '') {
             handleMessage('Please fill all the fields');
             setIsSubmitting(false);

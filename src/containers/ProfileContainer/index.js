@@ -25,6 +25,7 @@ export const ProfileContainer = ({ navigation }) => {
             name,
             email, // -> username
             //followers
+            navigation,
         },
         navProps: {
             navigation,

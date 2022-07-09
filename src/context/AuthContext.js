@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import useLogin from '../utils/hooks/useLogin';
 
 export const AuthContext = createContext();
 
@@ -8,8 +7,6 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [userToken, setUserToken] = useState(null);
     const [userInfo, setUserInfo] = useState(null);
-
-    const loginHook = useLogin();
 
     // here to only store USER INFO, if Token = true, we call t`
     // `https://reliveoapi.com/api/users?email=${emai}`
