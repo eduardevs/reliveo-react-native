@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/Gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/Gallery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/photo/cameraPhoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/photo/cameraPhoto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/photo/indexPhoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/photo/indexPhoto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/photo/previewPhoto.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/photo/previewPhoto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Login/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Login/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Signup/ProfileSignupScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Signup/ProfileSignupScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
