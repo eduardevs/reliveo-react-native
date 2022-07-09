@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import styles from './styles';
 
-export default function ProfileHeader({ name, email }) {
+
+export default function ProfileHeader({ name }) {
+
     const data = [];
     const [user, setUser] = useState(null);
     const currentUser = user;
@@ -14,7 +16,10 @@ export default function ProfileHeader({ name, email }) {
         }
     });
 
-    const [iscurrentUser] = useState(true);
+    
+    const [iscurrentUser] = useState(false);
+    console.log(user);
+
     const [activeBtn, setActiveBtn] = useState(true);
     const [showMessage, setshowMessage] = useState(false);
 
@@ -23,7 +28,7 @@ export default function ProfileHeader({ name, email }) {
             return (
                 <View style={styles.container}>
                     <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
-                    <Text style={styles.nickname}>{user}</Text>
+                    <Text style={styles.nickname}>{name || 'Gigachad'}</Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>
                 </View>
@@ -32,6 +37,7 @@ export default function ProfileHeader({ name, email }) {
             return (
                 <View style={styles.container}>
                     <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
+
                     <Text style={styles.nickname}>{user} tada</Text>
                     <Text style={styles.hashtagfollowers}>{followers || 'more and more followers'}</Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>
@@ -46,6 +52,7 @@ export default function ProfileHeader({ name, email }) {
                         }}
                         style={activeBtn ? styles.addUser : styles.addUsertext}
                     >
+
                         <Text style={styles.textAdd}>Ajouter +</Text>
                     </TouchableOpacity>
                 </View>
