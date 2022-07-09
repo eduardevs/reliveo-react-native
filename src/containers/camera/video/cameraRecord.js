@@ -28,7 +28,7 @@ export default function CameraRecord({setRecord, setRecordFinish, record, setTim
         setTimestampStart(Moment(Date.now()).format('yyyy-MM-DDTHH:mm:ss'))
         if (cameraRef) {
             try {
-                const options = {maxDuration: 9}
+                const options = {maxDuration: 15}
                 const data = await cameraRef.recordAsync(options)
                 await setRecord(data.uri)
             } catch (error) {
