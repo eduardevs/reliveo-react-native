@@ -9,7 +9,26 @@ import React from "react";
 export const SettingsUser = ({ navigation }) => {
 
     const [showPopup, setShowPopup] = useState(true);
-    let popupRef = React.createRef()
+    let popupRef = React.createRef();
+    let textInPopup = "";
+
+    const onclickDelete = () => {
+        onTextDelete()
+        onShowPopup()
+    }
+
+    const onclickReset = () => {
+        onTextReset()
+        onShowPopup()
+    }
+
+    const onTextReset = () => {
+        popupRef.textReset()
+    }
+
+    const onTextDelete = () => {
+        popupRef.textDelete()
+    }
 
     const onShowPopup = () => {
         popupRef.show()
@@ -25,14 +44,14 @@ export const SettingsUser = ({ navigation }) => {
             Paramètres de compte
         </Header>
         <View style={stylesPlus.containChoice}>
-            <TouchableOpacity style={stylesPlus.choice}>
+            <TouchableOpacity style={stylesPlus.choice} onPress={onclickReset}>
                 <Octicons name="sync" size={28} color="white" />
                 <Text style={stylesPlus.choiceText}>
                     Réinitialiser le compte
                 </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={stylesPlus.choice} onPress={onShowPopup}>
+            <TouchableOpacity style={stylesPlus.choice} onPress={onclickDelete}>
                 <AntDesign name="closecircleo" size={24} color="white" />
                 <Text style={stylesPlus.choiceText}>
                     Supprimer le compte
@@ -42,7 +61,9 @@ export const SettingsUser = ({ navigation }) => {
             <Popup
                 ref={(target) => popupRef = target}
                 onTouchOutside={onClosePopup}
-            />
+            >
+                {textInPopup}
+            </Popup>
         </View>
     </View>
   )

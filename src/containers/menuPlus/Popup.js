@@ -7,7 +7,8 @@ export class Popup extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            show: false
+            show: false,
+            textInPopup: "Initial Text"
         }
     }
 
@@ -17,6 +18,14 @@ export class Popup extends React.Component {
 
     close = () => {
         this.setState({show: false})
+    }
+
+    textDelete = () => {
+        this.setState({textInPopup: "Êtes vous sur de supprimer votre compte ?\n Ceci effacera tous vos posts ainsi que vos favoris, vos abonnement et toutes autres informations liées à votre compte"})
+    }
+
+    textReset = () => {
+        this.setState({textInPopup: "Êtes vous sur de réinitialiser votre compte ?\n Ceci effacera tous vos posts ainsi que vos favoris, vos abonnement et toutes autres informations liées à votre compte (Sauf votre email et votre mot de passe)"})
     }
 
     renderOutsideTouchable(onTouch) {
@@ -30,10 +39,19 @@ export class Popup extends React.Component {
         )
     }
 
+    renderTextInPopup () {
+        return (
+            <Text style={stylesPlus.textPopup}>
+                        {this.state.textInPopup}
+                        </Text>
+        )
+    }
+
     render() {
 
         let {show} = this.state
         const {onTouchOutside} = this.props
+        let {textInPopup}= this.props
 
     return (
 
@@ -46,11 +64,7 @@ export class Popup extends React.Component {
                 {this.renderOutsideTouchable(onTouchOutside)}
                 <View style={stylesPlus.containPopup}>
                     <View style={stylesPlus.popupContain}>
-                        <Text style={stylesPlus.textPopup}>
-                        Êtes vous sur de réinitialiser votre compte ?{'\n'}
-                        Ceci effacera tous vos posts ainsi que vos favoris, vos abonnement et toutes autres informations liées à votre compte (Sauf votre email
-            et votre mot de passe)
-                        </Text>
+                        {this.renderTextInPopup(textInPopup)}
                         <TouchableOpacity style={stylesPlus.buttonPopup} onPress={() => console.log('ça marche')}>
                             <Text style={stylesPlus.textButtonPopup}>J'accepte</Text>
                         </TouchableOpacity>
