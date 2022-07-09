@@ -19,6 +19,7 @@ export default function CameraPhoto({setRecord, record, setImage}) {
     useEffect(async () => {
         if (record) {
             setImage(record)
+            navigation.navigate('EditProfile')
         }
     }, [record]);
 
@@ -65,8 +66,10 @@ export default function CameraPhoto({setRecord, record, setImage}) {
                         <View style={styles.recordButtonContainer}>
                             <TouchableOpacity
                                 disabled={!isCameraRedy}
-                                onPress ={() => takePicture()}
+                                onPress ={() => takePicture()
+                                }
                                 style={styles.recordButton}
+                                
                             />
                         </View>
                     </View>
