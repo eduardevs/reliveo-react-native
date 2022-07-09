@@ -39,7 +39,7 @@ export default function ProfileHeader({ name }) {
                     <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
 
                     <Text style={styles.nickname}>{user} tada</Text>
-                    <Text style={styles.hashtagfollowers}>{followers || 'more and more followers'}</Text>
+                    <Text style={styles.hashtagfollowers}></Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>
                     <Text style={showMessage ? styles.textaddedUser : styles.textnotaddedUser}>
                         Vous suivez cet utilisateur
