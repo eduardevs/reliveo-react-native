@@ -62,6 +62,18 @@ const styles = StyleSheet.create({
         left: 25,
         backgroundColor: '#2E2E2E',
     },
+    pictureOption: {
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'absolute',
+        top: 120,
+        right: 70,
+        zIndex: 5,
+        backgroundColor: '#2E2E2E',
+    },
+    nopictureOption: {
+        display: 'none',
+    },
 });
 
 export default styles;

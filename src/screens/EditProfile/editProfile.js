@@ -13,9 +13,10 @@ const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledBu
 export const EditProfile = ({ navigation }) => {
     const { userInfo } = useContext(AuthContext);
     const [validateEdit, setvalidateEdit] = useState(false);
-    const [privatise, setPrivatise] = useState(false)
+    const [privatise, setPrivatise] = useState(false);
     const [name, setName] = useState();
     const [email, setEmail] = useState();
+    const [showChoice, setshowChoice] = useState(false)
 
     useEffect(() => {
         if (userInfo) {
@@ -36,10 +37,32 @@ export const EditProfile = ({ navigation }) => {
             <View>
                 <Text style={{ alignSelf: 'center', marginTop: 50, color: 'white' }}>Modifier Profile</Text>
             </View>
-            <TouchableOpacity style={{ marginTop: 40, marginLeft: 35, height: 45, width: 50 }}>
+            <TouchableOpacity 
+            onPress={() => {
+                setshowChoice(!showChoice);
+            }}
+            style={{ marginTop: 40, marginLeft: 35, height: 45, width: 50 }}>
                 <Image style={styles.profile} source={require('../../assets/gigachad.png')} />
                 <Feather name="camera" size={20} color="white" style={{ position: 'relative', bottom: 16, left: 35 }} />
             </TouchableOpacity>
+            <View style={showChoice ? styles.pictureOption : styles.nopictureOption} >
+                <TouchableOpacity
+                    onPress={() => {
+                       
+                    }}
+                    style={styles.reportButton}
+                >
+                    <Text style={{color:'white'}}>Prendre une nouvelle Photo</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => {
+                        
+                    }}
+                    style={styles.reportButton}
+                >
+                    <Text style={{color:'white'}}>Accéder à votre Gallerie</Text>
+                </TouchableOpacity>
+            </View>
             <View style={{ marginTop: 30, marginLeft: 35 }}>
                 <Text style={{ color: 'white' }}>Modifier le pseudo</Text>
                 <InputText placeholder="Nouveau pseudo" />
@@ -57,9 +80,7 @@ export const EditProfile = ({ navigation }) => {
                             setPrivatise(!privatise);
                         }}
                     >
-                        <View
-                            style={privatise ? styles.privateBtnball : styles.privateBtnballactive}
-                        ></View>
+                        <View style={privatise ? styles.privateBtnball : styles.privateBtnballactive}></View>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -72,6 +93,7 @@ export const EditProfile = ({ navigation }) => {
             >
                 <Text style={styles.btnedittext}>Valider</Text>
             </TouchableOpacity>
+            
         </View>
     );
 };
