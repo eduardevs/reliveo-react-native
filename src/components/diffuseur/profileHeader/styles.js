@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     profile: {
-		marginTop:30,
+		top:30,
 		borderRadius: 100,
 		height: 140,
 		width: 140,
 		borderWidth: 5,
-		borderColor: "#A65AFF",
+		borderColor: "#FBBC05",
 	},
 	container: {
 		paddingTop:30,

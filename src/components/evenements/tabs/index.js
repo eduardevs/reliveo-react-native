@@ -1,4 +1,4 @@
-import { View, Text, Image, Animated, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { View, Text, Image, Animated, TouchableOpacity, TouchableHighlight, FlatList } from 'react-native';
 import React, { useState } from 'react';
 import styles from './styles';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -6,13 +6,56 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
-
-export default function ProfileTabs({navigation}) {
+export default function EvenementTabs({ navigation }) {
     const Tab = createMaterialTopTabNavigator();
 
     const [events, setEvents] = useState([1, 2, 3, 4, 5, 6]);
     const [content, setContent] = useState([1, 2, 3, 4, 5]);
-    const [favoris, setFavoris] = useState([1, 2, 3, 4, 5]);
+    
+    const dates = [
+        {
+            id: 1,
+            city:'Gdansk',
+            country: 'Pologne',
+            name:'Mystic Festival',
+            date: '2 Juin'
+        },
+        {
+            id: 2,
+            city:'Gdansk',
+            country: 'Pologne',
+            name:'Mystic Festival',
+            date: '2 Juin'
+        },
+        {
+            id: 3,
+            city:'Gdansk',
+            country: 'Pologne',
+            name:'Mystic Festival',
+            date: '2 Juin'
+        },
+        {
+            id: 4,
+            city:'Gdansk',
+            country: 'Pologne',
+            name:'Mystic Festival',
+            date: '2 Juin'
+        },
+        {
+            id: 5,
+            city:'Gdansk',
+            country: 'Pologne',
+            name:'Mystic Festival',
+            date: '2 Juin'
+        },
+        {
+            id: 6,
+            city:'Gdansk',
+            country: 'Pologne',
+            name:'Mystic Festival',
+            date: '2 Juin'
+        },
+    ]
 
     const Content = () => {
         return (
@@ -30,12 +73,7 @@ export default function ProfileTabs({navigation}) {
                         const [activeBtn, setActiveBtn] = useState(false);
                         const [isPrivate, setisPrivate] = useState(false);
                         return (
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.navigate('DiffuseurScreen');
-                                }}
-                                style={styles.carre}
-                            >
+                            <TouchableOpacity style={styles.carre}>
                                 <View style={styles.smallrect}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Ionicons name="eye-outline" size={20} color="#FFFFFF" />
@@ -92,53 +130,32 @@ export default function ProfileTabs({navigation}) {
         );
     };
 
-    const Events = () => {
+    const Dates = ({ navigation }) => {
+        
         return (
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View
                     style={{
                         flexDirection: 'column',
-                        alignItems: 'center',
                         paddingTop: 30,
                         backgroundColor: '#2E2E2E',
                     }}
                 >
-                    {events.map((event, index) => {
-                        const [activeBtn, setActiveBtn] = useState(false);
+                    {dates.map((dates, id) => {
+                        
                         return (
-                            <TouchableOpacity
-                                key={index}
-                                onPress={() => {
-                                    setActiveBtn(!activeBtn);
-                                }}
-                            >
-                                <View
-                                    style={activeBtn ? styles.rectangleActive : styles.rectangle}
-                                    value={event}
-                                ></View>
-                                <View style={styles.rectangleBis}>
-                                    <View style={styles.eventContent}>
-                                        <Text style={styles.eventTitle}>Out There</Text>
-                                        <Text style={styles.eventDate}>may 28, 2O15</Text>
-                                        <Text style={styles.eventPlace}>Birmingham, UK</Text>
-                                        <TouchableOpacity
-                                            onPress={() => {
-                                                navigation.navigate('EvenementScreen');
-                                            }}
-                                            style={styles.seeMore}
-                                        >
-                                            <Text style={styles.textMore}>Voir</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                </View>
-                            </TouchableOpacity>
+                            <View style={{paddingVertical:10, marginLeft: 35}} index={id} >
+                                <Text style={{color:'white', fontSize: 16, fontWeight: 'bold'}}>{dates.city}, {dates.country}</Text>
+                                <Text style={{color:'white' , fontSize: 13}}>{dates.name} - {dates.date}</Text>
+                            </View>
                         );
                     })}
+                  
                 </View>
             </ScrollView>
         );
     };
-    const [iscurrentUser] = useState(true);
+    const [iscurrentUser] = useState(false);
     switch (iscurrentUser) {
         case true:
             return (
@@ -166,7 +183,7 @@ export default function ProfileTabs({navigation}) {
                     }}
                 >
                     <Tab.Screen name="Content" component={Content} />
-                    <Tab.Screen name="Events" component={Events} />
+                    <Tab.Screen name="Dates" component={Dates} />
                 </Tab.Navigator>
             );
     }
