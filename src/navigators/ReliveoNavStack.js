@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ProfileScreen } from '../screens/Profile/profileScreen';
 import { BottomNav } from '../containers/bottomNav/bottomNav';
-
+import {EditProfile} from '../screens/EditProfile/editProfile';
 
 import { HomeContainer } from '../containers/fileVideo/index';
 import { ProfileContainer } from '../containers/ProfileContainer';
@@ -33,7 +33,7 @@ export const ReliveoNavStack = ({ navigation }) => {
             tabBar={(props) => <BottomNav {...props} />}
         >
 
-            <BottomStack.Screen name="Home" component={Home} />
+            <BottomStack.Screen name="Home" component={HomeContainer} />
             <BottomStack.Screen name="Profile" component={ProfileScreen} />
             <BottomStack.Screen name="EditProfile" component={EditProfile} />
 
