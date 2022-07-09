@@ -37,7 +37,6 @@ export default function ProfileHeader({ name }) {
             return (
                 <View style={styles.container}>
                     <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
-
                     <Text style={styles.nickname}>{user} tada</Text>
                     <Text style={styles.hashtagfollowers}></Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>

@@ -2,17 +2,17 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { colors } from './palette';
 import { typo } from './fonts';
 
-export const ScreenHeight = Dimensions.get('window').height;
+export const ScreenHeight = Dimensions.get('screen').height;
 
 const { primary, ReliveoBrand, secondary, ReliveoBrandLight } = colors;
 
 export const styles = StyleSheet.create({
     Container: {
         flex: 1,
-        padding: 10,
+        paddingHorizontal: 10,
         paddingTop: 30,
         backgroundColor: primary,
-        height: ScreenHeight*1.041,
+        height: ScreenHeight,
     },
     InnerContainer: {
         flex: 1,
@@ -33,7 +33,9 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'left',
         color: ReliveoBrand,
-        padding: 10,
+       paddingVertical:10,
+        width:'100%',
+        paddingHorizontal:30
     },
     SubTitle: {
         fontSize: 18,
