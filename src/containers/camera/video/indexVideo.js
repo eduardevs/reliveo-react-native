@@ -19,6 +19,9 @@ export default function IndexVideo () {
   const [recordFinish, setRecordFinish] = useState(false);
   const [record, setRecord] = useState(false);
 
+  const [timestampStart, setTimestampStart] = useState()
+  const [timestampEnd, setTimestampEnd] = useState()
+
   useEffect(() => {
     (async () => {
       const cameraStatus = await Camera.requestCameraPermissionsAsync()
@@ -42,13 +45,13 @@ export default function IndexVideo () {
           case false:
               return (
                   <View style={styles.container}>
-                      <CameraRecord setRecord={setRecord} setRecordFinish={setRecordFinish} record={record} />
+                      <CameraRecord setRecord={setRecord} setRecordFinish={setRecordFinish} record={record} setTimestampStart={setTimestampStart} setTimestampEnd={setTimestampEnd} />
                   </View>
               )
           case true:
               return (
                   <View style={styles.container}>
-                      <PreviewVideo record={record} setRecord={setRecord} setRecordFinish={setRecordFinish} />
+                      <PreviewVideo record={record} setRecord={setRecord} setRecordFinish={setRecordFinish} timestampStart={timestampStart} timestampEnd={timestampEnd}/>
                   </View>
               )
           default:
