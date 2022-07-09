@@ -9,14 +9,15 @@ import styles from '../styles'
 import CameraPhoto from './cameraPhoto'
 import PreviewPhoto from './previewPhoto'
 import Gallery from '../Gallery'
+import CameraRecord from "../video/cameraRecord";
+import PreviewVideo from "../video/previewVideo";
 
-export default function IndexPhoto () {
+export default function IndexPhoto ({setImage}) {
   const [hasCameraPermissions, setHasCameraPermissions] = useState(false)
   const [hasAudioPermissions, setHasAudioPermissions] = useState(false)
   const [hasGalleryPermissions, setHasGalleryPermissions] = useState(false)
   const [galleyItems, setGalleyItems] = useState([])
 
-  const [recordFinish, setRecordFinish] = useState(false);
   const [record, setRecord] = useState(false);
 
   useEffect(() => {
@@ -36,26 +37,25 @@ export default function IndexPhoto () {
       }
     })()
   }, [])
- 
+
+
     if(!hasCameraPermissions || !hasAudioPermissions) {
         return (
-          <View>
-            <Text>
-              Nous n'avons pas toutes les permissions... ;-;
-            </Text>
-          </View>
+            <View>
+                <Text>
+                    Nous n'avons pas toutes les permissions... ;-;
+                </Text>
+            </View>
         )
-    
+
     } else {
-      return (
-        <>
-          <View style={recordFinish ? styles.containerNo : styles.container }>
-            <CameraPhoto setRecord={setRecord} setRecordFinish={setRecordFinish} record={record} />
-          </View>
-          <View style={recordFinish ? styles.container : styles.containerNo }>
-            <PreviewPhoto record={record} setRecordFinish={setRecordFinish} />
-          </View>
-        </>
-      )
+        return (
+            <>
+                <View style={styles.container}>
+                    <CameraPhoto setRecord={setRecord} record={record}  setImage={setImage}  />
+                </View>
+            </>
+        )
     }
 }
+
