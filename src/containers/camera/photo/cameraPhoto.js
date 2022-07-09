@@ -6,7 +6,7 @@ import {Feather} from '@expo/vector-icons'
 
 import styles from '../styles'
 
-export default function CameraPhoto({setRecord, setRecordFinish, record}) {
+export default function CameraPhoto({setRecord, record, setImage}) {
 
     const [cameraRef, setCameraRef] = useState(null)
 
@@ -18,7 +18,7 @@ export default function CameraPhoto({setRecord, setRecordFinish, record}) {
 
     useEffect(async () => {
         if (record) {
-            setRecordFinish(true)
+            setImage(record)
         }
     }, [record]);
 
