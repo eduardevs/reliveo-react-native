@@ -7,12 +7,9 @@ import * as MediaLibrary from "expo-media-library"
 
 import styles from '../styles'
 import CameraPhoto from './cameraPhoto'
-import PreviewPhoto from './previewPhoto'
-import Gallery from '../Gallery'
-import CameraRecord from "../video/cameraRecord";
-import PreviewVideo from "../video/previewVideo";
 
-export default function IndexPhoto ({setImage}) {
+
+export default function IndexPhoto ({setImage, navigation}) {
   const [hasCameraPermissions, setHasCameraPermissions] = useState(false)
   const [hasAudioPermissions, setHasAudioPermissions] = useState(false)
   const [hasGalleryPermissions, setHasGalleryPermissions] = useState(false)

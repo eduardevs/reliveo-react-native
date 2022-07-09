@@ -7,6 +7,8 @@ import { Entypo } from '@expo/vector-icons';
 import ProfileNavBar from '../../components/profile/navBar';
 import { InputText } from '../../components/inputs/InputText/InputText';
 import { Feather } from '@expo/vector-icons';
+import Gallery from '../../containers/camera/Gallery';
+import IndexPhoto from '../../containers/camera/photo/indexPhoto'
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line } = styles;
 
@@ -17,6 +19,7 @@ export const EditProfile = ({ navigation }) => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [showChoice, setshowChoice] = useState(false)
+    const [image, setImage] = useState()
 
     useEffect(() => {
         if (userInfo) {
@@ -42,13 +45,13 @@ export const EditProfile = ({ navigation }) => {
                 setshowChoice(!showChoice);
             }}
             style={{ marginTop: 40, marginLeft: 35, height: 45, width: 50 }}>
-                <Image style={styles.profile} source={require('../../assets/gigachad.png')} />
+                <Image style={styles.profile} source={{uri:image}} />
                 <Feather name="camera" size={20} color="white" style={{ position: 'relative', bottom: 16, left: 35 }} />
             </TouchableOpacity>
             <View style={showChoice ? styles.pictureOption : styles.nopictureOption} >
                 <TouchableOpacity
                     onPress={() => {
-                       
+                        navigation.navigate('IndexPhoto');
                     }}
                     style={styles.reportButton}
                 >
@@ -56,7 +59,7 @@ export const EditProfile = ({ navigation }) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => {
-                        
+                        Gallery(setImage)
                     }}
                     style={styles.reportButton}
                 >
