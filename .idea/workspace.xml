@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/feedScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/postSingle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/cameraRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/cameraRecord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/indexFileVideo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigators/ReliveoNavStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigators/ReliveoNavStack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/firebaseConfig.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,12 +45,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "C:/Users/gabri/Documents/GitHub/reliveo-frontend-main/src/containers/fileVideo",
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gabri\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
@@ -95,6 +88,7 @@
       <workItem from="1656615138855" duration="4782000" />
       <workItem from="1656751950306" duration="599000" />
       <workItem from="1656859744656" duration="881000" />
+      <workItem from="1657290561324" duration="652000" />
     </task>
     <servers />
   </component>
