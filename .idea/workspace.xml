@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/buttons/GoogleLoginButton/SvgComponents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/GoogleLoginButton/SvgComponents.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/theme/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/firebaseConfig.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,23 +46,27 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gabri\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
-      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\composents\synchro\content" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gabri\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\firebase" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\composents\camera\video" />
-      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\node_modules" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -85,6 +88,7 @@
       <workItem from="1656615138855" duration="4782000" />
       <workItem from="1656751950306" duration="599000" />
       <workItem from="1656859744656" duration="881000" />
+      <workItem from="1657290561324" duration="652000" />
     </task>
     <servers />
   </component>

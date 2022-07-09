@@ -1,8 +1,12 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ProfileScreen } from '../screens/Profile/profileScreen';
 import { BottomNav } from '../containers/bottomNav/bottomNav';
-import { HomeContainer } from '../containers/index';
+
+import { HomeContainer } from '../containers/fileVideo/index';
 import { ProfileContainer } from '../containers/ProfileContainer';
+
+import { Home } from '../containers/fileVideo';
+
 
 const BottomStack = createBottomTabNavigator();
 

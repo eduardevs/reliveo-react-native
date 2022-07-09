@@ -1,13 +1,14 @@
 import React, { useEffect, useContext, useState } from 'react';
-import BottomNav from './bottomNav/bottomNav';
-import IndexFileVideo from './fileVideo/indexFileVideo';
+import BottomNav from '../bottomNav/bottomNav';
+import IndexFileVideo from './postSingle';
 import { Dimensions, StyleSheet, View } from 'react-native';
+import FeedScreen from "./feedScreen";
 
 export const HomeContainer = ({ navigation }) => {
     return (
         <>
             <View style={styles.container}>
-                <IndexFileVideo navigation={navigation} />
+                <FeedScreen navigation={navigation} />
             </View>
         </>
     );
