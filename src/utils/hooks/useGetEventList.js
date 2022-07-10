@@ -5,7 +5,7 @@ export default function useGetEventsList() {
         return (
             axiosInstance
                 .get('/api/events')
-                .then((res) => console.log(res))
+                .then((res) => res.data)
                 .catch((error) => console.log(error))
         )
 }
