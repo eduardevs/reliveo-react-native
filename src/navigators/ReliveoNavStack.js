@@ -3,7 +3,7 @@ import { BottomNav } from '../containers/bottomNav/bottomNav';
 import { EditProfile } from '../screens/EditProfile/editProfile';
 import { DiffuseurScreen} from '../screens/Diffuseur/diffuseurProfile';
 import { EvenementScreen} from '../screens/Evenement/evenementScreen';
-import infoDiffuseur from '../screens/InfoDiffuseur/infoDiffuseur';
+
 import IndexPhoto from '../containers/camera/photo/indexPhoto'
 import { HomeContainer } from '../containers/fileVideo/index';
 import { ProfileContainer } from '../containers/ProfileContainer';
