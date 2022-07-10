@@ -43,7 +43,6 @@ export default function ProfileHeader({ name }) {
                     <TouchableOpacity
                         onPress={() => {
                             setActiveBtn(!activeBtn);
-                            console.log('hello');
                             setshowMessage(!showMessage);
                         }}
                         style={activeBtn ? styles.addUser : styles.addUsertext}

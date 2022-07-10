@@ -95,8 +95,8 @@ export default function PreviewVideo({record, setRecordFinish, setRecord, timest
         axios('http://reliveoapi.com/api/posts', {
             method: "post",
             data: {
-                author: '/api/users/2',
-                event: '/api/events/1',
+                author: '/api/users/26',
+                event: '/api/events/2',
                 videoUrl: urlVideo,
                 timestampStart: timestampStart,
                 timestampEnd: timestampEnd

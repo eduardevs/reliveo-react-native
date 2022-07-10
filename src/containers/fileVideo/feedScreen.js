@@ -44,7 +44,7 @@ export default function FeedScreen({navigation}) {
                 height: Dimensions.get('window').height
             }, index % 2 === 0 ? {backgroundColor: 'blue'} : {backgroundColor: 'pink'}]}>
                 <PostSingle ref={PostSingleRef => (mediaRefs.current[item.id] = PostSingleRef)} item={item}/>
-                <PostSingleInfos navigation={navigation}/>
+                <PostSingleInfos navigation={navigation} item={item}/>
             </View>
         )
     }

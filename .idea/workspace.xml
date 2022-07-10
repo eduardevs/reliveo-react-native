@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ConnexionContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ConnexionContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/InscriptionContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/InscriptionContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/useGetFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/useGetFeed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile/profileHeader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/profileHeader/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/feedScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/feedScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Signup/ProfileSignupScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Signup/ProfileSignupScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/hooks/useLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/hooks/useLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
