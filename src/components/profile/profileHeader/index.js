@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './styles';
 
 
-export default function ProfileHeader({ name }) {
+export default function ProfileHeader({ username, photo, name }) {
     const data = [];
     const [user, setUser] = useState(null);
     const currentUser = user;
@@ -35,8 +35,8 @@ export default function ProfileHeader({ name }) {
         case false:
             return (
                 <View style={styles.container}>
-                    <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
-                    <Text style={styles.nickname}>{name || 'Gigachad'}</Text>
+                    <Image style={styles.profile} source={{uri:photo}} />
+                    <Text style={styles.nickname}>{username || 'Gigachad'}</Text>
                     <Text style={styles.hashtagfollowers}></Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>
                     <Text style={showMessage ? styles.textaddedUser : styles.textnotaddedUser}>

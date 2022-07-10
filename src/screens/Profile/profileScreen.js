@@ -6,12 +6,12 @@ import ProfileHeader from '../../components/profile/profileHeader';
 import ProfileTabs from '../../components/profile/tabs/index';
 
 
-export const ProfileScreen = ({ userProps, navProps }) => {
+export const ProfileScreen = ({ userProps, navProps, eventProps }) => {
     return (
         <View style={styles.container}>
             <ProfileHeader {...userProps} />
             <ProfileNavBar {...navProps} />
-            <ProfileTabs {...navProps}/>
+            <ProfileTabs {...eventProps}/>
         </View>
     );
 };
