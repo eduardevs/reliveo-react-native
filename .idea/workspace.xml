@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/useGetFeed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/useGetFeedCreator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/useGetFeedEvent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile/profileHeader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/profileHeader/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/camera/useGetFeed.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/feedScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/feedScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/synchro/JSON/FakeData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/AuthContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +53,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/containers/fileVideo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -60,18 +63,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\gabri\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
+      <recent name="C:\Users\gabri\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\gabri\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\firebase" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
-      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\composents\camera\video" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
