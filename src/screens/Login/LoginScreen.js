@@ -94,7 +94,7 @@ export const LoginScreen = ({
                         <View style={ExtraView}>
                             <Text style={ExtraText}>Je n'ai pas de compte</Text>
                             <Text style={TextLink} onPress={() => navigation.navigate('Signup')}>
-                                Sign up
+                                S'inscrire
                             </Text>
                         </View>
                     </View>

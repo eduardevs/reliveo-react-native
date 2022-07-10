@@ -6,8 +6,9 @@ import {Feather} from '@expo/vector-icons'
 
 import styles from '../styles'
 import * as Location from "expo-location";
+import Moment from "moment";
 
-export default function CameraRecord({setRecord, setRecordFinish, record}) {
+export default function CameraRecord({setRecord, setRecordFinish, record, setTimestampStart,setTimestampEnd}) {
 
     const [cameraRef, setCameraRef] = useState(null)
 
@@ -23,10 +24,11 @@ export default function CameraRecord({setRecord, setRecordFinish, record}) {
     }, [record]);
 
     const recordVideo = async () => {
-        console.log(Date.now())
+        console.log(Moment(Date.now()).format('yyyy-MM-DDTHH:mm:ss'))
+        setTimestampStart(Moment(Date.now()).format('yyyy-MM-DDTHH:mm:ss'))
         if (cameraRef) {
             try {
-                const options = {maxDuration: 10}
+                const options = {maxDuration: 15}
                 const data = await cameraRef.recordAsync(options)
                 await setRecord(data.uri)
             } catch (error) {
@@ -39,7 +41,7 @@ export default function CameraRecord({setRecord, setRecordFinish, record}) {
     const stopVideo = async () => {
         if (cameraRef) {
             cameraRef.stopRecording()
-            await console.log(Date.now())
+            setTimestampEnd(Moment(Date.now()).format('yyyy-MM-DDTHH:mm:ss'))
         }
     }
     return (

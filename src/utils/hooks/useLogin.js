@@ -11,7 +11,6 @@ export default function useLogin() {
                 // .then((res) => res.data.token ?? null)
                 .then((res) => res.data ?? null)
                 // .then((res) => console.log(res))
-                .catch((error) => console.log(error))
         );
     };
 }

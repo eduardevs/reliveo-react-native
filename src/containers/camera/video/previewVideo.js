@@ -11,6 +11,7 @@ import {firebase} from '../../../../firebaseConfig'
 import styles from '../styles'
 import alert from "react-native-web/dist/exports/Alert";
 import {Activity} from "react-native-feather";
+import axios from "axios";
 
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
@@ -21,7 +22,7 @@ Notifications.setNotificationHandler({
 });
 
 
-export default function PreviewVideo({record, setRecordFinish, setRecord}) {
+export default function PreviewVideo({record, setRecordFinish, setRecord, timestampStart, timestampEnd}) {
     const [status, setStatus] = React.useState({});
     const video = React.useRef(null);
 
@@ -32,6 +33,7 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
 
 
     const [uploding, setUploding] = useState(false);
+    const [urlVideo, setUrlVideo] = useState('');
 
 
     useEffect(() => {
@@ -50,7 +52,19 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
         };
     }, []);
 
-    const uplodVideo = async () => {
+    useEffect(async () => {
+        if (urlVideo) {
+            await pushData()
+        }
+    }, [urlVideo]);
+
+
+    const close = () => {
+         setRecordFinish(false)
+         setRecord(null)
+    }
+
+    const uploadVideo = async () => {
         const response = await fetch(record)
         const blob = await response.blob()
         console.log(record)
@@ -69,9 +83,28 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
                     setUploding(false)
                     console.log("download url : " + url)
                     blob.close()
-                    return url
+                    setUrlVideo(url)
+                    return
                 })
             })
+    }
+    const pushData = async () => {
+        console.log("url : " + urlVideo)
+        console.log(timestampStart)
+        console.log(timestampEnd)
+        axios('http://reliveoapi.com/api/posts', {
+            method: "post",
+            data: {
+                author: '/api/users/26',
+                event: '/api/events/2',
+                videoUrl: urlVideo,
+                timestampStart: timestampStart,
+                timestampEnd: timestampEnd
+            }
+        })
+            .then(res => console.log(res.data))
+            .catch(error => console.log(error.response))
+        close()
     }
 
 
@@ -108,12 +141,9 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
                     <View style={styles.sideBarContainer}>
                         <TouchableOpacity
                             style={styles.sideBarButton}
-                            onPress={() => {
-                                setRecordFinish(false);
-                                setRecord(null)
-                            }}
+                            onPress={() => close()}
                         >
-                            <Feather name="x-circle" size={24} color={'#A65AFF'}/>
+                            <Feather name="x-circle" size={30} color={'#A65AFF'}/>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.sideBarButton}
@@ -126,7 +156,7 @@ export default function PreviewVideo({record, setRecordFinish, setRecord}) {
                         {!uploding ?
                             <TouchableOpacity
                                 style={styles.sideBarButton}
-                                onPress={uplodVideo}
+                                onPress={uploadVideo}
                             >
                                 <Feather name="upload" size={24} color={'#A65AFF'}/>
                             </TouchableOpacity>

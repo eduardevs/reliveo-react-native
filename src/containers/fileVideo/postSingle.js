@@ -4,7 +4,6 @@ import styles from './styles';
 import {Video} from "expo-av";
 
 export const PostSingle = forwardRef((props, parentRef) => {
-
     const ref = useRef(null)
     useImperativeHandle(parentRef, () => ({
         play,
@@ -60,22 +59,23 @@ export const PostSingle = forwardRef((props, parentRef) => {
 
     return (
         <View style={styles.containerVideo}>
-            <Video
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    height: Dimensions.get("window").height,
-                    width: Dimensions.get("window").width,
-                }}
-                ref={ref}
-                source={{
-                    uri: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/av1/360/Big_Buck_Bunny_360_10s_1MB.mp4'
-                }}
-                resizeMode="cover"
-                isLooping
-                shouldPlay
-            />
+            {/*<Video*/}
+            {/*    style={{*/}
+            {/*        position: 'absolute',*/}
+            {/*        top: 0,*/}
+            {/*        left: 0,*/}
+            {/*        height: Dimensions.get("window").height,*/}
+            {/*        width: Dimensions.get("window").width,*/}
+            {/*    }}*/}
+            {/*    ref={ref}*/}
+            {/*    source={{*/}
+            {/*        // uri: props.item.videoUrl*/}
+            {/*        uri: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/av1/360/Big_Buck_Bunny_360_10s_1MB.mp4'*/}
+            {/*    }}*/}
+            {/*    resizeMode="cover"*/}
+            {/*    isLooping*/}
+            {/*    shouldPlay*/}
+            {/*/>*/}
         </View>
     );
 })

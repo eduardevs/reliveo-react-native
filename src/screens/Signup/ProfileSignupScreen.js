@@ -1,11 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState, useContext } from 'react';
-import { ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {StatusBar} from 'expo-status-bar';
+import React, {useState, useContext} from 'react';
+import {ActivityIndicator, Image, Text, TextInput, TouchableOpacity, View} from 'react-native';
 
-import { KeyboardAvoidingWrapper } from '../../utils/helpers/KeyboardAvoidingWrapper';
-import { InputText } from '../../components/inputs/InputText/InputText';
-import { styles } from '../../theme/layout';
-import { colors } from '../../theme/palette';
+import {KeyboardAvoidingWrapper} from '../../utils/helpers/KeyboardAvoidingWrapper';
+import {InputText} from '../../components/inputs/InputText/InputText';
+import {styles} from '../../theme/layout';
+import {colors} from '../../theme/palette';
+import {firebase} from "../../../firebaseConfig";
+import Gallery from "../../containers/camera/Gallery";
+import {Feather} from "@expo/vector-icons";
+
+import {Menu, MenuItem, MenuDivider} from 'react-native-material-menu';
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const {
@@ -22,36 +27,82 @@ const {
     TextLink,
 } = styles;
 
-const { secondary } = colors;
+const {secondary} = colors;
 
 export const ProfileSignupScreen = ({
-    navigation,
-    handleSubmitProfile,
-    data,
-    setData,
-    hidePassword,
-    setHidePassword,
-    handleSubmit,
-    isSubmitting,
-    messageType,
-    message,
-}) => {
+                                        navigation,
+                                        handleSubmitProfile,
+                                        data,
+                                        setData,
+                                        hidePassword,
+                                        setHidePassword,
+                                        handleSubmit,
+                                        isSubmitting,
+                                        messageType,
+                                        message,
+                                        setImage,
+                                        image
+                                    }) => {
+
+
+    const [visible, setVisible] = useState(false);
+
+    const hideMenu = () => setVisible(false);
+
+    const showMenu = () => setVisible(true);
+
+
     return (
         <KeyboardAvoidingWrapper>
             <View style={Container}>
-                <StatusBar style="dark" />
+                <StatusBar style="dark"/>
                 <View style={InnerContainer}>
                     <Text style={PageTitle}>Personalisez votre profil {data.name}! </Text>
 
                     <View style={StyledFormArea}>
-                        <Text style={{ color: secondary }}>J'ajoute une photo de profil</Text>
+                        <View style={{display: "flex", width: "100%", alignItems: "center", justifyContent: "center"}}>
+                            <Menu
+                                visible={visible}
+                                anchor={
+
+                                    <TouchableOpacity
+                                        onPress={showMenu}
+                                        style={styles.reportButton}
+                                    >
+                                        <Image style={{
+                                            marginTop: 40,
+                                            height: 150,
+                                            width: 150,
+                                            borderRadius: 8000,
+                                            backgroundColor: "black"
+                                        }} source={{uri: image}}/>
+                                    </TouchableOpacity>
+                                }
+                                onRequestClose={hideMenu}
+                            >
+                                <MenuItem onPress={() => {
+                                    navigation.navigate('IndexPhoto');
+                                    hideMenu()
+                                }}>
+                                    Prendre une nouvelle Photo
+                                </MenuItem>
+                                <MenuItem
+                                    onPress={() => {
+                                        Gallery(setImage);
+                                        hideMenu()
+                                    }}>
+                                    Accéder à votre Gallerie
+                                </MenuItem>
+                                <MenuDivider/>
+                            </Menu>
+                        </View>
 
                         {/* IndexFile */}
 
                         <InputText
                             label={'Je choisi un pseudo'}
                             placeholder="Pseudo"
-                            onChangeText={(val) => setData({ ...data, username: val })}
+                            onChangeText={(val) => setData({...data, username: val})}
                             // onBlur={handleBlur('email')}
                             value={data.username}
                         />
@@ -68,7 +119,7 @@ export const ProfileSignupScreen = ({
 
                         {isSubmitting && (
                             <TouchableOpacity style={StyledButton} disabled={true}>
-                                <ActivityIndicator size="large" color={secondary} />
+                                <ActivityIndicator size="large" color={secondary}/>
                             </TouchableOpacity>
                         )}
                     </View>

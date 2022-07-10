@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         height: Dimensions.get("window").height,
     },
     containerVideo: {
-        backgroundColor:"black",
+        backgroundColor:"white",
         position: "absolute",
         width: Dimensions.get("window").width,
         height: Dimensions.get("window").height,
