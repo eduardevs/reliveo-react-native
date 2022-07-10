@@ -23,6 +23,7 @@ export const ConnexionContainer = ({navigation}) => {
             handleMessage('Please fill all the fields');
             setIsSubmitting(false);
         } else {
+<<<<<<< HEAD
             loginHook(data.email, data.password).then((data) => data && login(data))
                 .catch((error) => {
                     console.log(error)
@@ -30,6 +31,11 @@ export const ConnexionContainer = ({navigation}) => {
                     handleMessage('Mot de passe ou email invalide');
                 })
 
+=======
+            loginHook(data.email, data.password)
+                .then((data) => data && login(data))
+                .catch((err) => console.log(err));
+>>>>>>> de5d7c6 (    - Add function to compare exp time token)
             setIsSubmitting(true);
         }
     };
