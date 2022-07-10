@@ -3,12 +3,18 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import styles from './styles';
 import {Ionicons, AntDesign, Entypo} from '@expo/vector-icons';
 import axios from "axios";
+import useGetFeedCreator from "./useGetFeedCreator";
+import useGetFeedEvent from "./useGetFeedEvent";
+import useGetFeedAuthor from "./useGetFeedCreator";
 
-export default function PostSingleInfos({navigation, item}) {
+export default function PostSingleInfos({navigation, item, userInfo}) {
     const [IsLike, setIsLike] = useState(false);
 
     const [event, setEvent] = useState()
     const [user, setUser] = useState()
+
+    const axiosEvent = useGetFeedEvent()
+    const axiosAuthor = useGetFeedAuthor()
 
 
     // useEffect(() => {
@@ -16,24 +22,24 @@ export default function PostSingleInfos({navigation, item}) {
     // }, [event, user]);
 
     const fetchEvent = () => {
-      if (event) {
-          return (
-              <Image
-                  style={{flex:1}}
-                  source={{
-                      uri: event[0].photo
-                      // uri: "https://firebasestorage.googleapis.com/v0/b/reliveo-f50d4.appspot.com/o/photoEvent%2Funknown.png?alt=media&token=862cd0b3-e457-492b-955d-5cadeb251123"
-                  }}
-              />
-          )
-      }
+        if (event) {
+            return (
+                <Image
+                    style={{flex: 1}}
+                    source={{
+                        uri: event[0].photo
+                        // uri: "https://firebasestorage.googleapis.com/v0/b/reliveo-f50d4.appspot.com/o/photoEvent%2Funknown.png?alt=media&token=862cd0b3-e457-492b-955d-5cadeb251123"
+                    }}
+                />
+            )
+        }
     }
 
     const fetchUser = () => {
         if (user) {
             return (
                 <Image
-                    style={{flex:1, borderRadius:8000}}
+                    style={{flex: 1, borderRadius: 8000}}
                     source={{
                         uri: user.customPayload.photo
                         // uri: "https://firebasestorage.googleapis.com/v0/b/reliveo-f50d4.appspot.com/o/photoEvent%2Funknown.png?alt=media&token=862cd0b3-e457-492b-955d-5cadeb251123"
@@ -45,17 +51,13 @@ export default function PostSingleInfos({navigation, item}) {
 
     useEffect(() => {
         try {
-            axios(`http://reliveoapi.com${item.author}`, {
-                method: 'GET'
-            })
+            axiosAuthor(item)
                 .then(res => {
                     setUser(res.data)
                 })
                 .catch(error => console.log(error.message))
 
-            axios(`http://reliveoapi.com/api/events?posts=${item.event}`, {
-                method: 'GET'
-            })
+            axiosEvent(item)
                 .then(res => {
                     setEvent(res.data)
                 })
@@ -81,7 +83,12 @@ export default function PostSingleInfos({navigation, item}) {
                             // console.log('heey')
                         }
                     >
-                        <Image/>
+                        <Image
+                            style={{flex: 1, borderRadius: 8000}}
+                            source={{
+                                uri: userInfo.photo
+                            }}
+                        />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => console.log('menu')}>
                         <Entypo name={'dots-three-vertical'} size={30} color="black"/>

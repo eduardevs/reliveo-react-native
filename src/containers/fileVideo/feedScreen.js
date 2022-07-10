@@ -1,10 +1,12 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef, useState,useContext} from 'react'
 import {Dimensions, FlatList, Text, View} from "react-native";
 import styles from "./styles";
 import {PostSingle} from "./postSingle";
 import PostSingleInfos from "./postSingleInfos";
 import axios from "axios";
-import useGetFeed from "../camera/useGetFeed";
+import useGetFeed from "./useGetFeed";
+
+import {AuthContext} from "../../context/AuthContext";
 
 export default function FeedScreen({navigation}) {
     const mediaRefs = useRef([])
@@ -12,12 +14,12 @@ export default function FeedScreen({navigation}) {
 
     const getfeed = useGetFeed()
 
+    const {userInfo} = useContext(AuthContext)
+    console.log(userInfo)
+
     useEffect(() => {
         try {
-            axios({
-                'method': 'GET',
-                'url': 'http://reliveoapi.com/api/posts'
-            })
+            getfeed()
                 .then(res => {
                     setReliveos(res.data)
                 })
@@ -44,7 +46,7 @@ export default function FeedScreen({navigation}) {
                 height: Dimensions.get('window').height
             }, index % 2 === 0 ? {backgroundColor: 'blue'} : {backgroundColor: 'pink'}]}>
                 <PostSingle ref={PostSingleRef => (mediaRefs.current[item.id] = PostSingleRef)} item={item}/>
-                <PostSingleInfos navigation={navigation} item={item}/>
+                <PostSingleInfos navigation={navigation} item={item} userInfo={userInfo}/>
             </View>
         )
     }

@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
     const login = (data) => {
         // console.log(data.token);
         const decodedJwt = jwt(data.token);
+        console.log(decodedJwt)
         setUserInfo(decodedJwt);
 
         // console.log(userInfo);
