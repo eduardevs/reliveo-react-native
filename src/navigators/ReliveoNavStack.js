@@ -1,5 +1,4 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ProfileScreen } from '../screens/Profile/profileScreen';
 import { BottomNav } from '../containers/bottomNav/bottomNav';
 import { EditProfile } from '../screens/EditProfile/editProfile';
 import IndexPhoto from '../containers/camera/photo/indexPhoto';
