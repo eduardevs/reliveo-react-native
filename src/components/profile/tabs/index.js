@@ -5,11 +5,13 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { ScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import axios from 'axios';
+import useGetEventsList from '../../../utils/hooks/useGetEventList';
+
 
 
 export default function ProfileTabs({navigation}) {
     const Tab = createMaterialTopTabNavigator();
-
     const [events, setEvents] = useState([1, 2, 3, 4, 5, 6]);
     const [content, setContent] = useState([1, 2, 3, 4, 5]);
     const [favoris, setFavoris] = useState([1, 2, 3, 4, 5]);
@@ -93,6 +95,7 @@ export default function ProfileTabs({navigation}) {
     };
 
     const Events = () => {
+        useGetEventsList()
         return (
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View
@@ -110,6 +113,7 @@ export default function ProfileTabs({navigation}) {
                                 key={index}
                                 onPress={() => {
                                     setActiveBtn(!activeBtn);
+                                    useGetEventsList()
                                 }}
                             >
                                 <View
