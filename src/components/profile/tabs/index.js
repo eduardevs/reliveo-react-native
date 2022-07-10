@@ -95,7 +95,7 @@ export default function ProfileTabs({navigation}) {
     };
 
     const Events = () => {
-        useGetEventsList()
+        
         return (
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View
@@ -113,7 +113,7 @@ export default function ProfileTabs({navigation}) {
                                 key={index}
                                 onPress={() => {
                                     setActiveBtn(!activeBtn);
-                                    useGetEventsList()
+                                    
                                 }}
                             >
                                 <View
@@ -127,7 +127,8 @@ export default function ProfileTabs({navigation}) {
                                         <Text style={styles.eventPlace}>Birmingham, UK</Text>
                                         <TouchableOpacity
                                             onPress={() => {
-                                                navigation.navigate('EvenementScreen');
+                                                // navigation.navigate('EvenementScreen');
+                                                useGetEventsList()
                                             }}
                                             style={styles.seeMore}
                                         >
