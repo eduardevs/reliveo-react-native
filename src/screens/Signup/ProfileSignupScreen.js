@@ -10,7 +10,7 @@ import {firebase} from "../../../firebaseConfig";
 import Gallery from "../../containers/camera/Gallery";
 import {Feather} from "@expo/vector-icons";
 
-import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
+import {Menu, MenuItem, MenuDivider} from 'react-native-material-menu';
 // import { SafeAreaView } from 'react-native-srafe-area-context'
 
 const {
@@ -40,8 +40,9 @@ export const ProfileSignupScreen = ({
                                         isSubmitting,
                                         messageType,
                                         message,
+                                        setImage,
+                                        image
                                     }) => {
-    const [image, setImage] = useState()
 
 
     const [visible, setVisible] = useState(false);
@@ -50,38 +51,6 @@ export const ProfileSignupScreen = ({
 
     const showMenu = () => setVisible(true);
 
-
-    const updateProfile = () => {
-        uplodPicture()
-    }
-
-    const uplodPicture = async () => {
-        const response = await fetch(image);
-        const blob = await response.blob();
-        console.log(image);
-        const filename = `photoProfil/photo${image.slice(-40, -4)}`;
-        const ref = firebase.storage().ref().child(filename).put(blob);
-        ref.on(
-            firebase.storage.TaskEvent.STATE_CHANGED,
-            () => {
-                setUploding(true);
-            },
-            (error) => {
-                setUploding(false);
-                console.log(error);
-                return;
-            },
-            () => {
-                ref.snapshot.ref.getDownloadURL().then((url) => {
-                    setUploding(false);
-                    console.log('download url : ' + url);
-                    blob.close();
-                    seturlImage(url)
-                    return;
-                });
-            },
-        );
-    };
 
     return (
         <KeyboardAvoidingWrapper>
@@ -124,7 +93,7 @@ export const ProfileSignupScreen = ({
                                     }}>
                                     Accéder à votre Gallerie
                                 </MenuItem>
-                                <MenuDivider />
+                                <MenuDivider/>
                             </Menu>
                         </View>
 

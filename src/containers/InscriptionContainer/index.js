@@ -1,10 +1,15 @@
-import { SignupScreen } from '../../screens/Signup/SignupScreen';
-import { AuthContext } from '../../context/AuthContext';
-import { useContext, useEffect, useState } from 'react';
+import {SignupScreen} from '../../screens/Signup/SignupScreen';
+import {AuthContext} from '../../context/AuthContext';
+import {useContext, useEffect, useState} from 'react';
 import useRegister from '../../utils/hooks/useRegister';
-import { ProfileSignupScreen } from '../../screens/Signup/ProfileSignupScreen';
+import {ProfileSignupScreen} from '../../screens/Signup/ProfileSignupScreen';
+import {firebase} from "../../../firebaseConfig";
+import {Camera} from "expo-camera";
+import {Audio} from "expo-av";
+import * as ImagePicker from "expo-image-picker";
+import * as MediaLibrary from "expo-media-library";
 
-export const InscriptionContainer = ({ navigation }) => {
+export const InscriptionContainer = ({navigation}) => {
     const [hidePassword, setHidePassword] = useState(true);
     const [message, setMessage] = useState();
     const [messageType, setMessageType] = useState();
@@ -15,14 +20,57 @@ export const InscriptionContainer = ({ navigation }) => {
 
     const registerHook = useRegister();
 
-    const { signup } = useContext(AuthContext);
+    const {signup} = useContext(AuthContext);
+
+
+    const [image, setImage] = useState()
+    const [urlImage, seturlImage] = useState()
+
+    const uploadPicture = async () => {
+        const response = await fetch(image);
+        const blob = await response.blob();
+        console.log(image);
+        const filename = `photoProfil/photo${image.slice(-40, -4)}`;
+        const ref = firebase.storage().ref().child(filename).put(blob);
+        ref.on(
+            firebase.storage.TaskEvent.STATE_CHANGED,
+            () => {
+            },
+            (error) => {
+                console.log(error);
+                return;
+            },
+            () => {
+                ref.snapshot.ref.getDownloadURL().then((url) => {
+                    console.log('download url : ' + url);
+                    blob.close();
+                    seturlImage({
+                        photo: url
+                    })
+                    return;
+                });
+            },
+        );
+    };
+    //Envoie de la data une fois que l'image est envoyé dans firebase
+    useEffect(() => {
+        if (urlImage) {
+            const superData = {
+                ...data,
+                ...urlImage
+            }
+            // FAKE API DOESNT NEED THIS DATA, ONLY DUMMY STUFF
+            registerHook(superData).then((data) => data && data);
+            setIsSubmitting(true);
+            navigation.navigate('Login');
+        }
+    }, [urlImage])
+
 
     // RELIVEO API
     const [data, setData] = useState({
         email: '',
         username: '',
-        photo: 'test',
-        roles: ['utilisateur'],
         password: '',
         //pseudo: '' ??
     });
@@ -76,19 +124,17 @@ export const InscriptionContainer = ({ navigation }) => {
         }
     };
 
-    const handleSubmit = () => {
-        if (data.username == '') {
+    const handleSubmit = async () => {
+        if (data.username === '') {
             handleMessage('Veuillez choisir un pseudo');
             setIsSubmitting(false);
         } else {
-            // FAKE API DOESNT NEED THIS DATA, ONLY DUMMY STUFF
-            registerHook(data).then((data) => data && data);
-            setIsSubmitting(true);
-            navigation.navigate('Login');
+            await uploadPicture()
         }
     };
     return showProfileCustomization ? (
-        <ProfileSignupScreen data={data} setData={setData} message={message} handleSubmit={handleSubmit} />
+        <ProfileSignupScreen data={data} setData={setData} message={message} handleSubmit={handleSubmit}
+                             setImage={setImage} image={image}/>
     ) : (
         <SignupScreen
             navigation={navigation}

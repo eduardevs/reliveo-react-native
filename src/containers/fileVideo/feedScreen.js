@@ -10,16 +10,17 @@ export default function FeedScreen({navigation}) {
     const mediaRefs = useRef([])
     const [reliveos, setReliveos] = useState([])
 
-    // const getfeed = useGetFeed()
+    const getfeed = useGetFeed()
 
     useEffect(() => {
         try {
             axios({
                 'method': 'GET',
                 'url': 'http://reliveoapi.com/api/posts'
-            }).then(res => {
-                setReliveos(res.data)
             })
+                .then(res => {
+                    setReliveos(res.data)
+                })
         } catch (error) {
             console.error(error.message)
         }
