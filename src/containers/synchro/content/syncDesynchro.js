@@ -1,11 +1,23 @@
-import React from 'react';
-import {Button, Image, Text, TouchableOpacity, View} from "react-native";
+import React, {useContext} from 'react';
+import {Button, Dimensions, Image, Text, TouchableOpacity, View} from "react-native";
 
 import styles from '../styles'
 import ImageEvent from '../../../assets/ImageEvent.jpg';
 import event from "../JSON/FakeData.json";
+import {SyncEventContext} from "../../../context/SyncEventContext";
+import Moment from "moment";
 
 export default function ({setSynchroEtape}) {
+    const {
+        banner,
+        name,
+        codepostal,
+        rue,
+        ville,
+        dateStart,
+        dateEnd,
+        synchronisation
+    } = useContext(SyncEventContext)
 
     return (
         <>
@@ -13,12 +25,20 @@ export default function ({setSynchroEtape}) {
             <Text style={styles.bottomText}>Vous vous apprétez à vous
                 désynchroniser de :</Text>
             <View  style={styles.ImageEventContainer}>
-                <Image source={ImageEvent}/>
+                <View style={{width: Dimensions.get("window").width, height:200}}>
+                    <Image
+                        style={{flex: 1}}
+                        source={{
+                            uri: banner
+                        }}
+                        resizeMode="contain"
+                    />
+                </View>
                 <View>
-                    <Text style={styles.bottomInfoTitle}>{event.event.Titre}</Text>
-                    <Text style={styles.bottomInfoText}>{event.event.Rue}</Text>
-                    <Text style={styles.bottomInfoText}>{event.event.CodePostal} {event.event.Ville}</Text>
-                    <Text style={styles.bottomInfoText}>{event.event.Date}</Text>
+                    <Text style={styles.bottomInfoTitle}>{name}</Text>
+                    <Text style={styles.bottomInfoText}>{rue}</Text>
+                    <Text style={styles.bottomInfoText}>{codepostal} {ville}</Text>
+                    <Text style={styles.bottomInfoText}>{Moment(dateStart).format('yyyy-MM-DD') + " - " + Moment(dateEnd).format('yyyy-MM-DD')}</Text>
                 </View>
             </View>
             <Text style={styles.bottomText}>La désynchronisation vous empêchera de poster du contenu pour cet événement.</Text>
@@ -26,7 +46,11 @@ export default function ({setSynchroEtape}) {
 
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => setSynchroEtape('SyncInfoQrCode')}
+                onPress={() => {
+
+                    synchronisation(false)
+                    setSynchroEtape('SyncInfoQrCode')
+                }}
             >
                 <Text style={styles.buttonText}>Désynchronisation</Text>
             </TouchableOpacity>

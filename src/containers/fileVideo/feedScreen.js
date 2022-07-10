@@ -15,7 +15,6 @@ export default function FeedScreen({navigation}) {
     const getfeed = useGetFeed()
 
     const {userInfo} = useContext(AuthContext)
-    console.log(userInfo)
 
     useEffect(() => {
         try {

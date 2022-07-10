@@ -1,5 +1,5 @@
 import {View, TouchableOpacity, Text, Button, Platform, Alert, ActivityIndicator} from 'react-native'
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useContext} from 'react'
 import * as Notifications from 'expo-notifications'
 import {Audio, Video} from 'expo-av'
 import {Feather} from '@expo/vector-icons'
@@ -12,6 +12,8 @@ import styles from '../styles'
 import alert from "react-native-web/dist/exports/Alert";
 import {Activity} from "react-native-feather";
 import axios from "axios";
+
+import {AuthContext} from "../../../context/AuthContext";
 
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
@@ -35,6 +37,8 @@ export default function PreviewVideo({record, setRecordFinish, setRecord, timest
     const [uploding, setUploding] = useState(false);
     const [urlVideo, setUrlVideo] = useState('');
 
+    const {userInfo} = useContext(AuthContext)
+    console.log(userInfo)
 
     useEffect(() => {
         registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
@@ -60,8 +64,8 @@ export default function PreviewVideo({record, setRecordFinish, setRecord, timest
 
 
     const close = () => {
-         setRecordFinish(false)
-         setRecord(null)
+        setRecordFinish(false)
+        setRecord(null)
     }
 
     const uploadVideo = async () => {
@@ -95,7 +99,7 @@ export default function PreviewVideo({record, setRecordFinish, setRecord, timest
         axios('http://reliveoapi.com/api/posts', {
             method: "post",
             data: {
-                author: '/api/users/26',
+                author: `/api/users/${userInfo.userid}`,
                 event: '/api/events/2',
                 videoUrl: urlVideo,
                 timestampStart: timestampStart,
