@@ -1,25 +1,38 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import {Button, Image, Picker, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {Chevron} from 'react-native-shapes';
 
 import styles from '../styles'
 import ImageEvent from '../../../assets/ImageEvent.jpg';
+import {SyncEventContext} from "../../../context/SyncEventContext";
+import Moment from "moment";
 
-const event = require('../JSON/FakeData.json');
 
 export default function SyncChooseScene({setSynchroEtape}) {
     const [scene, setScene] = useState("");
+
+    const {
+        name,
+        banner,
+        codepostal,
+        rue,
+        ville,
+        dateStart,
+        dateEnd,
+        scenes
+    } = useContext(SyncEventContext)
+
     return (
         <>
             <Text style={styles.bottomTitle}>Synchronisation</Text>
             <Text style={styles.bottomText}>Vous êtes synchronisé à :</Text>
             <View style={styles.ImageEventContainer}>
-                <Image source={ImageEvent}/>
+                <Image source={{uri:banner}}/>
                 <View>
-                    <Text style={styles.bottomInfoTitle}>{event.event.Titre}</Text>
-                    <Text style={styles.bottomInfoText}>{event.event.Rue}</Text>
-                    <Text style={styles.bottomInfoText}>{event.event.CodePostal} {event.event.Ville}</Text>
-                    <Text style={styles.bottomInfoText}>{event.event.Date}</Text>
+                    <Text style={styles.bottomInfoTitle}>{name}</Text>
+                    <Text style={styles.bottomInfoText}>{rue}</Text>
+                    <Text style={styles.bottomInfoText}>{codepostal} {ville}</Text>
+                    <Text style={styles.bottomInfoText}>{Moment(dateStart).format('yyyy-MM-DD') + " - " + Moment(dateEnd).format('yyyy-MM-DD')}</Text>
                 </View>
             </View>
             <Text style={styles.bottomText}>Pour poster du contenu, veuillez à choisir une scène :</Text>
@@ -32,7 +45,7 @@ export default function SyncChooseScene({setSynchroEtape}) {
                         setScene(value)
                     }}
                 >
-                    {event.event.Scene.map((item, index) => {
+                    {scenes.map((item, index) => {
                         return (<Picker.Item label={item} value={index} key={index} />)
                     })}
                 </Picker>

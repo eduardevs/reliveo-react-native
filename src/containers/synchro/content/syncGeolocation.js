@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Text, View, TouchableOpacity, Image, Alert} from 'react-native';
 import * as Location from 'expo-location';
 import MapView, {Marker} from 'react-native-maps';
@@ -7,13 +7,20 @@ import gpsLocation from "../../../assets/gpsLocation.png";
 import styles from "../styles";
 import SyncGeolocationSuccess from "./SyncGeolocationContent/syncGeolocationSuccess";
 import SyncGeolocationError from "./SyncGeolocationContent/syncGeolocationError";
+import {SyncEventContext} from "../../../context/SyncEventContext";
+
 const event = require('../JSON/FakeData.json');
 
 export default function SyncGeolocation({setSynchroEtape}) {
     const [locationIs, setLocationIs] = useState()
     const [userLocation, setUserLocation] = useState(null)
 
+    const {
+        latitude,
+        longitude,
+    } = useContext(SyncEventContext)
 
+    console.log(latitude + " - " + longitude)
     useEffect(async () => {
         CompareGeoLocation()
         let {status} = await Location.requestForegroundPermissionsAsync()
@@ -33,29 +40,16 @@ export default function SyncGeolocation({setSynchroEtape}) {
         let {coords} = await Location.getCurrentPositionAsync()
         setUserLocation(coords)
         console.log(userLocation)
-
-        // if (coords) {
-        //     const {latitude, longitude} = coords
-        //     let response = await Location.reverseGeocodeAsync({
-        //         latitude,
-        //         longitude,
-        //     })
-        //     console.log(coords)
-        //     for (let item of response) {
-        //         let address = `${item.name}, ${item.street}, ${item.postalCode}, ${item.city}`
-        //
-        //
-        //     }
-        // }
     }
+
 
     const CompareGeoLocation = () => {
         if (userLocation) {
 
-            if (userLocation.longitude > event.event.longitude - 0.0001 &&
-                userLocation.longitude < event.event.longitude + 0.0001 &&
-                userLocation.latitude > event.event.latitude - 0.001 &&
-                userLocation.latitude < event.event.latitude + 0.001) {
+            if (userLocation.longitude > Number(longitude) - 0.0001 &&
+                userLocation.longitude < Number(longitude) + 0.0001 &&
+                userLocation.latitude > Number(latitude) - 0.001 &&
+                userLocation.latitude < Number(latitude) + 0.001) {
                 setLocationIs(true)
 
             } else {
@@ -92,18 +86,18 @@ export default function SyncGeolocation({setSynchroEtape}) {
                          rotateEnabled={true}
 
                          initialRegion={{
-                             latitude: event.event.latitude,
-                             longitude: event.event.longitude,
+                             latitude: Number(latitude),
+                             longitude: Number(longitude),
                              latitudeDelta: 0.09,
                              longitudeDelta: 0.04,
                          }}
                 >
                     <Marker
                         coordinate={{
-                            latitude: event.event.latitude,
-                            longitude: event.event.longitude,
+                            latitude: Number(latitude),
+                            longitude: Number(longitude),
                         }}
-                        title={'Lat: ' + event.event.latitude + ', Long: ' + event.event.longitude}
+                        title={'Lat: ' + latitude + ', Long: ' + longitude}
                     />
                 </MapView>
                 <TouchableOpacity
