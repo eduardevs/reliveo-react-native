@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import useLogin from '../utils/hooks/useLogin';
+import jwt from 'jwt-decode';
 
 export const AuthContext = createContext();
 
@@ -9,8 +9,6 @@ export const AuthProvider = ({ children }) => {
     const [userToken, setUserToken] = useState(null);
     const [userInfo, setUserInfo] = useState(null);
 
-    const loginHook = useLogin();
-
     // here to only store USER INFO, if Token = true, we call t`
     // `https://reliveoapi.com/api/users?email=${emai}`
 
@@ -18,11 +16,23 @@ export const AuthProvider = ({ children }) => {
     // const [reqRes, setReqRes] = useState(null);
 
     const login = (data) => {
-        setUserInfo(data);
-        setUserToken('567777DHF7DH7FD7HF7HD');
+        // console.log(data.token);
+        const decodedJwt = jwt(data.token);
+        setUserInfo(decodedJwt);
 
-        // AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-        // AsyncStorage.setItem('userToken', userInfo.token);
+        // console.log(userInfo);
+        const token = data.token;
+        setUserToken(token);
+
+        // set expiration time test
+        // const expTime = new Date(data.exp);
+        // console.log(expTime);
+
+        // setUserInfo(data);
+        // setUserToken('567777DHF7DH7FD7HF7HD');
+
+        AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+        AsyncStorage.setItem('userToken', userToken);
 
         // ? 1 - Si token, faire appel à l'api pour recuperer infoUser
     };

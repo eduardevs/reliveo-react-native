@@ -8,35 +8,26 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function ProfileNavBar({ navigation }) {
-
-    const [showPopup, setshowPopup] = useState(false)
-    const [showReportOption, setshowReportOption] = useState(false)
-    const [showAgreeReport, setshowAgreeReport] = useState(false)
-    const [iscurrentUser] = useState(true)
-    
-
+    const [showPopup, setshowPopup] = useState(false);
+    const [showReportOption, setshowReportOption] = useState(false);
+    const [showAgreeReport, setshowAgreeReport] = useState(false);
+    const [iscurrentUser] = useState(true);
 
     switch (iscurrentUser) {
         case true:
             return (
                 <View style={styles.container}>
                     <TouchableOpacity
-
-                        onPress={() =>
-                            navigation.goBack()
-                        }
-
+                        onPress={() => navigation.goBack()}
                         style={{ padding: 10, display: 'flex', alignItems: 'center' }}
                     >
                         <Entypo name="chevron-left" size={24} color="white" style={{}} />
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => {
-                            navigation.navigate('EditProfile')
-                            
+                            navigation.navigate('EditProfile');
                         }}
                         style={styles.gear}
-
                     >
                         <FontAwesome name="gear" size={24} color="white" />
                     </TouchableOpacity>
@@ -46,9 +37,7 @@ export default function ProfileNavBar({ navigation }) {
             return (
                 <View style={styles.container}>
                     <TouchableOpacity
-                        onPress={() =>
-                            navigation.goBack()
-                        }
+                        onPress={() => navigation.goBack()}
                         style={{ padding: 10, display: 'flex', alignItems: 'center' }}
                     >
                         <Entypo name="chevron-left" size={24} color="white" style={{}} />
@@ -72,7 +61,6 @@ export default function ProfileNavBar({ navigation }) {
                             }}
                             style={{ flexDirection: 'row', display: 'flex' }}
                         >
-
                             <Ionicons name="flag-sharp" size={20} color="white" />
                             <Text style={styles.textpopup}>Signaler</Text>
                         </TouchableOpacity>
@@ -135,7 +123,6 @@ export default function ProfileNavBar({ navigation }) {
                             <Text style={styles.btnaccordtext}>D'accord</Text>
                         </TouchableOpacity>
                     </View>
-
                 </View>
             );
     }

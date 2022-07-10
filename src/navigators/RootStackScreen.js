@@ -26,6 +26,5 @@ export const RootStackScreen = ({ navigation }) => (
     >
         <RootStack.Screen name="Login" component={ConnexionContainer} />
         <RootStack.Screen name="Signup" component={InscriptionContainer} />
-        {/* <RootStack.Screen name="ProfileSignupScreen" component={ProfileSignupScreen} /> */}
     </RootStack.Navigator>
 );

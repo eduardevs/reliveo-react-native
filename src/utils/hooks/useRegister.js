@@ -4,9 +4,10 @@ export default function useRegister() {
     return (data) => {
         return (
             axiosInstance
-                .post('/user/signup/', data)
+                .post('/api/users', data)
                 // .then((res) => res.data.token ?? null)
                 .then((res) => res.data ?? null)
+                // .then((res) => console.log(res))
                 .catch((error) => console.log(error))
         );
     };

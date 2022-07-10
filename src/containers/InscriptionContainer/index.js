@@ -1,4 +1,4 @@
-import { Signup, SignupScreen } from '../../screens/Signup/SignupScreen';
+import { SignupScreen } from '../../screens/Signup/SignupScreen';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
 import useRegister from '../../utils/hooks/useRegister';
@@ -12,40 +12,28 @@ export const InscriptionContainer = ({ navigation }) => {
     const [showProfileCustomization, setShowProfileCustomization] = useState(false);
 
     const [confirmPassword, setConfirmPassword] = useState();
-    // Que pour l'api de test
+
+    const registerHook = useRegister();
 
     const { signup } = useContext(AuthContext);
 
     // RELIVEO API
-    // const [data, setData] = useState({
-    //     email: '',
-    //     username: '',
-    //     password: '',
-    //     photo: 'test',
-    //     streamPassword: 'key',
-    //     roles: ['utilisateur'],
-    // });
-    // TEST API
-
-    const registerHook = useRegister();
-
     const [data, setData] = useState({
         email: '',
         username: '',
-        name: '',
+        photo: 'test',
+        roles: ['utilisateur'],
         password: '',
-        confirmPassword: '',
-        //test purpose
-        dateOfBirth: '01-01-2000',
+        //pseudo: '' ??
     });
 
     const handleTextChange = (val) => {
         setData({
             ...data,
             // RELIVEO API
-            // username: val,
+            username: val,
             // TEST API
-            name: val,
+            // name: val,
         });
     };
 
@@ -64,11 +52,7 @@ export const InscriptionContainer = ({ navigation }) => {
     };
 
     const handleConfirmPasswordChange = (val) => {
-        // setConfirmPassword(val); // TEST API
-        setData({
-            ...data,
-            confirmPassword: val,
-        });
+        setConfirmPassword(val); // TEST API
     };
 
     const handleMessage = (message, type = 'FAILED') => {
@@ -77,15 +61,16 @@ export const InscriptionContainer = ({ navigation }) => {
     };
 
     const handlePreSubmit = () => {
-        if (data.name == '' || data.email == '' || data.password == '' || data.confirmPassword == '') {
+        // if (data.name == '' || data.email == '' || data.password == '' || data.confirmPassword == '')
+        if (data.name == '' || data.email == '' || data.password == '' || confirmPassword == '') {
             handleMessage('Please fill all the fields');
+
             setIsSubmitting(false);
-        } else if (data.password !== data.confirmPassword) {
+        } else if (data.password !== confirmPassword) {
             handleMessage('Password do not match');
             setIsSubmitting(false);
         } else {
-            // registerHook(data).then((data) => data && console.log(data));
-            console.log(data);
+            // console.log(data);
             setIsSubmitting(true);
             setShowProfileCustomization(true);
         }
@@ -97,37 +82,33 @@ export const InscriptionContainer = ({ navigation }) => {
             setIsSubmitting(false);
         } else {
             // FAKE API DOESNT NEED THIS DATA, ONLY DUMMY STUFF
-            delete data.username;
-            registerHook(data).then((data) => data && console.log(data));
+            registerHook(data).then((data) => data && data);
             setIsSubmitting(true);
             navigation.navigate('Login');
         }
     };
-
-    if (showProfileCustomization) {
-        return <ProfileSignupScreen data={data} setData={setData} message={message} handleSubmit={handleSubmit} />;
-    } else {
-        return (
-            <SignupScreen
-                navigation={navigation}
-                setHidePassword={setHidePassword}
-                hidePassword={hidePassword}
-                message={message}
-                setMessage={setMessage}
-                setMessageType={setMessageType}
-                messageType={messageType}
-                setIsSubmitting={setIsSubmitting}
-                isSubmitting={isSubmitting}
-                setData={setData}
-                data={data}
-                confirmPassword={confirmPassword}
-                setConfirmPassword={setConfirmPassword}
-                handlePreSubmit={handlePreSubmit}
-                handlePasswordChange={handlePasswordChange}
-                handleConfirmPasswordChange={handleConfirmPasswordChange}
-                handleEmailChange={handleEmailChange}
-                handleTextChange={handleTextChange}
-            />
-        );
-    }
+    return showProfileCustomization ? (
+        <ProfileSignupScreen data={data} setData={setData} message={message} handleSubmit={handleSubmit} />
+    ) : (
+        <SignupScreen
+            navigation={navigation}
+            setHidePassword={setHidePassword}
+            hidePassword={hidePassword}
+            message={message}
+            setMessage={setMessage}
+            setMessageType={setMessageType}
+            messageType={messageType}
+            setIsSubmitting={setIsSubmitting}
+            isSubmitting={isSubmitting}
+            setData={setData}
+            data={data}
+            confirmPassword={confirmPassword}
+            setConfirmPassword={setConfirmPassword}
+            handlePreSubmit={handlePreSubmit}
+            handlePasswordChange={handlePasswordChange}
+            handleConfirmPasswordChange={handleConfirmPasswordChange}
+            handleEmailChange={handleEmailChange}
+            handleTextChange={handleTextChange}
+        />
+    );
 };
