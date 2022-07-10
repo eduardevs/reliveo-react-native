@@ -52,7 +52,7 @@ export default function DiffuseurNavBar({ navigation }) {
                     <Text style={styles.textpopup}>Ajouter au profil</Text>
                 </TouchableOpacity>
                 <TouchableOpacity 
-                onPress={onShowPopup}
+                // onPress={onShowPopup}
                 style={{ flexDirection: 'row', display: 'flex' }}>
                     <Feather name="info" size={20} color="white" />
                     <Text style={styles.textpopup}>Infos</Text>

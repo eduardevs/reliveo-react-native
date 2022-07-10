@@ -8,7 +8,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function EvenementTabs({ navigation }) {
     const Tab = createMaterialTopTabNavigator();
-
+    
     const [events, setEvents] = useState([1, 2, 3, 4, 5, 6]);
     const [content, setContent] = useState([1, 2, 3, 4, 5]);
     
@@ -73,7 +73,7 @@ export default function EvenementTabs({ navigation }) {
                         const [activeBtn, setActiveBtn] = useState(false);
                         const [isPrivate, setisPrivate] = useState(false);
                         return (
-                            <TouchableOpacity style={styles.carre}>
+                            <TouchableOpacity style={styles.carre} key={index}>
                                 <View style={styles.smallrect}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Ionicons name="eye-outline" size={20} color="#FFFFFF" />

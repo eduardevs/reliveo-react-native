@@ -127,8 +127,8 @@ export default function ProfileTabs({navigation}) {
                                         <Text style={styles.eventPlace}>Birmingham, UK</Text>
                                         <TouchableOpacity
                                             onPress={() => {
-                                                // navigation.navigate('EvenementScreen');
-                                                useGetEventsList()
+                                                navigation.navigate('EvenementScreen');
+                                                
                                             }}
                                             style={styles.seeMore}
                                         >
