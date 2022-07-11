@@ -8,7 +8,6 @@ import React from "react";
 
 export const SettingsUser = ({ navigation }) => {
 
-    const [showPopup, setShowPopup] = useState(true);
     let popupRef = React.createRef();
     let textInPopup = "";
 

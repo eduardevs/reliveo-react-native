@@ -65,7 +65,7 @@ export class Popup extends React.Component {
                 <View style={stylesPlus.containPopup}>
                     <View style={stylesPlus.popupContain}>
                         {this.renderTextInPopup(textInPopup)}
-                        <TouchableOpacity style={stylesPlus.buttonPopup} onPress={() => console.log('ça marche')}>
+                        <TouchableOpacity style={stylesPlus.buttonPopup}>
                             <Text style={stylesPlus.textButtonPopup}>J'accepte</Text>
                         </TouchableOpacity>
                     </View>
