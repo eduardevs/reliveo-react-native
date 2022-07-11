@@ -6,20 +6,23 @@ import axios from "axios";
 import useGetFeedCreator from "./useGetFeedCreator";
 import useGetFeedEvent from "./useGetFeedEvent";
 import useGetFeedAuthor from "./useGetFeedCreator";
+import useGetViewNumber from "./useGetViewNumber";
 import { AuthContext } from '../../context/AuthContext';
 import useGetPostsList from '../../utils/hooks/useGetPostList';
 
-export default function PostSingleInfos({navigation, item, userInfo}) {
+export default function PostSingleInfos({navigation, item, userInfo, numberView}) {
     const [IsLike, setIsLike] = useState(false);
 
     const [event, setEvent] = useState()
     const [user, setUser] = useState()
     
 
-    const [numberView, setnumberView] = useState(0)
+    const [view, setView] = useState()
+
 
     const axiosEvent = useGetFeedEvent()
     const axiosAuthor = useGetFeedAuthor()
+    const getView = useGetViewNumber()
 
 
     const { postInfo, post} = useContext(AuthContext);
@@ -33,9 +36,9 @@ export default function PostSingleInfos({navigation, item, userInfo}) {
     // console.log(event)
 
     useEffect(() => {
-        setnumberView(item.viewnumber)
-    })
-
+        // getView(item.id).then(data => setView(data))
+        getView(item.id).then(data => setView(data))
+    }, [numberView])
     useEffect(() => {
         try {
             axiosAuthor(item)
@@ -71,7 +74,12 @@ export default function PostSingleInfos({navigation, item, userInfo}) {
     const fetchEventName = () => {
         if (event) {
             return (
-                <Text style={{color: "white", backgroundColor:'#2E2E2E', padding:5, borderRadius:10,}}>{event[0].name}</Text>
+                <Text style={{
+                    color: "white",
+                    backgroundColor: '#2E2E2E',
+                    padding: 5,
+                    borderRadius: 10,
+                }}>{event[0].name}</Text>
             )
         }
     }
@@ -137,7 +145,7 @@ export default function PostSingleInfos({navigation, item, userInfo}) {
                     </TouchableOpacity>
                     <View style={styles.vueConter}>
                         <Ionicons name="eye-outline" size={20} color="#FFFFFF"/>
-                        <Text style={styles.textVideo}>{numberView}</Text>
+                        <Text style={styles.textVideo}>{view}</Text>
                     </View>
                 </View>
             </View>

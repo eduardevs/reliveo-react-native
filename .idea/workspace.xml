@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750bf78e-cf8d-48af-be55-5c1f53d5be8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/feedScreen2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/postSingle2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/useUpdateViewNumber.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/Song-bug-prez.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/fileVideo/useGetViewNumber.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/camera/video/previewVideo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/feedScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/feedScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/postSingle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/postSingle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/useGetFeedEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/useGetFeedEvent.js" afterDir="false" />
     </list>
-    <list id="b6c4295d-008e-4fc2-b441-4a3c5e201559" name="Changes by Arkhay" comment="" />
+    <list id="b6c4295d-008e-4fc2-b441-4a3c5e201559" name="Changes by Arkhay" comment="">
+      <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/fileVideo/useUpdateViewNumber.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/fileVideo/useUpdateViewNumber.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +41,19 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/containers/fileVideo/postSingleInfos.js">
+      <ranges>
+        <range start1="8" end1="8" start2="8" end2="9" changelist="750bf78e-cf8d-48af-be55-5c1f53d5be8c" />
+        <range start1="9" end1="10" start2="10" end2="11" changelist="750bf78e-cf8d-48af-be55-5c1f53d5be8c" />
+        <range start1="15" end1="16" start2="16" end2="18" changelist="750bf78e-cf8d-48af-be55-5c1f53d5be8c" />
+        <range start1="19" end1="19" start2="21" end2="22" changelist="750bf78e-cf8d-48af-be55-5c1f53d5be8c" />
+        <range start1="24" end1="27" start2="27" end2="30" changelist="b6c4295d-008e-4fc2-b441-4a3c5e201559" />
+        <range start1="62" end1="63" start2="65" end2="71" changelist="750bf78e-cf8d-48af-be55-5c1f53d5be8c" />
+        <range start1="127" end1="128" start2="135" end2="136" changelist="750bf78e-cf8d-48af-be55-5c1f53d5be8c" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -76,11 +87,11 @@
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\assets" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\gabri\Documents\GitHub\reliveo-frontend-main\src\containers\fileVideo" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main" />
       <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\firebase" />
-      <recent name="C:\Users\Gabriel\Documents\GitHub\reliveo-frontend-main\assets" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
