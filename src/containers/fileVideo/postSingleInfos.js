@@ -13,41 +13,17 @@ export default function PostSingleInfos({navigation, item, userInfo}) {
     const [event, setEvent] = useState()
     const [user, setUser] = useState()
 
+    const [numberView, setnumberView] = useState(0)
+
     const axiosEvent = useGetFeedEvent()
     const axiosAuthor = useGetFeedAuthor()
 
+    // console.log("ceci et l'event de : ")
+    // console.log(event)
 
-    // useEffect(() => {
-    //     console.log(user.customPayload.photo)
-    // }, [event, user]);
-
-    const fetchEvent = () => {
-        if (event) {
-            return (
-                <Image
-                    style={{flex: 1}}
-                    source={{
-                        uri: event[0].photo
-                        // uri: "https://firebasestorage.googleapis.com/v0/b/reliveo-f50d4.appspot.com/o/photoEvent%2Funknown.png?alt=media&token=862cd0b3-e457-492b-955d-5cadeb251123"
-                    }}
-                />
-            )
-        }
-    }
-
-    const fetchUser = () => {
-        if (user) {
-            return (
-                <Image
-                    style={{flex: 1, borderRadius: 8000}}
-                    source={{
-                        uri: user.customPayload.photo
-                        // uri: "https://firebasestorage.googleapis.com/v0/b/reliveo-f50d4.appspot.com/o/photoEvent%2Funknown.png?alt=media&token=862cd0b3-e457-492b-955d-5cadeb251123"
-                    }}
-                />
-            )
-        }
-    }
+    useEffect(() => {
+        setnumberView(item.viewnumber)
+    })
 
     useEffect(() => {
         try {
@@ -67,6 +43,41 @@ export default function PostSingleInfos({navigation, item, userInfo}) {
             console.error(error.message)
         }
     }, []);
+
+
+    const fetchEvent = () => {
+        if (event) {
+            return (
+                <Image
+                    style={{flex: 1}}
+                    source={{
+                        uri: event[0].photo
+                    }}
+                />
+            )
+        }
+    }
+    const fetchEventName = () => {
+        if (event) {
+            return (
+                <Text style={{color: "white", backgroundColor:'#2E2E2E', padding:5, borderRadius:10,}}>{event[0].name}</Text>
+            )
+        }
+    }
+
+    const fetchUser = () => {
+        if (user) {
+            return (
+                <Image
+                    style={{flex: 1, borderRadius: 8000}}
+                    source={{
+                        uri: user.customPayload.photo
+                    }}
+                />
+            )
+        }
+    }
+
     return (
         <View style={styles.containerVideoButton}>
             <View style={styles.containerVideoButtonSectionTop}>
@@ -97,7 +108,7 @@ export default function PostSingleInfos({navigation, item, userInfo}) {
             </View>
             <View style={styles.containerVideoButtonSectionBottom}>
                 <View style={styles.containerVideoButtonSectionInterne}>
-                    <Text style={{color: "white"}}>At Hellfest 2022</Text>
+                    {fetchEventName()}
                 </View>
                 <View style={styles.containerVideoButtonSectionInterne}>
                     <TouchableOpacity onPress={() => setIsLike(!IsLike)}>
@@ -114,7 +125,7 @@ export default function PostSingleInfos({navigation, item, userInfo}) {
                     </TouchableOpacity>
                     <View style={styles.vueConter}>
                         <Ionicons name="eye-outline" size={20} color="#FFFFFF"/>
-                        <Text style={styles.textVideo}>660k</Text>
+                        <Text style={styles.textVideo}>{numberView}</Text>
                     </View>
                 </View>
             </View>
