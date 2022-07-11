@@ -11,6 +11,8 @@ export default function FeedScreen({navigation}) {
     const mediaRefs = useRef([])
     const [reliveos, setReliveos] = useState([])
 
+    const [numberView, setnumberView] = useState(0)
+
     const array = [1,2,3,4,5]
 
 
@@ -53,8 +55,8 @@ export default function FeedScreen({navigation}) {
                 flex: 1,
                 height: Dimensions.get('window').height
             }, index % 2 === 0 ? {backgroundColor: 'black'} : {backgroundColor: 'black'}]}>
-                <PostSingle ref={PostSingleRef => (mediaRefs.current[item.id] = PostSingleRef)} item={item}/>
-                <PostSingleInfos navigation={navigation} item={item} userInfo={userInfo}/>
+                <PostSingle ref={PostSingleRef => (mediaRefs.current[item.id] = PostSingleRef)} item={item} setnumberView={setnumberView} numberView={numberView}/>
+                <PostSingleInfos navigation={navigation} item={item} userInfo={userInfo} numberView={numberView}/>
             </View>
         )
     }

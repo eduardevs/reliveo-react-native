@@ -3,18 +3,28 @@ import {Dimensions, Image, Text, View} from 'react-native';
 import styles from './styles';
 import {Video} from "expo-av";
 import useUpdateViewNumber from "./useUpdateViewNumber";
+import useGetViewNumber from "./useGetViewNumber";
 
 export const PostSingle = forwardRef((props, parentRef) => {
     const ref = useRef(null)
-    useImperativeHandle(parentRef, () =>({
+    useImperativeHandle(parentRef, () => ({
         play,
         unload,
         stop
     }))
+    // console.log(props.setnumberView())
+
+    const addView = useUpdateViewNumber()
+    const getView = useGetViewNumber()
+
 
 
     useEffect(() => {
         return () => unload()
+    }, [])
+
+    useEffect( () => {
+        getView(props.item.id).then(data => props.setnumberView(data))
     }, [])
 
     const play = async () => {
@@ -26,6 +36,9 @@ export const PostSingle = forwardRef((props, parentRef) => {
             return
         }
         try {
+            await addView(props.numberView, props.item.id)
+            await getView(props.item.id).then(data => props.setnumberView(data))
+            console.log(props.numberView)
             await ref.current.replayAsync()
         } catch (error) {
             console.log(error)
@@ -70,9 +83,10 @@ export const PostSingle = forwardRef((props, parentRef) => {
                 width: Dimensions.get("window").width,
             }}
             ref={ref}
+            // source={require('../../assets/Song-bug-prez.mp4')}
             source={{
-                // uri: props.item.videoUrl
-                uri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4'
+                 uri: props.item.videoUrl
+                // uri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'
             }}
             resizeMode="cover"
             shouldPlay={false}
