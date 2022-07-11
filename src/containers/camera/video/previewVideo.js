@@ -38,7 +38,6 @@ export default function PreviewVideo({record, setRecordFinish, setRecord, timest
     const [urlVideo, setUrlVideo] = useState('');
 
     const {userInfo} = useContext(AuthContext)
-    console.log(userInfo)
 
     useEffect(() => {
         registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
@@ -103,7 +102,8 @@ export default function PreviewVideo({record, setRecordFinish, setRecord, timest
                 event: '/api/events/2',
                 videoUrl: urlVideo,
                 timestampStart: timestampStart,
-                timestampEnd: timestampEnd
+                timestampEnd: timestampEnd,
+                viewnumber: 0
             }
         })
             .then(res => console.log(res.data))

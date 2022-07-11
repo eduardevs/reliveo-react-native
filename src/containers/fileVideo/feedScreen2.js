@@ -1,20 +1,19 @@
-import React, {useEffect, useRef, useState, useContext} from 'react'
+import React, {useEffect, useRef, useState,useContext} from 'react'
 import {Dimensions, FlatList, Text, View} from "react-native";
 import styles from "./styles";
-import PostSingle from "./postSingle";
+import {PostSingle} from "./postSingle";
 import PostSingleInfos from "./postSingleInfos";
-
+import axios from "axios";
 import useGetFeed from "./useGetFeed";
+
 import {AuthContext} from "../../context/AuthContext";
 
-export default function FeedScreen({navigation}) {
+export default function FeedScreen2({navigation}) {
     const mediaRefs = useRef([])
     const [reliveos, setReliveos] = useState([])
 
-    const array = [1,2,3,4,5]
-
-
     const getfeed = useGetFeed()
+
     const {userInfo} = useContext(AuthContext)
 
     useEffect(() => {
@@ -28,13 +27,12 @@ export default function FeedScreen({navigation}) {
         }
     }, []);
 
-
     const onViewableItemsChanged = useRef(({changed}) => {
         changed.forEach(element => {
             const cell = mediaRefs.current[element.key]
-            // console.log("onViewableItemsChanged",cell)
             if (cell) {
-                // console.log("onViewableItemsChanged",element, element.isViewable)
+                console.log("onViewableItemsChanged",element, element.isViewable)
+
                 if (element.isViewable) {
                     console.log("play")
                     cell.play()
@@ -45,20 +43,17 @@ export default function FeedScreen({navigation}) {
             }
         })
     })
-
     const renderItem = ({item, index}) => {
         return (
-            <View
-                style={[{
+            <View style={[{
                 flex: 1,
                 height: Dimensions.get('window').height
-            }, index % 2 === 0 ? {backgroundColor: 'black'} : {backgroundColor: 'black'}]}>
-                <PostSingle ref={PostSingleRef => (mediaRefs.current[item.id] = PostSingleRef)} item={item}/>
+            }, index % 2 === 0 ? {backgroundColor: 'blue'} : {backgroundColor: 'pink'}]}>
+                <PostSingle ref={PostSingleRef => (mediaRefs.current[item] = PostSingleRef)} item={item} index={index}/>
                 <PostSingleInfos navigation={navigation} item={item} userInfo={userInfo}/>
             </View>
         )
     }
-
     return (
         <View style={styles.container}>
             <FlatList
@@ -71,7 +66,6 @@ export default function FeedScreen({navigation}) {
                 viewabilityConfig={{
                     itemVisiblePercentThreshold: 100
                 }}
-
                 renderItem={renderItem}
                 pagingEnabled
                 keyExtractor={item => item.id}
