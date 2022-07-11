@@ -2,14 +2,16 @@ import React, {forwardRef, useEffect, useImperativeHandle, useRef} from 'react';
 import {Dimensions, Image, Text, View} from 'react-native';
 import styles from './styles';
 import {Video} from "expo-av";
+import useUpdateViewNumber from "./useUpdateViewNumber";
 
 export const PostSingle = forwardRef((props, parentRef) => {
     const ref = useRef(null)
-    useImperativeHandle(parentRef, () => ({
+    useImperativeHandle(parentRef, () =>({
         play,
         unload,
         stop
     }))
+
 
     useEffect(() => {
         return () => unload()
@@ -24,9 +26,9 @@ export const PostSingle = forwardRef((props, parentRef) => {
             return
         }
         try {
-            await ref.current.playAsync()
-        } catch (e) {
-            console.log(e)
+            await ref.current.replayAsync()
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -35,16 +37,15 @@ export const PostSingle = forwardRef((props, parentRef) => {
             return
         }
         const status = await ref.current.getStatusAsync()
-        if (status?.ifPlaying) {
+        if (!status?.isPlaying) {
             return
         }
         try {
             await ref.current.stopAsync()
-        } catch (e) {
-            console.log(e)
+        } catch (error) {
+            console.log(error)
         }
     }
-
 
     const unload = async () => {
         if (ref.current == null) {
@@ -52,31 +53,31 @@ export const PostSingle = forwardRef((props, parentRef) => {
         }
         try {
             await ref.current.unloadAsync()
-        } catch (e) {
-            console.log(e)
+            // console.log('unload')
+        } catch (error) {
+            console.log(error)
         }
     }
 
+
     return (
-        <View style={styles.containerVideo}>
-            {/*<Video*/}
-            {/*    style={{*/}
-            {/*        position: 'absolute',*/}
-            {/*        top: 0,*/}
-            {/*        left: 0,*/}
-            {/*        height: Dimensions.get("window").height,*/}
-            {/*        width: Dimensions.get("window").width,*/}
-            {/*    }}*/}
-            {/*    ref={ref}*/}
-            {/*    source={{*/}
-            {/*        // uri: props.item.videoUrl*/}
-            {/*        uri: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/av1/360/Big_Buck_Bunny_360_10s_1MB.mp4'*/}
-            {/*    }}*/}
-            {/*    resizeMode="cover"*/}
-            {/*    isLooping*/}
-            {/*    shouldPlay*/}
-            {/*/>*/}
-        </View>
+        <Video
+            style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                height: Dimensions.get("window").height,
+                width: Dimensions.get("window").width,
+            }}
+            ref={ref}
+            source={{
+                // uri: props.item.videoUrl
+                uri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4'
+            }}
+            resizeMode="cover"
+            shouldPlay={false}
+            isLooping
+        />
     );
 })
 
