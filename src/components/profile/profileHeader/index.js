@@ -16,8 +16,7 @@ export default function ProfileHeader({ username, photo, name }) {
         }
     });
 
-    const [iscurrentUser] = useState(false);
-    // console.log(user);
+    const [iscurrentUser] = useState(true);
 
     const [activeBtn, setActiveBtn] = useState(true);
     const [showMessage, setshowMessage] = useState(false);
@@ -26,9 +25,8 @@ export default function ProfileHeader({ username, photo, name }) {
         case true:
             return (
                 <View style={styles.container}>
-                    <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
-                    <Text style={styles.nickname}>{name || 'Gigachad'}</Text>
-                    <Text style={styles.hashtagfollowers}>{user}</Text>
+                    <Image style={styles.profile} source={{uri:photo}} />
+                    <Text style={styles.nickname}>{username || 'Gigachad'}</Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>
                 </View>
             );
@@ -37,7 +35,6 @@ export default function ProfileHeader({ username, photo, name }) {
                 <View style={styles.container}>
                     <Image style={styles.profile} source={{uri:photo}} />
                     <Text style={styles.nickname}>{username || 'Gigachad'}</Text>
-                    <Text style={styles.hashtagfollowers}></Text>
                     <Text style={styles.hashtagfollowers}>{user}</Text>
                     <Text style={showMessage ? styles.textaddedUser : styles.textnotaddedUser}>
                         Vous suivez cet utilisateur
@@ -54,13 +51,4 @@ export default function ProfileHeader({ username, photo, name }) {
                 </View>
             );
     }
-    //case, switch avec des composants différents
-    // return (
-    //     <View style={styles.container}>
-    //         <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
-    //         <Text style={styles.nickname}>{user}</Text>
-    //         <Text style={styles.hashtagfollowers}>{user}</Text>
-    //         <Text style={styles.hashtagfollowers}>{user}</Text>
-    //     </View>
-    // );
 }

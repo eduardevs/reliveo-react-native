@@ -21,6 +21,7 @@ export default function DiffuseurTabs({navigation}) {
                         flexWrap: 'wrap',
                         display:'flex',
                         flexDirection: 'row',
+                        justifyContent: 'center',
                         paddingTop: 30,
                         backgroundColor: '#2E2E2E',
                         
@@ -58,7 +59,7 @@ export default function DiffuseurTabs({navigation}) {
                         flexWrap: 'wrap',
                         display:'flex',
                         flexDirection: 'row',
-                        alignItems: 'center',
+                        justifyContent: 'center',
                         paddingTop: 30,
                         backgroundColor: '#2E2E2E',
                     }}

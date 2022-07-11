@@ -16,9 +16,9 @@ export const ReliveoNavStack = ({ navigation }) => {
     return (
         <BottomStack.Navigator
             initialRouteName="Explorer"
-            tabBarOptions={{
-                showIcons: true,
-            }}
+            // tabBarOptions={{
+            //     showIcons: true,
+            // }}
             screenOptions={{
                 headerStyled: {
                     backgroundColor: 'transparent',
@@ -29,6 +29,7 @@ export const ReliveoNavStack = ({ navigation }) => {
                     display: 'none',
                 },
                 headerBackVisible: false,
+                showIcons:true,
             }}
             tabBar={(props) => <BottomNav {...props} />}
         >
