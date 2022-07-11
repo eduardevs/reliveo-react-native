@@ -1,6 +1,11 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Storage from 'react-native-storage';
 import jwt from 'jwt-decode';
+import storage from './config/Storage';
+import { SceneMap } from 'react-native-tab-view';
+import checkToken from '../utils/core/checkToken';
+import checkExpirationToken from '../utils/core/checkExpirationToken';
 
 export const AuthContext = createContext();
 
@@ -8,72 +13,93 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [userToken, setUserToken] = useState(null);
     const [userInfo, setUserInfo] = useState(null);
-    const [eventInfo, setEventInfo] = useState(null)
-    const [postInfo, setPostInfo] = useState(null)
+    const [eventInfo, setEventInfo] = useState(null);
+    const [postInfo, setPostInfo] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [email, setEmail] = useState(null);
     // here to only store USER INFO, if Token = true, we call t`
     // `https://reliveoapi.com/api/users?email=${emai}`
 
     // const [userInfoToken, setUserInfoToken] = useState(null);
     // const [reqRes, setReqRes] = useState(null);
     const event = (data) => {
-        setEventInfo(data)
-    }
+        setEventInfo(data);
+    };
     const post = (data) => {
-        setPostInfo(data)
-    }
+        setPostInfo(data);
+    };
+
+    // `https://reliveoapi.com/api/users?email=${emai}`
+
+    const checkExpirationToken = () => {
+        storage
+            .load({
+                key: 'userToken',
+                id: '1',
+            })
+            .then((ret) => {
+                console.log('old token ', ret.token);
+            })
+            .catch((err) => {
+                console.log(err.message);
+
+                logout();
+            });
+    };
+
     const login = (data) => {
-        // console.log(data.token);
         const decodedJwt = jwt(data.token);
-        console.log(decodedJwt)
+        console.log(decodedJwt);
         setUserInfo(decodedJwt);
 
-        // console.log(userInfo);
+        setEmail(data.email);
+        setPassword(data.password);
+
         const token = data.token;
+
         setUserToken(token);
 
-        // set expiration time test
-        // const expTime = new Date(data.exp);
-        // console.log(expTime);
+        storage.save({
+            key: 'userToken', // Note: Do not use underscore("_") in key!
+            id: '1',
+            data: { token: token },
 
-        // setUserInfo(data);
-        // setUserToken('567777DHF7DH7FD7HF7HD');
-
-        AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-        AsyncStorage.setItem('userToken', userToken);
-
-        // ? 1 - Si token, faire appel à l'api pour recuperer infoUser
+            expires: 1000 * 3600,
+        });
     };
 
     const logout = () => {
-        setIsLoading(true);
         setUserToken(null);
-        AsyncStorage.removeItem('userInfo');
-        AsyncStorage.removeItem('userToken');
+        setUserInfo(null);
+
+        storage.remove({
+            key: 'userToken',
+        });
     };
 
-    const signup = (data) => {
-        // ? Peut être, d'aller à la page après avoir fait l'inscription, donc ici je vais devoir faire quelque chose pareil comme pour le login.
-        // ? if token true
-        //fake token
-        setUserToken('567777DHF7DH7FD7HF7HD');
-        setUserInfo(data);
-
-        // AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-        // AsyncStorage.setItem('userToken', userInfo.token);
-    };
+    const signup = (data) => {};
 
     // check if user is logged
+
     const isLoggedIn = async () => {
         try {
-            setIsLoading(true);
-            let userInfo = await AsyncStorage.getItem('userInfo');
-            let userToken = await AsyncStorage.getItem('userToken');
+            let userInfoToken;
 
-            userInfo = JSON.parse(userInfo);
+            storage
+                .load({
+                    key: 'userToken',
+                    id: '1',
+                })
+                .then((ret) => {
+                    // console.log(ret.token);
+                    userInfoToken = ret.token;
+                })
+                .catch((err) => {
+                    // console.warn(err.message);
+                });
 
-            if (userInfo) {
+            if (userInfoToken) {
                 setUserToken(userToken);
-                setUserInfo(userInfo);
             }
         } catch (e) {
             console.log(`is logged in error ${e}`);
@@ -82,6 +108,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         isLoggedIn();
+        checkExpirationToken();
     }, []);
 
     const valuesProps = {

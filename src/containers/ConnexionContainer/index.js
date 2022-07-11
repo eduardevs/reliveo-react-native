@@ -1,9 +1,9 @@
-import {LoginScreen} from '../../screens/Login/LoginScreen';
-import {AuthContext} from '../../context/AuthContext';
-import {useContext, useEffect, useState} from 'react';
+import { LoginScreen } from '../../screens/Login/LoginScreen';
+import { AuthContext } from '../../context/AuthContext';
+import { useContext, useEffect, useState } from 'react';
 import useLogin from '../../utils/hooks/useLogin';
 
-export const ConnexionContainer = ({navigation}) => {
+export const ConnexionContainer = ({ navigation }) => {
     const [hidePassword, setHidePassword] = useState(true);
     const [message, setMessage] = useState();
     const [messageType, setMessageType] = useState();
@@ -13,8 +13,7 @@ export const ConnexionContainer = ({navigation}) => {
         password: '',
     });
 
-    const {login} = useContext(AuthContext);
-    
+    const { login } = useContext(AuthContext);
 
     const loginHook = useLogin();
 
@@ -23,14 +22,13 @@ export const ConnexionContainer = ({navigation}) => {
             handleMessage('Please fill all the fields');
             setIsSubmitting(false);
         } else {
-            loginHook(data.email, data.password).then((data) => data && login(data))
+            loginHook(data.email, data.password)
+                .then((data) => data && login(data))
                 .catch((error) => {
-                    console.log(error)
+                    console.log(error);
                     setIsSubmitting(false);
                     handleMessage('Mot de passe ou email invalide');
-                })
-
-            setIsSubmitting(true);
+                });
         }
     };
 

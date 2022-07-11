@@ -1,6 +1,6 @@
 import axiosInstance from '../axios';
 
-export default function useLogin() {
+export default function checkToken() {
     return (email, password) => {
         return (
             axiosInstance
@@ -9,8 +9,9 @@ export default function useLogin() {
                     password,
                 })
                 // .then((res) => res.data.token ?? null)
-                .then((res) => res.data)
-            // .then((res) => console.log(res))
+                .then((res) => res.data.token)
+                // .then((res) => console.log(res))
+                .catch((error) => console.log(error))
         );
     };
 }

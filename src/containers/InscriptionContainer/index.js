@@ -78,10 +78,7 @@ export const InscriptionContainer = ({navigation}) => {
     const handleTextChange = (val) => {
         setData({
             ...data,
-            // RELIVEO API
             username: val,
-            // TEST API
-            // name: val,
         });
     };
 

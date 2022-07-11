@@ -15,7 +15,7 @@ export const AppNav = () => {
         <NavigationContainer>
             {userToken !== null ? (
                 <Drawer.Navigator
-                    initialRouteName="Home"
+                    initialRouteName="Accueil"
                     screenOptions={{
                         headerStyled: {
                             backgroundColor: 'transparent',
@@ -44,8 +44,8 @@ export const AppNav = () => {
             ) : (
                 <RootStackScreen />
             )}
-            {/*
-    {/* More screens to navigate in the Drawer Menu :   like, support screen and settings */}
+
+            {/* More screens to navigate in the Drawer Menu :   like, support screen and settings */}
         </NavigationContainer>
     );
 };
