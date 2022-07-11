@@ -32,12 +32,6 @@ export const AuthProvider = ({ children }) => {
     // `https://reliveoapi.com/api/users?email=${emai}`
 
     const checkExpirationToken = () => {
-        // TODO ! ici il faudra decoder le token, après refacto
-
-        // ? Recuperer token, si token, faire une requete pour comparer avec un autre token
-        console.log('this works !');
-        console.log(userToken);
-
         storage
             .load({
                 key: 'userToken',
@@ -47,35 +41,10 @@ export const AuthProvider = ({ children }) => {
                 console.log('old token ', ret.token);
             })
             .catch((err) => {
-                console.warn(err.message);
-                // setUserToken(null);
+                console.log(err.message);
+
                 logout();
             });
-
-        // ? ON A BESOIN DE VERIFIER SI LE TOKEN A EXPIRÉ AVEC UNE AUTRE REQUETE AXIOS ?
-        // ? CAR LE STORAGE NOUS PERMET DE VOIR DÉJÀ SI LE TOKEN A EXPIRÉ
-
-        //token
-
-        // new token
-
-        // 10 min en secondes
-        // TODO : MAKE TIME COMPARISON OF TOKENS
-        // const tenMin = 600;
-
-        // const seconds = new Date().getTime() / 1000;
-
-        // const timeToken = seconds - expirationTokenTime;
-
-        // if (timeToken > tenMin) {
-        //     console.log('token is alive');
-        //     checkToken(email, password).then((res) => console.log(res));
-        // } else {
-        //     //- recuperer,
-        //     checkToken(email, password).then((res) => console.log(res));
-
-        //     console.log('token expiré');
-        // }
     };
 
     const login = (data) => {
@@ -83,11 +52,8 @@ export const AuthProvider = ({ children }) => {
         console.log(decodedJwt);
         setUserInfo(decodedJwt);
 
-        // Save user data to check token
         setEmail(data.email);
         setPassword(data.password);
-
-        // console.log('decoded jwt', decodedJwt);
 
         const token = data.token;
 
@@ -98,8 +64,6 @@ export const AuthProvider = ({ children }) => {
             id: '1',
             data: { token: token },
 
-            // if expires not specified, the defaultExpires will be applied instead.
-            // if set to null, then it will never expire.
             expires: 1000 * 3600,
         });
     };
@@ -113,26 +77,12 @@ export const AuthProvider = ({ children }) => {
         });
     };
 
-    const signup = (data) => {
-        // ? Peut être, d'aller à la page après avoir fait l'inscription, donc ici je vais devoir faire quelque chose pareil comme pour le login.
-        // ? if token true
-        //fake token
-        // setUserToken('567777DHF7DH7FD7HF7HD');
-        // setUserInfo(data);
-        // AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-        // AsyncStorage.setItem('userToken', userInfo.token);
-    };
+    const signup = (data) => {};
 
     // check if user is logged
 
     const isLoggedIn = async () => {
         try {
-            // setIsLoading(true);
-
-            // let userInfo = await AsyncStorage.getItem('userInfo');
-            // let userToken = await AsyncStorage.getItem('userToken');
-
-            // TODO ! REFACTO
             let userInfoToken;
 
             storage
@@ -145,18 +95,11 @@ export const AuthProvider = ({ children }) => {
                     userInfoToken = ret.token;
                 })
                 .catch((err) => {
-                    console.warn(err.message);
+                    // console.warn(err.message);
                 });
 
-            // console.log(userInfoToken);
-
-            // userInfo = JSON.parse(userInfo);
-
             if (userInfoToken) {
-                // console.log(userInfo);
-                //
                 setUserToken(userToken);
-                // setUserInfo(userInfo);
             }
         } catch (e) {
             console.log(`is logged in error ${e}`);
@@ -164,11 +107,8 @@ export const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        // isLoggedIn();
-        console.log('usertoken degage', userToken);
+        isLoggedIn();
         checkExpirationToken();
-
-        // checkExpirationToken(userInfo);
     }, []);
 
     const valuesProps = {
