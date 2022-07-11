@@ -64,6 +64,7 @@ export default function EvenementTabs({ navigation }) {
                     style={{
                         flexWrap: 'wrap',
                         display: 'flex',
+                        justifyContent: 'center',
                         flexDirection: 'row',
                         paddingTop: 30,
                         backgroundColor: '#2E2E2E',

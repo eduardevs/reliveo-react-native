@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import styles from './styles';
 import {Ionicons, AntDesign, Entypo} from '@expo/vector-icons';
@@ -6,17 +6,23 @@ import axios from "axios";
 import useGetFeedCreator from "./useGetFeedCreator";
 import useGetFeedEvent from "./useGetFeedEvent";
 import useGetFeedAuthor from "./useGetFeedCreator";
+import { AuthContext } from '../../context/AuthContext';
+import useGetPostsList from '../../utils/hooks/useGetPostList';
 
 export default function PostSingleInfos({navigation, item, userInfo}) {
     const [IsLike, setIsLike] = useState(false);
 
     const [event, setEvent] = useState()
     const [user, setUser] = useState()
+    
 
     const axiosEvent = useGetFeedEvent()
     const axiosAuthor = useGetFeedAuthor()
 
-
+    const { postInfo, post} = useContext(AuthContext);
+     const handleSubmitt = () =>{
+        useGetPostsList().then((res) => post(res))
+    }
     // useEffect(() => {
     //     console.log(user.customPayload.photo)
     // }, [event, user]);
@@ -79,9 +85,10 @@ export default function PostSingleInfos({navigation, item, userInfo}) {
                     <TouchableOpacity
                         style={styles.buttonUserProfil}
                         onPress={
-                            () => navigation.navigate('Profile')
+                            () => {navigation.navigate('Profile')
                             // console.log('heey')
-                        }
+                            handleSubmitt()
+                            }}
                     >
                         <Image
                             style={{flex: 1, borderRadius: 8000}}

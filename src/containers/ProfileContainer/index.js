@@ -12,7 +12,9 @@ export const ProfileContainer = ({ navigation }) => {
     const [followers, setFollowers] = useState();
     const [photo, setPhoto] = useState();
     const [eventName, setEventName] = useState()
-
+    const [postName, setPostName] = useState()
+    const [favorisName, setFavorisName] = useState()
+    const { postInfo, post} = useContext(AuthContext);
     // const eventsHook = 
     // useEffect(() => {
     //     console.log(eventInfo)
@@ -44,7 +46,10 @@ export const ProfileContainer = ({ navigation }) => {
         }
     }, [userInfo]);
 
-
+    const handleSubmitt = () =>{
+        useGetPostsList().then((res) => post(res))
+    }
+    
     const profileProps = {
         userProps: {
             username,
@@ -55,11 +60,14 @@ export const ProfileContainer = ({ navigation }) => {
         navProps: {
             navigation,
         },
+        // Replace Tabs instead of event
         eventProps:{
             // eventName,
+            // postName,
+            // favorisName,
             navigation,
-        }
+        },
     };
 
-    return <ProfileScreen {...profileProps} />;
+    return <ProfileScreen {...profileProps}  />;
 };

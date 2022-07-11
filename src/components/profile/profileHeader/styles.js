@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 		fontWeight: "600",
 		fontSize: 20,
 		color: "#fff",
-		marginTop: 40,
+		marginTop: 20,
 		marginBottom: 5,
 	},
 	hashtagfollowers: {
