@@ -41,8 +41,8 @@ export const ReliveoNavStack = ({ navigation }) => {
             <BottomStack.Screen name="IndexPhoto" component={IndexPhoto} />
             <BottomStack.Screen name="DiffuseurScreen" component={DiffuseurScreen} />
             <BottomStack.Screen name="EvenementScreen" component={EvenementScreen} />
-            <BottomStack.Screen name="Home" component={Home} />
-            <BottomStack.Screen name="Profile" component={ProfileScreen} />
+            {/* <BottomStack.Screen name="Home" component={Home} /> */}
+            {/* <BottomStack.Screen name="Profile" component={ProfileScreen} /> */}
         </BottomStack.Navigator>
     );
 };
