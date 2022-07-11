@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     carre: {
         width: 170,
         height: 170,
-        // backgroundColor: 'black',
+        backgroundColor: 'black',
         marginLeft: 5,
         marginRight: 5,
         marginBottom: 30,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         paddingBottom: 2,
         paddingLeft: 5,
         paddingRight: 20,
-        // backgroundColor: '#3E3E3E',
+        backgroundColor: '#3E3E3E',
         marginLeft: 15,
         marginRight: 15,
         marginBottom: 30,

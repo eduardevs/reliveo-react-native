@@ -4,11 +4,11 @@ import React from 'react';
 import styles from './styles';
 
 
-export default function ProfileHeader({ username, photo, name }) {
+export default function DiffuseurHeader({ name }) {
+
     const data = [];
     const [user, setUser] = useState(null);
     const currentUser = user;
-    
 
     useEffect(() => {
         if (currentUser == null) {
@@ -16,8 +16,8 @@ export default function ProfileHeader({ username, photo, name }) {
         }
     });
 
-    const [iscurrentUser] = useState(true);
-
+    
+    const [iscurrentUser] = useState(false);
     const [activeBtn, setActiveBtn] = useState(true);
     const [showMessage, setshowMessage] = useState(false);
 
@@ -25,19 +25,21 @@ export default function ProfileHeader({ username, photo, name }) {
         case true:
             return (
                 <View style={styles.container}>
-                    <Image style={styles.profile} source={{uri:photo}} />
-                    <Text style={styles.nickname}>{username || 'Gigachad'}</Text>
+                    <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
+                    <Text style={styles.nickname}>{name || 'Gigachad'}</Text>
+                    
                     <Text style={styles.hashtagfollowers}>{user}</Text>
                 </View>
             );
         case false:
             return (
                 <View style={styles.container}>
-                    <Image style={styles.profile} source={{uri:photo}} />
-                    <Text style={styles.nickname}>{username || 'Gigachad'}</Text>
+                    <Image style={styles.profile} source={require('../../../assets/gigachad.png')} />
+                    <Text style={styles.nickname}>{name}</Text>
+                    
                     <Text style={styles.hashtagfollowers}>{user}</Text>
                     <Text style={showMessage ? styles.textaddedUser : styles.textnotaddedUser}>
-                        Vous suivez cet utilisateur
+                        Vous suivez ce diffuseur
                     </Text>
                     <TouchableOpacity
                         onPress={() => {
@@ -46,9 +48,11 @@ export default function ProfileHeader({ username, photo, name }) {
                         }}
                         style={activeBtn ? styles.addUser : styles.addUsertext}
                     >
+
                         <Text style={styles.textAdd}>Ajouter +</Text>
                     </TouchableOpacity>
                 </View>
             );
     }
+    s
 }

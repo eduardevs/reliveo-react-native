@@ -8,13 +8,19 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [userToken, setUserToken] = useState(null);
     const [userInfo, setUserInfo] = useState(null);
-
+    const [eventInfo, setEventInfo] = useState(null)
+    const [postInfo, setPostInfo] = useState(null)
     // here to only store USER INFO, if Token = true, we call t`
     // `https://reliveoapi.com/api/users?email=${emai}`
 
     // const [userInfoToken, setUserInfoToken] = useState(null);
     // const [reqRes, setReqRes] = useState(null);
-
+    const event = (data) => {
+        setEventInfo(data)
+    }
+    const post = (data) => {
+        setPostInfo(data)
+    }
     const login = (data) => {
         // console.log(data.token);
         const decodedJwt = jwt(data.token);
@@ -85,6 +91,10 @@ export const AuthProvider = ({ children }) => {
         isLoading,
         userToken,
         userInfo,
+        eventInfo,
+        event,
+        postInfo,
+        post,
     };
 
     return <AuthContext.Provider value={valuesProps}>{children}</AuthContext.Provider>;

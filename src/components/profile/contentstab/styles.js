@@ -52,14 +52,12 @@ const styles = StyleSheet.create({
         bottom: 0,
     },
     carre: {
+        
         width: 170,
         height: 170,
-        // backgroundColor: 'black',
         marginLeft: 5,
         marginRight: 5,
         marginBottom: 30,
-        borderBottomColor: 'black',
-        borderWidth: 1,
         borderRadius: 5,
         position: 'relative',
     },
