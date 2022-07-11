@@ -10,6 +10,7 @@ import { Feather } from '@expo/vector-icons';
 import Gallery from '../../containers/camera/Gallery';
 import IndexPhoto from '../../containers/camera/photo/indexPhoto';
 import { firebase } from '../../../firebaseConfig';
+import useUpdateProfileName from '../../utils/hooks/useUpdateProfile';
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line } = styles;
 
@@ -23,7 +24,11 @@ export const EditProfile = ({ navigation, photo }) => {
     const [image, setImage] = useState();
     const [urlimage, seturlImage] = useState();
     const [uploding, setUploding] = useState(false);
+    const [userId, setuserId] = useState();
 
+    const handleTextChange = (val) => {
+        setName(val);
+    };
     useEffect(() => {
         if (userInfo) {
             const { data } = userInfo;
@@ -33,13 +38,19 @@ export const EditProfile = ({ navigation, photo }) => {
                 console.log(user.name);
                 setName(user.name);
                 setEmail(user.email);
+                setuserId(user.id);
             }
         }
     }, [userInfo]);
 
-    const updateProfile = () =>{
-        uplodPicture()
-    }
+    const updateProfile = () => {
+        if (name) {
+            
+            useUpdateProfileName(name, userInfo.userid);
+            
+        }
+        uplodPicture();
+    };
 
     const uplodPicture = async () => {
         const response = await fetch(image);
@@ -62,8 +73,8 @@ export const EditProfile = ({ navigation, photo }) => {
                     setUploding(false);
                     console.log('download url : ' + url);
                     blob.close();
-                    seturlImage(url)
-                    return ;
+                    seturlImage(url);
+                    return;
                 });
             },
         );
@@ -104,7 +115,7 @@ export const EditProfile = ({ navigation, photo }) => {
             </View>
             <View style={{ marginTop: 30, marginLeft: 35 }}>
                 <Text style={{ color: 'white' }}>Modifier le pseudo</Text>
-                <InputText placeholder="Nouveau pseudo" />
+                <InputText placeholder="Nouveau pseudo" onChangeText={handleTextChange} />
             </View>
             <View style={{ marginLeft: 35, marginTop: 10 }}>
                 <Text style={{ marginBottom: 10, color: 'white' }}>Visibilité du contenu</Text>
@@ -128,7 +139,7 @@ export const EditProfile = ({ navigation, photo }) => {
                     onPress={() => {
                         setvalidateEdit(!validateEdit);
                         navigation.navigate('Profile');
-                        updateProfile()
+                        updateProfile();
                     }}
                     style={styles.btnedit}
                 >
