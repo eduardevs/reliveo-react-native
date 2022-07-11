@@ -13,7 +13,7 @@ import { firebase } from '../../../firebaseConfig';
 
 const { Container, InnerContainer, PageTitle, StyledFormArea, SubTitle, StyledButton, ButtonText, Line } = styles;
 
-export const EditProfile = ({ navigation }) => {
+export const EditProfile = ({ navigation, photo }) => {
     const { userInfo } = useContext(AuthContext);
     const [validateEdit, setvalidateEdit] = useState(false);
     const [privatise, setPrivatise] = useState(false);
@@ -81,7 +81,7 @@ export const EditProfile = ({ navigation }) => {
                 }}
                 style={{ marginTop: 40, marginLeft: 35, height: 45, width: 50 }}
             >
-                <Image style={styles.profile} source={{ uri: image }} />
+                <Image style={styles.profile} source={{ uri: photo }} />
                 <Feather name="camera" size={20} color="white" style={{ position: 'relative', bottom: 16, left: 35 }} />
             </TouchableOpacity>
             <View style={showChoice ? styles.pictureOption : styles.nopictureOption}>

@@ -11,22 +11,17 @@ const styles = StyleSheet.create({
     rectangleActive: {
         width: 300,
         height: 150,
-        backgroundColor: 'black',
         opacity: 0.1,
         marginBottom: 30,
-        borderBottomColor: 'black',
         borderWidth: 1,
         borderRadius: 17,
         transform: [{ translateX: -150 }],
     },
     rectangle: {
-        elevation: 0,
         position: 'relative',
         width: 300,
         height: 150,
-        backgroundColor: 'black',
         marginBottom: 30,
-        borderBottomColor: 'black',
         borderWidth: 1,
         borderRadius: 17,
         top: 0,
@@ -35,33 +30,19 @@ const styles = StyleSheet.create({
         bottom: 0,
         transform: [{ translateX: 0 }],
     },
-
     rectangleBis: {
         position: 'absolute',
         width: 300,
         height: 150,
         backgroundColor: '#272727',
         marginBottom: 30,
-        borderBottomColor: 'black',
-        borderWidth: 1,
         borderRadius: 17,
         zIndex: -1,
         top: 0,
         right: 0,
         left: 0,
         bottom: 0,
-    },
-    carre: {
-        width: 170,
-        height: 170,
-        // backgroundColor: 'black',
-        marginLeft: 5,
-        marginRight: 5,
-        marginBottom: 30,
-        borderBottomColor: 'black',
-        borderWidth: 1,
-        borderRadius: 5,
-        position: 'relative',
+        
     },
     smallrect: {
         paddingTop: 2,
@@ -92,12 +73,13 @@ const styles = StyleSheet.create({
     eventTitle: {
         color: 'white',
         textTransform: 'capitalize',
-        fontWeight: '500',
-        fontSize: 20
+        fontWeight: '600',
+        fontSize: 18
     },
     eventDate: {
         color: 'white',
-        fontSize: 15
+        fontSize: 13,
+        
     },
     eventPlace: {
         color: 'white',
@@ -105,10 +87,13 @@ const styles = StyleSheet.create({
         fontSize: 15
     },
     eventContent: {
-        position: 'absolute',
-        top: 20,
-        right: 30,
-        alignItems:'center'
+        right:0,
+        top: 24,
+        paddingLeft:25,
+        paddingRight:25,
+        alignItems:'center',
+        position:'absolute',
+      
     },
     seeMore:{
         backgroundColor: '#A65AFF',
@@ -117,7 +102,8 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         paddingLeft:30,
         paddingRight: 30,
-        borderRadius:10
+        borderRadius:10,
+        width:100
     },
     textMore:{
         color:'#FFFFFF',

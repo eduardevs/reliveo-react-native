@@ -9,7 +9,7 @@ export default function useLogin() {
                     password,
                 })
                 // .then((res) => res.data.token ?? null)
-                .then((res) => res.data ?? null)
+                .then((res) => res.data)
                 // .then((res) => console.log(res))
         );
     };
